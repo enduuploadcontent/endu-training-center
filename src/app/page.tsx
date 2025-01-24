@@ -10,12 +10,13 @@ export default function HomePage() {
       <div className='flex flex-col'>
          <Carousel autoplay autoplayDelay={5000} loop>
             {homePageCarousel.map((src, index) => (
-               <img
-                  key={index}
-                  src={src}
-                  alt={'carousel-' + index}
-                  className='h-screen w-full object-cover'
-               />
+               <picture key={index}>
+                  <img
+                     src={src}
+                     alt={'carousel-' + index}
+                     className='h-screen w-full object-cover'
+                  />
+               </picture>
             ))}
          </Carousel>
          <div className='px-8 py-16 flex items-center justify-center'>
@@ -130,7 +131,9 @@ function WhyLearningCard({ title, detail, iconSrc }: WhyLearningCardProps) {
          className='content-shadow rounded-lg p-4 flex flex-col gap-4 items-center justify-center w-[260px]'
       >
          <div className='p-2 rounded-md bg-background-blue flex items-center justify-center'>
-            <img src={iconSrc} className='w-8 h-8' alt='icon' />
+            <picture>
+               <img src={iconSrc} className='w-8 h-8' alt='icon' />
+            </picture>
          </div>
          <div className='flex flex-col gap-1 text-center'>
             <CustomTypography variant='subtitle3'>{title}</CustomTypography>

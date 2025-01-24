@@ -37,7 +37,7 @@ export default function RootLayout({
                <body className='min-h-screen'>
                   <Navbar />
                   {children}
-                  <Footer/>
+                  <Footer />
                </body>
             </MaterialThemeProvider>
          </ReactQueryProvider>

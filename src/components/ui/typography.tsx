@@ -18,6 +18,5 @@ interface Props extends Omit<TypographyProps, 'variant'> {
 }
 
 export default function CustomTypography(props: Props) {
-   /* eslint-disable  @typescript-eslint/no-explicit-any */
    return <Typography {...(props as any)} />;
 }

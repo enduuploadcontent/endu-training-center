@@ -18,7 +18,9 @@ export default function Footer() {
          <div className='flex w-full max-w-7xl items-center justify-between'>
             <div className='flex flex-col gap-4'>
                <Logo className={`fill-brand-primary`} />
-               <CustomTypography variant='caption1'>Copyright © 2024 ENDU MOBILE REPAIR SCHOOL</CustomTypography>
+               <CustomTypography variant='caption1'>
+                  Copyright © 2024 ENDU MOBILE REPAIR SCHOOL
+               </CustomTypography>
             </div>
             <div className='flex gap-2'>
                {socialUrls.map((url, index) => (
