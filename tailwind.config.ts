@@ -1,10 +1,13 @@
 import type { Config } from 'tailwindcss';
 
-export default {
+const withMT = require('@material-tailwind/react/utils/withMT');
+
+export default withMT({
    content: [
       './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
       './src/components/**/*.{js,ts,jsx,tsx,mdx}',
       './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+      './src/theme/**/*.{js,ts,jsx,tsx,mdx}',
    ],
    theme: {
       extend: {
@@ -21,9 +24,15 @@ export default {
             foreground: {
                primary: '#0A0A0A',
             },
+            background: {
+               blue: '#F5F8FF',
+            },
             border: '#EDEDED',
+         },
+         fontFamily: {
+            ibm: ['IBMPlexSansThai', 'sans-serif'],
          },
       },
    },
    plugins: [],
-} satisfies Config;
+}) satisfies Config;
