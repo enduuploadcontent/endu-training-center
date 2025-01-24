@@ -8,7 +8,21 @@ export default {
    ],
    theme: {
       extend: {
-         colors: {},
+         screens: {
+            mobile: { max: '600px' },
+            tablet: { min: '600px' },
+            laptop: { min: '768px' },
+            desktop: { min: '1024px' },
+         },
+         colors: {
+            brand: {
+               primary: '#155EEF',
+            },
+            foreground: {
+               primary: '#0A0A0A',
+            },
+            border: '#EDEDED',
+         },
       },
    },
    plugins: [],
