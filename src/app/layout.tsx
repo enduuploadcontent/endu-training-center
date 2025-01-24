@@ -2,6 +2,8 @@ import ReactQueryProvider from '@/provider/reactQueryProvider';
 import './globals.css';
 import { Metadata } from 'next';
 import Navbar from '@/components/layout/navbar';
+import MaterialThemeProvider from '@/theme/material';
+import Footer from '@/components/layout/footer';
 
 export const metadata: Metadata = {
    title: 'ENDU Training Center',
@@ -31,10 +33,13 @@ export default function RootLayout({
          <meta name='apple-mobile-web-app-title' content='คิดถึงลูน่า' />
          <link rel='manifest' href='/site.webmanifest' />
          <ReactQueryProvider>
-            <body className='min-h-screen'>
-               <Navbar />
-               {children}
-            </body>
+            <MaterialThemeProvider>
+               <body className='min-h-screen'>
+                  <Navbar />
+                  {children}
+                  <Footer/>
+               </body>
+            </MaterialThemeProvider>
          </ReactQueryProvider>
       </html>
    );
