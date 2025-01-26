@@ -303,21 +303,13 @@ function ResponseComponent() {
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
             </motion.div>
-            <motion.div
-               initial={{ opacity: 0, scale: 1, y: 200 }}
-               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{
-                  duration: 1,
-                  ease: 'easeOut',
-               }}
+            <div
                className='rounded-lg px-16 py-14 flex flex-col gap-10 items-center justify-center bg-white w-full relative'
             >
                <Carousel
                   autoplay
                   autoplayDelay={5000}
                   loop
-                  navigation={() => <></>}
                   className='static'
                   prevArrow={({ handlePrev }) => (
                      <button
@@ -338,6 +330,21 @@ function ResponseComponent() {
                      >
                         <CaretRight size={44} color='#7B89A1' />
                      </button>
+                  )}
+                  navigation={({ setActiveIndex, activeIndex, length }) => (
+                     <div className='absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2'>
+                        {new Array(length).fill('').map((_, i) => (
+                           <span
+                              key={i}
+                              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                                 activeIndex === i
+                                    ? 'w-8 bg-foreground-secondary'
+                                    : 'w-4 bg-border'
+                              }`}
+                              onClick={() => setActiveIndex(i)}
+                           />
+                        ))}
+                     </div>
                   )}
                >
                   {homePageCarousel.map((src, index) => (
@@ -374,7 +381,7 @@ function ResponseComponent() {
                      </div>
                   ))}
                </Carousel>
-            </motion.div>
+            </div>
          </div>
       </motion.div>
    );
