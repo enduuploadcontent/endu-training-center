@@ -79,7 +79,7 @@ function NavbarComponent({
             <Logo
                className={`transition-all duration-500 ${
                   (scrolled && pathname === '/') || pathname !== '/'
-                     ? 'fill-brand-primary'
+                     ? 'fill-brand-logo'
                      : 'fill-white'
                }`}
             />

@@ -9,7 +9,7 @@ export default function Logo({ className }: Props) {
          height='20'
          viewBox='0 0 108 20'
          xmlns='http://www.w3.org/2000/svg'
-         className={className ? className : 'fill-brand-primary'}
+         className={className ? className : 'fill-brand-logo'}
       >
          <path d='M23.956 0H3.07692C1.48809 0.415068 0.792829 0.957806 0 2.63736V17.3626C0.360843 18.8375 0.8797 19.4244 2.41758 20H23.956V14.9451H6.59341V12.7473H21.0989V7.25275H6.59341V5.05494H23.956V0Z' />
          <path d='M27.9561 2.82609V19.5652V20H34.2604V8.04348H35.13L44.6952 20H49.4778C50.9246 19.3827 51.6749 18.9789 51.8691 17.1739V0H45.5648V12.1739H45.13L35.13 0H30.9995C29.407 0.524054 28.7095 1.09772 27.9561 2.82609Z' />

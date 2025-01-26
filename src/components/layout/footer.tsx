@@ -17,7 +17,7 @@ export default function Footer() {
       <footer className={`w-full flex items-center justify-center px-8 py-16`}>
          <div className='flex w-full max-w-7xl items-center justify-between'>
             <div className='flex flex-col gap-4'>
-               <Logo className={`fill-brand-primary`} />
+               <Logo />
                <CustomTypography variant='caption1'>
                   Copyright © 2024 ENDU MOBILE REPAIR SCHOOL
                </CustomTypography>
