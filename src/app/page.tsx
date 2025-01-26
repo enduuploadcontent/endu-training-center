@@ -352,7 +352,7 @@ function ResponseComponent() {
                         key={index}
                         className='flex items-center justify-center text-foreground-primary'
                      >
-                        <div className='flex flex-col gap-10 max-w-[60%]'>
+                        <div className='flex flex-col gap-6 max-w-[60%]'>
                            <div className='flex flex-col gap-2 items-center text-center'>
                               <CustomTypography variant='subtitle1'>
                                  “ ประทับใจมาก! ”
@@ -367,7 +367,7 @@ function ResponseComponent() {
                               </CustomTypography>
                            </div>
                            <div className='flex flex-col gap-2 items-center'>
-                              <CustomTypography variant='subtitle1'>
+                              <CustomTypography variant='subtitle2'>
                                  คุณจักรภพ น.
                               </CustomTypography>
                               <CustomTypography

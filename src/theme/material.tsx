@@ -46,6 +46,12 @@ const materialTheme = {
                lineHeight: 'leading-[34.65px]',
                fontFamily: 'font-ibm',
             },
+            subtitle2: {
+               fontWeight: 'font-[600]',
+               fontSize: 'text-[17px]',
+               lineHeight: 'leading-[28.05px]',
+               fontFamily: 'font-ibm',
+            },
             subtitle3: {
                fontWeight: 'font-[600]',
                fontSize: 'text-[15px]',
