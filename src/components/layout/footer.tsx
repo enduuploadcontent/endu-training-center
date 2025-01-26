@@ -28,7 +28,7 @@ export default function Footer() {
                      key={index}
                      target='_blank'
                      url={url}
-                     className='hover:scale-[1.05] transition-all duration-300 hover:cursor-pointer !w-10 !h-10'
+                     className='hover:scale-[1.05] transition-all duration-500 hover:cursor-pointer !w-10 !h-10'
                   />
                ))}
             </div>

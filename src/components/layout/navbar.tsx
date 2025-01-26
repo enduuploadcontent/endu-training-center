@@ -69,15 +69,15 @@ function NavbarComponent({
 
    return (
       <nav
-         className={`fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-300 ease-out h-20 mobile:h-14 ${
+         className={`fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white  ${
             (scrolled && pathname === '/') || pathname !== '/'
-               ? 'bg-white shadow-xl'
-               : 'bg-transparent shadow-none'
+               ? 'bg-opacity-100 shadow-xl'
+               : 'bg-opacity-0 shadow-none'
          }`}
       >
          <div className='flex w-full max-w-7xl items-center justify-between'>
             <Logo
-               className={`transition-all duration-300 ${
+               className={`transition-all duration-500 ${
                   (scrolled && pathname === '/') || pathname !== '/'
                      ? 'fill-brand-primary'
                      : 'fill-white'
@@ -88,7 +88,7 @@ function NavbarComponent({
                   <Link
                      key={index}
                      href={path.href}
-                     className={`hover:scale-[1.05] transition-all duration-300 min-w-[100px] px-4 ${
+                     className={`hover:scale-[1.05] transition-all duration-500 min-w-[100px] px-4 ${
                         (scrolled && pathname === '/') || pathname !== '/'
                            ? 'text-foreground-primary'
                            : 'text-white'
@@ -138,7 +138,7 @@ function MobileMenu({
                   initial={{ y: '100vh' }}
                   animate={{ y: 0 }}
                   exit={{ y: '100vh' }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
                   className='fixed left-0 top-0 flex h-screen w-full flex-col bg-white mt-14'
                >
                   <div className='h-screen overflow-y-scroll bg-white flex flex-col'>
@@ -147,7 +147,7 @@ function MobileMenu({
                         <Fragment key={index}>
                            <Link
                               href={path.href}
-                              className={`hover:scale-[1.05] transition-all duration-300 min-w-[100px] py-4 text-foreground-primary text-center`}
+                              className={`hover:scale-[1.05] transition-all duration-500 min-w-[100px] py-4 text-foreground-primary text-center`}
                            >
                               {path.title}
                            </Link>

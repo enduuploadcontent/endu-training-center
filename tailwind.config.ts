@@ -23,6 +23,7 @@ export default withMT({
             },
             foreground: {
                primary: '#0A0A0A',
+               secondary: '#7B89A1',
             },
             background: {
                blue: '#F5F8FF',
