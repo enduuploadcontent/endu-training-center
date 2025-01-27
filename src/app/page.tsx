@@ -1,11 +1,12 @@
 'use client';
 
 import CustomTypography from '@/components/ui/typography';
+import { cn } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
 import { homePageCarousel } from '@/variables/home/image-carousel';
 import { showcaseList } from '@/variables/showcase/showcase-list';
-import { Carousel } from '@material-tailwind/react';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { Carousel, ConfigProvider } from 'antd';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -20,43 +21,100 @@ export default function HomePage() {
    );
 }
 
+const LeftArrow = ({
+   className: arrowClassName,
+   currentSlide,
+   slideCount,
+   additionClassName,
+   ...restArrowProps
+}: any) => {
+   return (
+      <CaretLeft
+         // IMPORTANT: do not spread props after className otherwise it will be overwritten by only slick carousel classes
+         {...restArrowProps}
+         className={cn(
+            'left-5 !z-10 !w-14 !h-14',
+            {
+               'color-disabled': Number(currentSlide) === 0,
+            },
+            arrowClassName,
+            additionClassName,
+         )}
+      />
+   );
+};
+
+const RightArrow = ({
+   className: arrowClassName,
+   currentSlide,
+   slideCount,
+   additionClassName,
+   ...restArrowProps
+}: any) => {
+   return (
+      <CaretRight
+         // IMPORTANT: do not spread props after className otherwise it will be overwritten by only slick carousel classes
+         {...restArrowProps}
+         className={cn(
+            'right-5 !z-10 !w-14 !h-14',
+            {
+               'color-disabled': Number(currentSlide) === 0,
+            },
+            additionClassName,
+            arrowClassName,
+         )}
+      />
+   );
+};
+
 function CarouselComponent() {
    return (
-      <Carousel
-         autoplay
-         autoplayDelay={5000}
-         loop
-         prevArrow={({ handlePrev }) => (
-            <button
-               type='button'
-               title='prev'
-               onClick={handlePrev}
-               className='!absolute top-2/4 left-4 -translate-y-2/4'
-            >
-               <CaretLeft size={56} color='white' />
-            </button>
-         )}
-         nextArrow={({ handleNext }) => (
-            <button
-               type='button'
-               title='next'
-               onClick={handleNext}
-               className='!absolute top-2/4 !right-4 -translate-y-2/4'
-            >
-               <CaretRight size={56} color='white' />
-            </button>
-         )}
+      <ConfigProvider
+         theme={{
+            token: {
+               colorBgContainer: 'white',
+            },
+            components: {
+               Carousel: {
+                  dotHeight: 12,
+                  dotWidth: 12,
+                  dotActiveWidth: 12,
+                  dotOffset: 16,
+               },
+            },
+         }}
       >
-         {homePageCarousel.map((src, index) => (
-            <picture key={index}>
-               <img
-                  src={src}
-                  alt={'carousel-' + index}
-                  className='h-screen mobile:h-[50vh] w-full object-cover'
+         <Carousel
+            autoplay
+            autoplaySpeed={5000}
+            arrows
+            prevArrow={
+               <LeftArrow
+                  size={56}
+                  color='white'
+                  additionClassName='mobile:!hidden'
                />
-            </picture>
-         ))}
-      </Carousel>
+            }
+            nextArrow={
+               <RightArrow
+                  size={56}
+                  color='white'
+                  additionClassName='mobile:!hidden'
+               />
+            }
+            draggable
+         >
+            {homePageCarousel.map((src, index) => (
+               <picture key={index}>
+                  <img
+                     src={src}
+                     alt={'carousel-' + index}
+                     className='h-screen mobile:h-[50vh] w-full object-cover'
+                  />
+               </picture>
+            ))}
+         </Carousel>
+      </ConfigProvider>
    );
 }
 
@@ -269,15 +327,7 @@ function ShowcaseComponent() {
 
 function ResponseComponent() {
    return (
-      <motion.div
-         // initial={{ opacity: 0, scale: 0 }}
-         // whileInView={{ opacity: 1, scale: 1 }}
-         // viewport={{ once: false }}
-         // transition={{
-         //    duration: 0.5,
-         // }}
-         className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)]'
-      >
+      <div className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)] bg-contain'>
          <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
             <motion.div
                initial={{ opacity: 0, scale: 0 }}
@@ -303,86 +353,84 @@ function ResponseComponent() {
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
             </motion.div>
-            <div
-               className='rounded-lg px-16 py-14 flex flex-col gap-10 items-center justify-center bg-white w-full relative'
-            >
-               <Carousel
-                  autoplay
-                  autoplayDelay={5000}
-                  loop
-                  className='static'
-                  prevArrow={({ handlePrev }) => (
-                     <button
-                        type='button'
-                        title='prev'
-                        onClick={handlePrev}
-                        className='!absolute top-2/4 left-4 -translate-y-2/4 z-50'
-                     >
-                        <CaretLeft size={44} color='#7B89A1' />
-                     </button>
-                  )}
-                  nextArrow={({ handleNext }) => (
-                     <button
-                        type='button'
-                        title='next'
-                        onClick={handleNext}
-                        className='!absolute top-2/4 !right-4 -translate-y-2/4 z-50'
-                     >
-                        <CaretRight size={44} color='#7B89A1' />
-                     </button>
-                  )}
-                  navigation={({ setActiveIndex, activeIndex, length }) => (
-                     <div className='absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2'>
-                        {new Array(length).fill('').map((_, i) => (
-                           <span
-                              key={i}
-                              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                                 activeIndex === i
-                                    ? 'w-8 bg-foreground-secondary'
-                                    : 'w-4 bg-border'
-                              }`}
-                              onClick={() => setActiveIndex(i)}
+            <div className='rounded-lg px-16 py-14 mobile:p-4 flex flex-col gap-10 items-center justify-center bg-white w-full relative'>
+               <div className='w-full'>
+                  <ConfigProvider
+                     theme={{
+                        token: {
+                           colorBgContainer: '#7B89A1',
+                        },
+                        components: {
+                           Carousel: {
+                              dotOffset: -30,
+                           },
+                        },
+                     }}
+                  >
+                     <Carousel
+                        autoplay
+                        autoplaySpeed={5000}
+                        arrows
+                        prevArrow={
+                           <LeftArrow
+                              additionClassName='!-left-[54px] !w-11 !h-11 mobile:!hidden'
+                              size={44}
+                              color='#7B89A1'
                            />
-                        ))}
-                     </div>
-                  )}
-               >
-                  {homePageCarousel.map((src, index) => (
-                     <div
-                        key={index}
-                        className='flex items-center justify-center text-foreground-primary'
+                        }
+                        nextArrow={
+                           <RightArrow
+                              additionClassName='!-right-[54px] !w-11 !h-11 mobile:!hidden'
+                              size={44}
+                              color='#7B89A1'
+                           />
+                        }
+                        draggable
+                        dots={{ className: 'mobile:!hidden' }}
                      >
-                        <div className='flex flex-col gap-6 max-w-[60%]'>
-                           <div className='flex flex-col gap-2 items-center text-center'>
-                              <CustomTypography variant='subtitle1'>
-                                 “ ประทับใจมาก! ”
-                              </CustomTypography>
-                              <CustomTypography variant='body1'>
-                                 Lorem ipsum dolor sit amet consectetur. Posuere
-                                 facilisis in rutrum arcu purus non. Accumsan
-                                 sem volutpat auctor ut nulla eu. Mus sit
-                                 quisque vulputate nisl interdum maecenas. Donec
-                                 pellentesque consequat aenean quam varius
-                                 dictum iaculis.
-                              </CustomTypography>
+                        {homePageCarousel.map((src, index) => (
+                           <div
+                              key={index}
+                              className='!flex items-center justify-center text-foreground-primary'
+                           >
+                              <div className='flex flex-col gap-6 w-[70%] mobile:w-full'>
+                                 <div className='flex flex-col gap-2 items-center text-center'>
+                                    <CustomTypography variant='subtitle1'>
+                                       “ ประทับใจมาก! ”
+                                    </CustomTypography>
+                                    <CustomTypography variant='body1'>
+                                       Lorem ipsum dolor sit amet consectetur.
+                                       Posuere facilisis in rutrum arcu purus
+                                       non. Accumsan sem volutpat auctor ut
+                                       nulla eu. Mus sit quisque vulputate nisl
+                                       interdum maecenas. Donec pellentesque
+                                       consequat aenean quam varius dictum
+                                       iaculis.
+                                    </CustomTypography>
+                                 </div>
+                                 <div className='flex flex-col gap-2 items-center'>
+                                    <CustomTypography variant='subtitle2'>
+                                       คุณจักรภพ น.
+                                    </CustomTypography>
+                                    <CustomTypography
+                                       variant='body1'
+                                       className='text-foreground-secondary'
+                                    >
+                                       จากหลักสูตร Pro H1
+                                    </CustomTypography>
+                                 </div>
+                              </div>
                            </div>
-                           <div className='flex flex-col gap-2 items-center'>
-                              <CustomTypography variant='subtitle2'>
-                                 คุณจักรภพ น.
-                              </CustomTypography>
-                              <CustomTypography
-                                 variant='body1'
-                                 className='text-foreground-secondary'
-                              >
-                                 จากหลักสูตร Pro H1
-                              </CustomTypography>
-                           </div>
-                        </div>
-                     </div>
-                  ))}
-               </Carousel>
+                        ))}
+                     </Carousel>
+                  </ConfigProvider>
+               </div>
             </div>
          </div>
-      </motion.div>
+      </div>
    );
 }
+
+function PathToSuccessComponent() {}
+
+function MapComponent() {}

@@ -67,3 +67,9 @@ body {
 .content-shadow {
    box-shadow: 0px 0px 15px 0px rgba(217, 217, 217, 0.25);
 }
+
+@media (max-width: 600px) {
+   .ant-carousel .slick-dots {
+      display: none !important;
+   }
+}
