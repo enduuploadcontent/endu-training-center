@@ -73,3 +73,15 @@ body {
       display: none !important;
    }
 }
+
+.corner-bg-small {
+   background-image: url('/images/corner-bg-small.png'); /* Top-right PNG */
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.corner-bg-big {
+   background-image: url('/images/corner-bg-big.png'); /* Top-right PNG */
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}

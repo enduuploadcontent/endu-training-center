@@ -8,7 +8,6 @@ import { showcaseList } from '@/variables/showcase/showcase-list';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { Carousel, ConfigProvider } from 'antd';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 export default function HomePage() {
    return (
@@ -17,6 +16,10 @@ export default function HomePage() {
          <WhyLearningComponent />
          <ShowcaseComponent />
          <ResponseComponent />
+         <div className='flex flex-col corner-bg-big'>
+            <PathToSuccessComponent />
+            <MapComponent />
+         </div>
       </div>
    );
 }
@@ -119,20 +122,35 @@ function CarouselComponent() {
 }
 
 function WhyLearningComponent() {
+   const mainContainerVariants = {
+      hidden: { opacity: 0 },
+      show: {
+         opacity: 1,
+         transition: {
+            staggerChildren: 1,
+         },
+      },
+   };
+
+   const childrenContainerVariants = {
+      hidden: { opacity: 0 },
+      show: {
+         opacity: 1,
+         transition: {
+            staggerChildren: 0.5,
+         },
+      },
+   };
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
          <div className='max-w-7xl w-full flex flex-col gap-4 mobile:items-center'>
             <motion.div
-               initial={{ opacity: 0, scale: 0 }}
-               whileInView={{ opacity: 1, scale: 1 }}
+               initial={{ scale: 0 }}
+               whileInView={{ scale: 1 }}
                viewport={{ once: true }}
                transition={{
                   duration: 1,
-                  scale: {
-                     type: 'spring',
-                     visualDuration: 1,
-                     bounce: 0,
-                  },
+                  ease: 'easeOut',
                }}
                className='w-fit mobile:w-full'
             >
@@ -158,8 +176,17 @@ function WhyLearningComponent() {
                   className='max-h-[480px] object-contain w-fit mobile:hidden'
                   src='/images/home/why-learning.png'
                />
-               <div className='flex gap-6 mobile:flex-col'>
-                  <div className='flex flex-col gap-6 pb-12 mobile:pb-0'>
+               <motion.div
+                  variants={mainContainerVariants}
+                  initial='hidden'
+                  whileInView='show'
+                  viewport={{ once: true }}
+                  className='flex flex-col'
+               >
+                  <motion.div
+                     variants={childrenContainerVariants}
+                     className='flex gap-6'
+                  >
                      <WhyLearningCard
                         title='มีหลักสูตรตั้งแต่ระดับ 0-100'
                         detail={
@@ -172,20 +199,8 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/book.png'
+                        className='mb-6'
                      />
-                     <WhyLearningCard
-                        title='ลงมือซ่อมจริงพร้อมเทคนิคมากมาย'
-                        detail={
-                           <>
-                              ฝึกซ่อมจริงพร้อมเรียนรู้เทคนิคเฉพาะทาง
-                              <br />
-                              ที่จะช่วยยกระดับทักษะการซ่อม
-                           </>
-                        }
-                        iconSrc='/images/home/repair.png'
-                     />
-                  </div>
-                  <div className='flex flex-col gap-6 pt-12 mobile:pt-0'>
                      <WhyLearningCard
                         title='เรียนกับอาจารย์ผู้เชี่ยวชาญ'
                         detail={
@@ -196,6 +211,24 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/teacher.png'
+                        className='mt-12'
+                     />
+                  </motion.div>
+                  <motion.div
+                     variants={childrenContainerVariants}
+                     className='flex gap-6'
+                  >
+                     <WhyLearningCard
+                        title='ลงมือซ่อมจริงพร้อมเทคนิคมากมาย'
+                        detail={
+                           <>
+                              ฝึกซ่อมจริงพร้อมเรียนรู้เทคนิคเฉพาะทาง
+                              <br />
+                              ที่จะช่วยยกระดับทักษะการซ่อม
+                           </>
+                        }
+                        iconSrc='/images/home/repair.png'
+                        className='mb-12'
                      />
                      <WhyLearningCard
                         title='เรียบจบรับใบประกาศ'
@@ -209,9 +242,10 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/certificate.png'
+                        className='mt-6'
                      />
-                  </div>
-               </div>
+                  </motion.div>
+               </motion.div>
             </div>
          </div>
       </div>
@@ -222,19 +256,31 @@ type WhyLearningCardProps = {
    title: React.ReactNode;
    detail: React.ReactNode;
    iconSrc?: string;
+   className?: string;
 };
 
-function WhyLearningCard({ title, detail, iconSrc }: WhyLearningCardProps) {
+function WhyLearningCard({
+   title,
+   detail,
+   iconSrc,
+   className,
+}: WhyLearningCardProps) {
+   const variants = {
+      hidden: { opacity: 0, scale: 1, y: 200 },
+      show: { opacity: 1, scale: 1, y: 0 },
+   };
+
    return (
       <motion.div
-         initial={{ opacity: 0, scale: 1, y: 200 }}
-         whileInView={{ opacity: 1, scale: 1, y: 0 }}
-         viewport={{ once: true }}
+         variants={variants}
          transition={{
             duration: 1,
             ease: 'easeOut',
          }}
-         className='content-shadow rounded-lg p-4 flex flex-col gap-4 items-center justify-center w-[260px] mobile:w-full'
+         className={cn(
+            'content-shadow rounded-lg p-4 flex flex-col gap-4 items-center justify-center w-[260px] mobile:w-full',
+            className,
+         )}
       >
          <div className='p-2 rounded-md bg-background-blue flex items-center justify-center'>
             <picture>
@@ -257,19 +303,15 @@ function ShowcaseComponent() {
       .slice(0, 3);
 
    return (
-      <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
+      <div className='px-8 py-16 flex items-center justify-center mobile:p-6 corner-bg-small'>
          <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
             <motion.div
-               initial={{ opacity: 0, scale: 0 }}
-               whileInView={{ opacity: 1, scale: 1 }}
+               initial={{ scale: 0 }}
+               whileInView={{ scale: 1 }}
                viewport={{ once: true }}
                transition={{
                   duration: 1,
-                  scale: {
-                     type: 'spring',
-                     visualDuration: 1,
-                     bounce: 0,
-                  },
+                  ease: 'easeOut',
                }}
                className='w-fit mobile:w-full'
             >
@@ -277,17 +319,18 @@ function ShowcaseComponent() {
                   ENDU Show case
                </CustomTypography>
             </motion.div>
-            <div className='grid grid-cols-3 gap-3 w-full'>
+            <motion.div
+               initial={{ y: 100 }}
+               whileInView={{ y: 0 }}
+               viewport={{ once: true }}
+               transition={{
+                  duration: 1,
+               }}
+               className='grid grid-cols-3 gap-3 w-full'
+            >
                {contentList.map((content, index) => (
-                  <motion.a
+                  <a
                      key={index}
-                     initial={{ opacity: 0, scale: 1, y: 100 }}
-                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{
-                        duration: 1,
-                        ease: 'easeOut',
-                     }}
                      className='overflow-hidden h-[540px] relative p-4 flex items-end hover:cursor-pointer'
                   >
                      <picture>
@@ -297,7 +340,7 @@ function ShowcaseComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex flex-col text-white z-50 w-full'>
+                     <div className='flex flex-col text-white z-10 w-full'>
                         <CustomTypography variant='subtitle1'>
                            {content.title}
                         </CustomTypography>
@@ -317,9 +360,9 @@ function ShowcaseComponent() {
                            {/* </Link> */}
                         </div>
                      </div>
-                  </motion.a>
+                  </a>
                ))}
-            </div>
+            </motion.div>
          </div>
       </div>
    );
@@ -328,27 +371,26 @@ function ShowcaseComponent() {
 function ResponseComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)] bg-contain'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
+         <div className='max-w-7xl w-full flex flex-col gap-6'>
             <motion.div
-               initial={{ opacity: 0, scale: 0 }}
-               whileInView={{ opacity: 1, scale: 1 }}
+               initial={{ scale: 0 }}
+               whileInView={{ scale: 1 }}
                viewport={{ once: true }}
                transition={{
                   duration: 1,
-                  scale: {
-                     type: 'spring',
-                     visualDuration: 1,
-                     bounce: 0,
-                  },
+                  ease: 'easeOut',
                }}
                className='w-fit mobile:w-full'
             >
-               <CustomTypography variant='h5' className='w-fit mobile:hidden'>
+               <CustomTypography
+                  variant='h5'
+                  className='w-fit mobile:hidden drop-shadow-lg'
+               >
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
                <CustomTypography
                   variant='caption2'
-                  className='w-fit hidden mobile:flex'
+                  className='w-fit hidden mobile:flex drop-shadow-lg'
                >
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
@@ -431,6 +473,156 @@ function ResponseComponent() {
    );
 }
 
-function PathToSuccessComponent() {}
+function PathToSuccessComponent() {
+   const contentList = showcaseList
+      .sort((a, b) => {
+         return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
+      })
+      .slice(0, 8);
 
-function MapComponent() {}
+   return (
+      <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
+         <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
+            <motion.div
+               initial={{ scale: 0 }}
+               whileInView={{ scale: 1 }}
+               viewport={{ once: true }}
+               transition={{
+                  duration: 1,
+                  ease: 'easeOut',
+               }}
+               className='w-fit mobile:w-full'
+            >
+               <CustomTypography variant='h4' className='w-fit mobile:hidden'>
+                  ก้าวแรกสู่ความสำเร็จ
+               </CustomTypography>
+            </motion.div>
+            <motion.div
+               initial={{ y: 100 }}
+               whileInView={{ y: 0 }}
+               transition={{
+                  duration: 1,
+               }}
+               viewport={{ once: true }}
+               className='grid grid-cols-4 gap-x-2 gap-y-6 w-full'
+            >
+               {contentList.map((content, index) => (
+                  <a
+                     key={index}
+                     className='overflow-hidden aspect-square  relative p-4 flex items-end hover:cursor-pointer'
+                  >
+                     <picture>
+                        <img
+                           src={content.thumbnailSrc}
+                           alt='thumbnail'
+                           className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
+                        />
+                     </picture>
+                     <div className='flex flex-col text-white z-10 w-full'>
+                        <CustomTypography variant='subtitle1'>
+                           {content.title}
+                        </CustomTypography>
+                        <div className='flex justify-between'>
+                           <CustomTypography variant='body1'>
+                              {buddhistDayjs(content.date).format('DD MMM BB')}
+                           </CustomTypography>
+                           {/* <Link
+                              href={`/showcase/${index}`}
+                           > */}
+                           <CustomTypography
+                              variant='body1'
+                              className={`underline`}
+                           >
+                              อ่านเพิ่มเติม
+                           </CustomTypography>
+                           {/* </Link> */}
+                        </div>
+                     </div>
+                  </a>
+               ))}
+            </motion.div>
+         </div>
+      </div>
+   );
+}
+
+function MapComponent() {
+   return (
+      <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
+         <div className='max-w-7xl w-full flex gap-6 justify-between items-start'>
+            <picture className='w-full'>
+               <img alt='map' src='/images/home/map.png' />
+            </picture>
+            <div className='w-full flex flex-col gap-8 items-start'>
+               <div className='w-full flex flex-col gap-4'>
+                  <CustomTypography variant='h5'>
+                     วิธีเดินทางมายังโรงเรียนของเรา
+                  </CustomTypography>
+                  <CustomTypography variant='body2'>
+                     Lorem ipsum dolor sit amet consectetur. Magna feugiat
+                     pharetra id urna dictumst amet malesuada amet.{' '}
+                  </CustomTypography>
+               </div>
+               <div className='w-full flex flex-col gap-4'>
+                  <CustomTypography variant='h5'>
+                     ช่องทางติดต่อเราเพิ่มเติม
+                  </CustomTypography>
+                  <div className='flex gap-4 items-center'>
+                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                        <picture>
+                           <img
+                              src={'/images/home/clock.svg'}
+                              className='w-5 h-5'
+                              alt='icon'
+                           />
+                        </picture>
+                     </div>
+                     <CustomTypography variant='body2'>
+                        เปิดทำการ : 09.00 - 18.00
+                     </CustomTypography>
+                  </div>
+                  <div className='flex gap-4 items-center'>
+                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                        <picture>
+                           <img
+                              src={'/images/home/envelope.svg'}
+                              className='w-5 h-5'
+                              alt='icon'
+                           />
+                        </picture>
+                     </div>
+                     <CustomTypography variant='body2'>
+                        trainingcenter@endu.co.th
+                     </CustomTypography>
+                  </div>
+                  <div className='flex gap-4 items-start'>
+                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                        <picture>
+                           <img
+                              src={'/images/home/mapPinLine.svg'}
+                              className='w-5 h-5'
+                              alt='icon'
+                           />
+                        </picture>
+                     </div>
+                     <div className='flex flex-col gap-1'>
+                        <CustomTypography variant='body2'>
+                           10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
+                           กรุงเทพมหานคร 10120
+                        </CustomTypography>
+                        <a href=''>
+                           <CustomTypography
+                              variant='caption2'
+                              className='text-brand-primary underline'
+                           >
+                              เปิดในแผนที่
+                           </CustomTypography>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   );
+}
