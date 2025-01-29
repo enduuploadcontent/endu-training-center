@@ -78,8 +78,14 @@ const materialTheme = {
             },
             caption2: {
                fontWeight: 'font-[600]',
-               fontSize: 'text-[17px]',
-               lineHeight: 'leading-[28.05px]',
+               fontSize: 'text-[13px]',
+               lineHeight: 'leading-[21.45px]',
+               fontFamily: 'font-ibm',
+            },
+            overline1: {
+               fontWeight: 'font-[400]',
+               fontSize: 'text-[11px]',
+               lineHeight: 'leading-[18.15px]',
                fontFamily: 'font-ibm',
             },
          },

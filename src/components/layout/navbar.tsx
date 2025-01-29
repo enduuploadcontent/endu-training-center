@@ -88,7 +88,7 @@ function NavbarComponent({
                   <Link
                      key={index}
                      href={path.href}
-                     className={`hover:scale-[1.05] transition-all duration-500 min-w-[100px] px-4 ${
+                     className={`hover:scale-105 transition-all duration-500 min-w-[100px] px-4 ${
                         (scrolled && pathname === '/') || pathname !== '/'
                            ? 'text-foreground-primary'
                            : 'text-white'
@@ -147,7 +147,7 @@ function MobileMenu({
                         <Fragment key={index}>
                            <Link
                               href={path.href}
-                              className={`hover:scale-[1.05] transition-all duration-500 min-w-[100px] py-4 text-foreground-primary text-center`}
+                              className={`hover:scale-105 transition-all duration-500 min-w-[100px] py-4 text-foreground-primary text-center`}
                            >
                               {path.title}
                            </Link>

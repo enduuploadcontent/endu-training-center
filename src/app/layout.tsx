@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Navbar from '@/components/layout/navbar';
 import MaterialThemeProvider from '@/theme/material';
 import Footer from '@/components/layout/footer';
+import FloatingButton from '@/components/layout/floating';
 
 export const metadata: Metadata = {
    title: 'ENDU Training Center',
@@ -35,6 +36,7 @@ export default function RootLayout({
          <ReactQueryProvider>
             <MaterialThemeProvider>
                <body className='min-h-screen'>
+                  <FloatingButton />
                   <Navbar />
                   {children}
                   <Footer />

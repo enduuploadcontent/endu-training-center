@@ -16,7 +16,7 @@ export default function HomePage() {
          <WhyLearningComponent />
          <ShowcaseComponent />
          <ResponseComponent />
-         <div className='flex flex-col corner-bg-big'>
+         <div className='flex flex-col relative corner-bg-top-left overflow-hidden'>
             <PathToSuccessComponent />
             <MapComponent />
          </div>
@@ -90,21 +90,6 @@ function CarouselComponent() {
          <Carousel
             autoplay
             autoplaySpeed={5000}
-            arrows
-            prevArrow={
-               <LeftArrow
-                  size={56}
-                  color='white'
-                  additionClassName='mobile:!hidden'
-               />
-            }
-            nextArrow={
-               <RightArrow
-                  size={56}
-                  color='white'
-                  additionClassName='mobile:!hidden'
-               />
-            }
             draggable
          >
             {homePageCarousel.map((src, index) => (
@@ -158,13 +143,13 @@ function WhyLearningComponent() {
                   ทำไมต้องเรียนที่ ENDU
                </CustomTypography>
                <CustomTypography
-                  variant='caption2'
+                  variant='subtitle2'
                   className='w-fit hidden mobile:flex'
                >
                   ทำไมต้องเรียนที่ ENDU
                </CustomTypography>
             </motion.div>
-            <div className='flex mobile:flex-col justify-between w-full'>
+            <div className='flex mobile:flex-col justify-between w-full gap-4'>
                <motion.img
                   initial={{ opacity: 0, scale: 1, x: -200 }}
                   whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -173,7 +158,7 @@ function WhyLearningComponent() {
                      duration: 1,
                      ease: 'easeOut',
                   }}
-                  className='max-h-[480px] object-contain w-fit mobile:hidden'
+                  className='max-h-[480px] object-contain w-fit'
                   src='/images/home/why-learning.png'
                />
                <motion.div
@@ -185,7 +170,7 @@ function WhyLearningComponent() {
                >
                   <motion.div
                      variants={childrenContainerVariants}
-                     className='flex gap-6'
+                     className='flex gap-6 mobile:flex-col mobile:gap-4'
                   >
                      <WhyLearningCard
                         title='มีหลักสูตรตั้งแต่ระดับ 0-100'
@@ -199,7 +184,7 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/book.png'
-                        className='mb-6'
+                        className='mb-6 mobile:m-0'
                      />
                      <WhyLearningCard
                         title='เรียนกับอาจารย์ผู้เชี่ยวชาญ'
@@ -211,12 +196,12 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/teacher.png'
-                        className='mt-12'
+                        className='mt-12 mobile:m-0'
                      />
                   </motion.div>
                   <motion.div
                      variants={childrenContainerVariants}
-                     className='flex gap-6'
+                     className='flex gap-6 mobile:flex-col mobile:gap-4'
                   >
                      <WhyLearningCard
                         title='ลงมือซ่อมจริงพร้อมเทคนิคมากมาย'
@@ -228,7 +213,7 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/repair.png'
-                        className='mb-12'
+                        className='mb-12 mobile:m-0'
                      />
                      <WhyLearningCard
                         title='เรียบจบรับใบประกาศ'
@@ -242,7 +227,7 @@ function WhyLearningComponent() {
                            </>
                         }
                         iconSrc='/images/home/certificate.png'
-                        className='mt-6'
+                        className='mt-6 mobile:m-0'
                      />
                   </motion.div>
                </motion.div>
@@ -278,7 +263,7 @@ function WhyLearningCard({
             ease: 'easeOut',
          }}
          className={cn(
-            'content-shadow rounded-lg p-4 flex flex-col gap-4 items-center justify-center w-[260px] mobile:w-full',
+            'content-shadow rounded-lg p-4 flex flex-col gap-4 items-center justify-center w-[260px] mobile:w-full mobile:flex-row mobile:items-start mobile:justify-start',
             className,
          )}
       >
@@ -287,9 +272,14 @@ function WhyLearningCard({
                <img src={iconSrc} className='w-8 h-8' alt='icon' />
             </picture>
          </div>
-         <div className='flex flex-col gap-1 text-center'>
+         <div className='flex flex-col gap-1 text-center mobile:text-start'>
             <CustomTypography variant='subtitle3'>{title}</CustomTypography>
-            <CustomTypography variant='caption1'>{detail}</CustomTypography>
+            <CustomTypography
+               variant='caption1'
+               className='text-foreground-secondary'
+            >
+               {detail}
+            </CustomTypography>
          </div>
       </motion.div>
    );
@@ -303,8 +293,8 @@ function ShowcaseComponent() {
       .slice(0, 3);
 
    return (
-      <div className='px-8 py-16 flex items-center justify-center mobile:p-6 corner-bg-small'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
+      <div className='px-8 py-16 flex items-center justify-center mobile:p-6 relative corner-bg-top-right overflow-hidden'>
+         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -318,6 +308,12 @@ function ShowcaseComponent() {
                <CustomTypography variant='h4' className='w-fit mobile:hidden'>
                   ENDU Show case
                </CustomTypography>
+               <CustomTypography
+                  variant='subtitle2'
+                  className='w-fit hidden mobile:flex'
+               >
+                  ENDU Show case
+               </CustomTypography>
             </motion.div>
             <motion.div
                initial={{ y: 100 }}
@@ -326,12 +322,12 @@ function ShowcaseComponent() {
                transition={{
                   duration: 1,
                }}
-               className='grid grid-cols-3 gap-3 w-full'
+               className='grid grid-cols-3 gap-3 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'
             >
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden h-[540px] relative p-4 flex items-end hover:cursor-pointer'
+                     className='overflow-hidden h-[540px] mobile:h-[400px] mobile:w-[270px] mobile:min-w-[270px] relative p-4 flex items-end hover:cursor-pointer'
                   >
                      <picture>
                         <img
@@ -340,7 +336,7 @@ function ShowcaseComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex flex-col text-white z-10 w-full'>
+                     <div className='flex-col text-white z-10 w-full flex mobile:hidden'>
                         <CustomTypography variant='subtitle1'>
                            {content.title}
                         </CustomTypography>
@@ -360,6 +356,26 @@ function ShowcaseComponent() {
                            {/* </Link> */}
                         </div>
                      </div>
+                     <div className='flex-col text-white z-10 w-full hidden mobile:flex'>
+                        <CustomTypography variant='subtitle3'>
+                           {content.title}
+                        </CustomTypography>
+                        <div className='flex justify-between'>
+                           <CustomTypography variant='caption1'>
+                              {buddhistDayjs(content.date).format('DD MMM BB')}
+                           </CustomTypography>
+                           {/* <Link
+                              href={`/showcase/${index}`}
+                           > */}
+                           <CustomTypography
+                              variant='caption1'
+                              className={`underline`}
+                           >
+                              อ่านเพิ่มเติม
+                           </CustomTypography>
+                           {/* </Link> */}
+                        </div>
+                     </div>
                   </a>
                ))}
             </motion.div>
@@ -371,7 +387,7 @@ function ShowcaseComponent() {
 function ResponseComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)] bg-contain'>
-         <div className='max-w-7xl w-full flex flex-col gap-6'>
+         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -395,7 +411,7 @@ function ResponseComponent() {
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
             </motion.div>
-            <div className='rounded-lg px-16 py-14 mobile:p-4 flex flex-col gap-10 items-center justify-center bg-white w-full relative'>
+            <div className='rounded-lg px-16 py-14 mobile:p-6 mobile:pb-[60px] flex flex-col gap-10 items-center justify-center bg-white w-full relative'>
                <div className='w-full'>
                   <ConfigProvider
                      theme={{
@@ -412,21 +428,6 @@ function ResponseComponent() {
                      <Carousel
                         autoplay
                         autoplaySpeed={5000}
-                        arrows
-                        prevArrow={
-                           <LeftArrow
-                              additionClassName='!-left-[54px] !w-11 !h-11 mobile:!hidden'
-                              size={44}
-                              color='#7B89A1'
-                           />
-                        }
-                        nextArrow={
-                           <RightArrow
-                              additionClassName='!-right-[54px] !w-11 !h-11 mobile:!hidden'
-                              size={44}
-                              color='#7B89A1'
-                           />
-                        }
                         draggable
                         dots={{ className: 'mobile:!hidden' }}
                      >
@@ -437,10 +438,34 @@ function ResponseComponent() {
                            >
                               <div className='flex flex-col gap-6 w-[70%] mobile:w-full'>
                                  <div className='flex flex-col gap-2 items-center text-center'>
-                                    <CustomTypography variant='subtitle1'>
+                                    <CustomTypography
+                                       variant='subtitle1'
+                                       className='w-fit mobile:hidden'
+                                    >
                                        “ ประทับใจมาก! ”
                                     </CustomTypography>
-                                    <CustomTypography variant='body1'>
+                                    <CustomTypography
+                                       variant='subtitle2'
+                                       className='w-fit hidden mobile:flex'
+                                    >
+                                       “ ประทับใจมาก! ”
+                                    </CustomTypography>
+                                    <CustomTypography
+                                       variant='body1'
+                                       className='w-fit mobile:hidden'
+                                    >
+                                       Lorem ipsum dolor sit amet consectetur.
+                                       Posuere facilisis in rutrum arcu purus
+                                       non. Accumsan sem volutpat auctor ut
+                                       nulla eu. Mus sit quisque vulputate nisl
+                                       interdum maecenas. Donec pellentesque
+                                       consequat aenean quam varius dictum
+                                       iaculis.
+                                    </CustomTypography>
+                                    <CustomTypography
+                                       variant='caption1'
+                                       className='w-fit hidden mobile:flex'
+                                    >
                                        Lorem ipsum dolor sit amet consectetur.
                                        Posuere facilisis in rutrum arcu purus
                                        non. Accumsan sem volutpat auctor ut
@@ -451,12 +476,27 @@ function ResponseComponent() {
                                     </CustomTypography>
                                  </div>
                                  <div className='flex flex-col gap-2 items-center'>
-                                    <CustomTypography variant='subtitle2'>
+                                    <CustomTypography
+                                       variant='subtitle2'
+                                       className='w-fit mobile:hidden'
+                                    >
+                                       คุณจักรภพ น.
+                                    </CustomTypography>
+                                    <CustomTypography
+                                       variant='subtitle3'
+                                       className='w-fit hidden mobile:flex'
+                                    >
                                        คุณจักรภพ น.
                                     </CustomTypography>
                                     <CustomTypography
                                        variant='body1'
-                                       className='text-foreground-secondary'
+                                       className='w-fit mobile:hidden'
+                                    >
+                                       จากหลักสูตร Pro H1
+                                    </CustomTypography>
+                                    <CustomTypography
+                                       variant='caption1'
+                                       className='w-fit hidden mobile:flex'
                                     >
                                        จากหลักสูตร Pro H1
                                     </CustomTypography>
@@ -482,7 +522,7 @@ function PathToSuccessComponent() {
 
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 items-center'>
+         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -496,6 +536,12 @@ function PathToSuccessComponent() {
                <CustomTypography variant='h4' className='w-fit mobile:hidden'>
                   ก้าวแรกสู่ความสำเร็จ
                </CustomTypography>
+               <CustomTypography
+                  variant='caption2'
+                  className='w-fit hidden mobile:flex'
+               >
+                  ก้าวแรกสู่ความสำเร็จ
+               </CustomTypography>
             </motion.div>
             <motion.div
                initial={{ y: 100 }}
@@ -504,12 +550,12 @@ function PathToSuccessComponent() {
                   duration: 1,
                }}
                viewport={{ once: true }}
-               className='grid grid-cols-4 gap-x-2 gap-y-6 w-full'
+               className='grid grid-cols-4 gap-x-2 gap-y-6 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'
             >
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden aspect-square  relative p-4 flex items-end hover:cursor-pointer'
+                     className='overflow-hidden aspect-square mobile:h-[200px] mobile:min-h-[200px] mobile:w-[200px] mobile:min-w-[200px] relative p-4 flex items-end hover:cursor-pointer'
                   >
                      <picture>
                         <img
@@ -518,7 +564,7 @@ function PathToSuccessComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex flex-col text-white z-10 w-full'>
+                     <div className='flex-col text-white z-10 w-full flex mobile:hidden'>
                         <CustomTypography variant='subtitle1'>
                            {content.title}
                         </CustomTypography>
@@ -538,6 +584,26 @@ function PathToSuccessComponent() {
                            {/* </Link> */}
                         </div>
                      </div>
+                     <div className='flex-col text-white z-10 w-full mobile:flex hidden'>
+                        <CustomTypography variant='caption2'>
+                           {content.title}
+                        </CustomTypography>
+                        <div className='flex justify-between'>
+                           <CustomTypography variant='overline1'>
+                              {buddhistDayjs(content.date).format('DD MMM BB')}
+                           </CustomTypography>
+                           {/* <Link
+                              href={`/showcase/${index}`}
+                           > */}
+                           <CustomTypography
+                              variant='overline1'
+                              className={`underline`}
+                           >
+                              อ่านเพิ่มเติม
+                           </CustomTypography>
+                           {/* </Link> */}
+                        </div>
+                     </div>
                   </a>
                ))}
             </motion.div>
@@ -549,75 +615,133 @@ function PathToSuccessComponent() {
 function MapComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex gap-6 justify-between items-start'>
+         <div className='max-w-7xl w-full flex mobile:flex-col gap-6 mobile:gap-4 justify-between items-start'>
             <picture className='w-full'>
                <img alt='map' src='/images/home/map.png' />
             </picture>
-            <div className='w-full flex flex-col gap-8 items-start'>
-               <div className='w-full flex flex-col gap-4'>
-                  <CustomTypography variant='h5'>
+            <div className='w-full flex flex-col gap-8 mobile:gap-4 items-start'>
+               <div className='w-full flex flex-col gap-4 mobile:gap-2'>
+                  <CustomTypography
+                     variant='h5'
+                     className='w-fit mobile:hidden'
+                  >
                      วิธีเดินทางมายังโรงเรียนของเรา
                   </CustomTypography>
-                  <CustomTypography variant='body2'>
+                  <CustomTypography
+                     variant='subtitle2'
+                     className='w-fit hidden mobile:flex'
+                  >
+                     วิธีเดินทางมายังโรงเรียนของเรา
+                  </CustomTypography>
+                  <CustomTypography
+                     variant='body2'
+                     className='w-fit mobile:hidden'
+                  >
                      Lorem ipsum dolor sit amet consectetur. Magna feugiat
-                     pharetra id urna dictumst amet malesuada amet.{' '}
+                     pharetra id urna dictumst amet malesuada amet.
+                  </CustomTypography>
+                  <CustomTypography
+                     variant='caption1'
+                     className='w-fit hidden mobile:flex'
+                  >
+                     Lorem ipsum dolor sit amet consectetur. Magna feugiat
+                     pharetra id urna dictumst amet malesuada amet.
                   </CustomTypography>
                </div>
                <div className='w-full flex flex-col gap-4'>
-                  <CustomTypography variant='h5'>
+                  <CustomTypography
+                     variant='h5'
+                     className='w-fit mobile:hidden'
+                  >
                      ช่องทางติดต่อเราเพิ่มเติม
                   </CustomTypography>
-                  <div className='flex gap-4 items-center'>
-                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                        <picture>
-                           <img
-                              src={'/images/home/clock.svg'}
-                              className='w-5 h-5'
-                              alt='icon'
-                           />
-                        </picture>
-                     </div>
-                     <CustomTypography variant='body2'>
-                        เปิดทำการ : 09.00 - 18.00
-                     </CustomTypography>
-                  </div>
-                  <div className='flex gap-4 items-center'>
-                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                        <picture>
-                           <img
-                              src={'/images/home/envelope.svg'}
-                              className='w-5 h-5'
-                              alt='icon'
-                           />
-                        </picture>
-                     </div>
-                     <CustomTypography variant='body2'>
-                        trainingcenter@endu.co.th
-                     </CustomTypography>
-                  </div>
-                  <div className='flex gap-4 items-start'>
-                     <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                        <picture>
-                           <img
-                              src={'/images/home/mapPinLine.svg'}
-                              className='w-5 h-5'
-                              alt='icon'
-                           />
-                        </picture>
-                     </div>
-                     <div className='flex flex-col gap-1'>
-                        <CustomTypography variant='body2'>
-                           10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
-                           กรุงเทพมหานคร 10120
+                  <CustomTypography
+                     variant='subtitle2'
+                     className='w-fit hidden mobile:flex'
+                  >
+                     ช่องทางติดต่อเราเพิ่มเติม
+                  </CustomTypography>
+                  <div className='w-full flex flex-col gap-4 mobile:gap-3'>
+                     <div className='flex gap-4 items-center'>
+                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                           <picture>
+                              <img
+                                 src={'/images/home/clock.svg'}
+                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
+                                 alt='icon'
+                              />
+                           </picture>
+                        </div>
+                        <CustomTypography
+                           variant='body2'
+                           className='w-fit mobile:hidden'
+                        >
+                           เปิดทำการ : 09.00 - 18.00
                         </CustomTypography>
-                        <a href=''>
+                        <CustomTypography
+                           variant='caption1'
+                           className='w-fit hidden mobile:flex'
+                        >
+                           เปิดทำการ : 09.00 - 18.00
+                        </CustomTypography>
+                     </div>
+                     <div className='flex gap-4 items-center'>
+                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                           <picture>
+                              <img
+                                 src={'/images/home/envelope.svg'}
+                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
+                                 alt='icon'
+                              />
+                           </picture>
+                        </div>
+                        <CustomTypography
+                           variant='body2'
+                           className='w-fit mobile:hidden'
+                        >
+                           trainingcenter@endu.co.th
+                        </CustomTypography>
+                        <CustomTypography
+                           variant='caption1'
+                           className='w-fit hidden mobile:flex'
+                        >
+                           trainingcenter@endu.co.th
+                        </CustomTypography>
+                     </div>
+                     <div className='flex gap-4 items-start'>
+                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
+                           <picture>
+                              <img
+                                 src={'/images/home/mapPinLine.svg'}
+                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
+                                 alt='icon'
+                              />
+                           </picture>
+                        </div>
+                        <div className='flex flex-col gap-1'>
                            <CustomTypography
-                              variant='caption2'
-                              className='text-brand-primary underline'
+                              variant='body2'
+                              className='w-fit mobile:hidden'
                            >
-                              เปิดในแผนที่
+                              10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
+                              กรุงเทพมหานคร 10120
                            </CustomTypography>
-                        </a>
+                           <CustomTypography
+                              variant='caption1'
+                              className='w-fit hidden mobile:flex'
+                           >
+                              10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
+                              กรุงเทพมหานคร 10120
+                           </CustomTypography>
+                           <a href=''>
+                              <CustomTypography
+                                 variant='caption2'
+                                 className='text-brand-primary underline'
+                              >
+                                 เปิดในแผนที่
+                              </CustomTypography>
+                           </a>
+                        </div>
                      </div>
                   </div>
                </div>
