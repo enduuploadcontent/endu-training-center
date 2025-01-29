@@ -13,7 +13,7 @@ export default function FloatingButton() {
       { href: `tel:0999999999`, imgSrc: '/images/social/phone.png' },
    ];
    return (
-      <div className='fixed right-4 z-50 top-1/2 -translate-y-1/2'>
+      <div className='fixed right-4 z-50 top-1/2 -translate-y-1/2 transition-all duration-300'>
          <div className='flex flex-col gap-3'>
             {socialUrls.map((item, index) => (
                <a
