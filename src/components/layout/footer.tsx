@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Logo from './logo';
-import { SocialIcon } from 'react-social-icons';
 import CustomTypography from '../ui/typography';
 
 export default function Footer() {
@@ -45,7 +44,7 @@ export default function Footer() {
                         <img
                            alt={item.href}
                            src={item.imgSrc}
-                           className='!w-8 !h-8'
+                           className='!w-10 !h-10'
                         />
                      </picture>
                   </a>

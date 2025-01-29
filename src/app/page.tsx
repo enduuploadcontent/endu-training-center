@@ -87,11 +87,7 @@ function CarouselComponent() {
             },
          }}
       >
-         <Carousel
-            autoplay
-            autoplaySpeed={5000}
-            draggable
-         >
+         <Carousel autoplay autoplaySpeed={5000} draggable>
             {homePageCarousel.map((src, index) => (
                <picture key={index}>
                   <img
@@ -327,16 +323,16 @@ function ShowcaseComponent() {
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden h-[540px] mobile:h-[400px] mobile:w-[270px] mobile:min-w-[270px] relative p-4 flex items-end hover:cursor-pointer'
+                     className='overflow-hidden h-[540px] mobile:h-[400px] mobile:w-[270px] mobile:min-w-[270px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
                         <img
                            src={content.thumbnailSrc}
                            alt='thumbnail'
-                           className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
+                           className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex-col text-white z-10 w-full flex mobile:hidden'>
+                     <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
                         <CustomTypography variant='subtitle1'>
                            {content.title}
                         </CustomTypography>
@@ -356,7 +352,7 @@ function ShowcaseComponent() {
                            {/* </Link> */}
                         </div>
                      </div>
-                     <div className='flex-col text-white z-10 w-full hidden mobile:flex'>
+                     <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
                         <CustomTypography variant='subtitle3'>
                            {content.title}
                         </CustomTypography>
@@ -405,7 +401,7 @@ function ResponseComponent() {
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
                <CustomTypography
-                  variant='caption2'
+                  variant='subtitle2'
                   className='w-fit hidden mobile:flex drop-shadow-lg'
                >
                   เสียงตอบรับจากผู้เรียน ENDU
@@ -490,13 +486,13 @@ function ResponseComponent() {
                                     </CustomTypography>
                                     <CustomTypography
                                        variant='body1'
-                                       className='w-fit mobile:hidden'
+                                       className='w-fit mobile:hidden text-foreground-secondary'
                                     >
                                        จากหลักสูตร Pro H1
                                     </CustomTypography>
                                     <CustomTypography
                                        variant='caption1'
-                                       className='w-fit hidden mobile:flex'
+                                       className='w-fit hidden mobile:flex text-foreground-secondary'
                                     >
                                        จากหลักสูตร Pro H1
                                     </CustomTypography>
@@ -537,7 +533,7 @@ function PathToSuccessComponent() {
                   ก้าวแรกสู่ความสำเร็จ
                </CustomTypography>
                <CustomTypography
-                  variant='caption2'
+                  variant='subtitle2'
                   className='w-fit hidden mobile:flex'
                >
                   ก้าวแรกสู่ความสำเร็จ
@@ -555,28 +551,28 @@ function PathToSuccessComponent() {
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden aspect-square mobile:h-[200px] mobile:min-h-[200px] mobile:w-[200px] mobile:min-w-[200px] relative p-4 flex items-end hover:cursor-pointer'
+                     className='overflow-hidden aspect-square mobile:h-[200px] mobile:min-h-[200px] mobile:w-[200px] mobile:min-w-[200px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
                         <img
                            src={content.thumbnailSrc}
                            alt='thumbnail'
-                           className='absolute top-0 left-0 h-full w-full object-cover hover:scale-110 transition-all duration-500 z-0'
+                           className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex-col text-white z-10 w-full flex mobile:hidden'>
-                        <CustomTypography variant='subtitle1'>
+                     <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+                        <CustomTypography variant='subtitle3'>
                            {content.title}
                         </CustomTypography>
                         <div className='flex justify-between'>
-                           <CustomTypography variant='body1'>
+                           <CustomTypography variant='caption1'>
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
                            {/* <Link
                               href={`/showcase/${index}`}
                            > */}
                            <CustomTypography
-                              variant='body1'
+                              variant='caption1'
                               className={`underline`}
                            >
                               อ่านเพิ่มเติม
@@ -584,7 +580,7 @@ function PathToSuccessComponent() {
                            {/* </Link> */}
                         </div>
                      </div>
-                     <div className='flex-col text-white z-10 w-full mobile:flex hidden'>
+                     <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
                         <CustomTypography variant='caption2'>
                            {content.title}
                         </CustomTypography>

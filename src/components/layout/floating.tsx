@@ -27,7 +27,7 @@ export default function FloatingButton() {
                      <img
                         alt={item.href}
                         src={item.imgSrc}
-                        className='!w-8 !h-8'
+                        className='!w-10 !h-10'
                      />
                   </picture>
                </a>

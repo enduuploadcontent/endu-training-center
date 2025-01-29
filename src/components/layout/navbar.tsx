@@ -8,10 +8,11 @@ import {
    motion,
 } from 'framer-motion';
 import Link from 'next/link';
-import { List, X } from '@phosphor-icons/react';
+import { ArrowRight, List, X } from '@phosphor-icons/react';
 import { RemoveScroll } from 'react-remove-scroll';
 import { usePathname } from 'next/navigation';
 import Logo from './logo';
+import CustomTypography from '../ui/typography';
 
 const menuPath = [
    {
@@ -70,7 +71,7 @@ function NavbarComponent({
    return (
       <nav
          className={`fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white  ${
-            (scrolled && pathname === '/') || pathname !== '/'
+            (scrolled && pathname === '/') || pathname !== '/' || open
                ? 'bg-opacity-100 shadow-xl'
                : 'bg-opacity-0 shadow-none'
          }`}
@@ -78,7 +79,7 @@ function NavbarComponent({
          <div className='flex w-full max-w-7xl items-center justify-between'>
             <Logo
                className={`transition-all duration-500 ${
-                  (scrolled && pathname === '/') || pathname !== '/'
+                  (scrolled && pathname === '/') || pathname !== '/' || open
                      ? 'fill-brand-logo'
                      : 'fill-white'
                }`}
@@ -89,7 +90,9 @@ function NavbarComponent({
                      key={index}
                      href={path.href}
                      className={`hover:scale-105 transition-all duration-500 min-w-[100px] px-4 ${
-                        (scrolled && pathname === '/') || pathname !== '/'
+                        (scrolled && pathname === '/') ||
+                        pathname !== '/' ||
+                        open
                            ? 'text-foreground-primary'
                            : 'text-white'
                      }`}
@@ -125,7 +128,7 @@ function MobileMenu({
          <button
             onClick={() => setOpen((prev) => !prev)}
             className={`block p-2 ${
-               (scrolled && pathname === '/') || pathname !== '/'
+               (scrolled && pathname === '/') || pathname !== '/' || open
                   ? 'text-foreground-primary'
                   : 'text-white'
             }`}
@@ -135,21 +138,29 @@ function MobileMenu({
          <AnimatePresence>
             {open && (
                <motion.nav
-                  initial={{ y: '100vh' }}
-                  animate={{ y: 0 }}
-                  exit={{ y: '100vh' }}
+                  initial={{ x: '100vw' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '100vw' }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className='fixed left-0 top-0 flex h-screen w-full flex-col bg-white mt-14'
+                  className='fixed left-0 top-0 flex h-screen w-full flex-col bg-white mt-[55px] px-6 border-t-border border'
                >
                   <div className='h-screen overflow-y-scroll bg-white flex flex-col'>
-                     <div className='h-px w-full bg-border' />
+                     {/* <div className='h-px w-full bg-border' /> */}
                      {menuPath.map((path, index) => (
                         <Fragment key={index}>
                            <Link
                               href={path.href}
-                              className={`hover:scale-105 transition-all duration-500 min-w-[100px] py-4 text-foreground-primary text-center`}
+                              className={`hover:scale-105 transition-all duration-500 min-w-[100px] py-6 text-foreground-primary items-center flex justify-between`}
                            >
-                              {path.title}
+                              <CustomTypography
+                                 variant='subtitle1'
+                                 className='font-[500px]'
+                              >
+                                 {path.title}
+                              </CustomTypography>
+                              <div className='p-2'>
+                                 <ArrowRight size={24} color='#7B89A1' />
+                              </div>
                            </Link>
                            <div className='h-px w-full bg-border' />
                         </Fragment>
