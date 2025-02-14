@@ -1,6 +1,6 @@
 export const showcaseList = [
    {
-      title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
+      title: 'นักเรียนรุ่นแรกฝึกลอกจอนักเรียนรุ่นแรกฝึกลอกจอนักเรียนรุ่นแรกฝึกลอกจอนักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',

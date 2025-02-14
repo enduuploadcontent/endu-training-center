@@ -25,7 +25,7 @@ const menuPath = [
    },
    {
       title: 'ผลงานการซ่อม',
-      href: '',
+      href: '/showcase',
    },
    {
       title: 'นักเรียนของเรา',
