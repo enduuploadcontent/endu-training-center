@@ -1,5 +1,10 @@
 import './globals.css';
 import { Metadata } from 'next';
+import Navbar from '@/components/layout/navbar';
+import MaterialThemeProvider from '@/theme/material';
+import Footer from '@/components/layout/footer';
+import FloatingButton from '@/components/layout/floating';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 export const metadata: Metadata = {
    title: 'ENDU Training Center',
@@ -28,7 +33,16 @@ export default function RootLayout({
          />
          <meta name='apple-mobile-web-app-title' content='คิดถึงลูน่า' />
          <link rel='manifest' href='/site.webmanifest' />
-         {children}
+         <body className='min-h-screen'>
+            <AntdRegistry>
+               <MaterialThemeProvider>
+                  <FloatingButton />
+                  <Navbar />
+                  {children}
+                  <Footer />
+               </MaterialThemeProvider>
+            </AntdRegistry>
+         </body>
       </html>
    );
 }
