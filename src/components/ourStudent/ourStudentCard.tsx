@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 type Props = { content: any; index: number };
 
-export default function ShowcaseCard({ content, index }: Props) {
+export default function OurStudentCard({ content, index }: Props) {
    return (
       <Link
-         href={`/showcase/${index}`}
-         className='overflow-hidden h-[540px] mobile:h-[240px] mobile:w-full relative flex items-end hover:cursor-pointer group'
+         href={`/our-student/${index}`}
+         className='overflow-hidden aspect-square mobile:h-[150px] mobile:min-h-[150px] w-full relative flex items-end hover:cursor-pointer group'
       >
          <picture>
             <img
@@ -20,17 +20,16 @@ export default function ShowcaseCard({ content, index }: Props) {
          </picture>
          <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
             <CustomTypography
-               variant='subtitle1'
+               variant='subtitle3'
                className='line-clamp-2 break-words'
             >
                {content.title}
             </CustomTypography>
             <div className='flex justify-between'>
-               <CustomTypography variant='body1'>
+               <CustomTypography variant='caption1'>
                   {buddhistDayjs(content.date).format('DD MMM BB')}
                </CustomTypography>
-
-               <CustomTypography variant='body1' className={`underline`}>
+               <CustomTypography variant='caption1' className={`underline`}>
                   อ่านเพิ่มเติม
                </CustomTypography>
             </div>
@@ -38,7 +37,7 @@ export default function ShowcaseCard({ content, index }: Props) {
          <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
             <CustomTypography
                variant='caption2'
-               className='mobile:line-clamp-2 mobile:break-words'
+               className='line-clamp-2 break-words'
             >
                {content.title}
             </CustomTypography>

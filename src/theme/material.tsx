@@ -70,6 +70,12 @@ const materialTheme = {
                lineHeight: 'leading-[28.05px]',
                fontFamily: 'font-ibm',
             },
+            button: {
+               fontWeight: 'font-[500]',
+               fontSize: 'text-[15px]',
+               lineHeight: 'leading-[24.75px]',
+               fontFamily: 'font-ibm',
+            },
             caption1: {
                fontWeight: 'font-[400]',
                fontSize: 'text-[13px]',

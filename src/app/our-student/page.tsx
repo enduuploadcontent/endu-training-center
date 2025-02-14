@@ -1,6 +1,6 @@
 'use client';
 
-import ShowcaseCard from '@/components/showcase/showcaseCard';
+import OurStudentCard from '@/components/ourStudent/ourStudentCard';
 import CustomTypography from '@/components/ui/typography';
 import buddhistDayjs from '@/variables/day';
 import { showcaseList } from '@/variables/showcase/showcase-list';
@@ -26,10 +26,10 @@ export default function ShowcasePage() {
       .slice(skip, skip + 8);
 
    return (
-      <div className='flex w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
+      <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full max-w-7xl'>
             <div className='flex mobile:hidden items-center justify-between'>
-               <CustomTypography variant='h5'>ผลงานการซ่อม</CustomTypography>
+               <CustomTypography variant='h5'>นักเรียนของเรา</CustomTypography>
                <CustomTypography
                   variant='body1'
                   className='text-foreground-secondary'
@@ -37,7 +37,7 @@ export default function ShowcasePage() {
             </div>
             <div className='hidden mobile:flex items-center justify-between'>
                <CustomTypography variant='subtitle2'>
-                  ผลงานการซ่อม
+                  นักเรียนของเรา
                </CustomTypography>
                <CustomTypography
                   variant='caption1'
@@ -52,9 +52,15 @@ export default function ShowcasePage() {
             />
             <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
                {contentList.map((content, index) => (
-                  <ShowcaseCard key={index} index={index} content={content} />
+                  <OurStudentCard
+                     key={index}
+                     index={index + 1}
+                     content={content}
+                  />
                ))}
             </div>
+         </div>
+         <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-7xl'>
             <Pagination
                align='end'
                total={showcaseList.length}

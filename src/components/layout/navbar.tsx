@@ -1,6 +1,12 @@
 'use client';
 
-import React, { Dispatch, Fragment, SetStateAction, useState } from 'react';
+import React, {
+   Dispatch,
+   Fragment,
+   SetStateAction,
+   useEffect,
+   useState,
+} from 'react';
 import {
    useMotionValueEvent,
    AnimatePresence,
@@ -29,7 +35,7 @@ const menuPath = [
    },
    {
       title: 'นักเรียนของเรา',
-      href: '',
+      href: '/our-student',
    },
    {
       title: 'บทความ',
@@ -44,6 +50,10 @@ const menuPath = [
 export default function Navbar() {
    const pathname = usePathname();
    const [open, setOpen] = useState(false);
+
+   useEffect(() => {
+      setOpen(false);
+   }, [pathname]);
 
    return (
       <RemoveScroll removeScrollBar={false} enabled={open}>
@@ -142,7 +152,7 @@ function MobileMenu({
                   animate={{ x: 0 }}
                   exit={{ x: '100vw' }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className='fixed left-0 top-0 flex h-screen w-full flex-col bg-white mt-[55px] px-6 border-t-border border'
+                  className='fixed left-0 top-0 flex h-screen w-full flex-col bg-white mt-[55px] border-t-border border'
                >
                   <div className='h-screen overflow-y-scroll bg-white flex flex-col'>
                      {/* <div className='h-px w-full bg-border' /> */}
@@ -150,7 +160,7 @@ function MobileMenu({
                         <Fragment key={index}>
                            <Link
                               href={path.href}
-                              className={`hover:scale-105 transition-all duration-500 min-w-[100px] py-6 text-foreground-primary items-center flex justify-between`}
+                              className={`px-6 hover:scale-105 transition-all duration-500 min-w-[100px] py-6 text-foreground-primary items-center flex justify-between`}
                            >
                               <CustomTypography
                                  variant='subtitle1'
@@ -162,7 +172,9 @@ function MobileMenu({
                                  <ArrowRight size={24} color='#7B89A1' />
                               </div>
                            </Link>
-                           <div className='h-px w-full bg-border' />
+                           <div className='w-full px-6'>
+                              <div className='w-full h-px bg-border' />
+                           </div>
                         </Fragment>
                      ))}
                   </div>

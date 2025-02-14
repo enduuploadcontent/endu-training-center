@@ -5,6 +5,8 @@ import MaterialThemeProvider from '@/theme/material';
 import Footer from '@/components/layout/footer';
 import FloatingButton from '@/components/layout/floating';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { ConfigProvider } from 'antd';
+import { antdtheme } from '@/theme/antdtheme';
 
 export const metadata: Metadata = {
    title: 'ENDU Training Center',
@@ -35,12 +37,14 @@ export default function RootLayout({
          <link rel='manifest' href='/site.webmanifest' />
          <body className='min-h-screen'>
             <AntdRegistry>
-               <MaterialThemeProvider>
-                  <FloatingButton />
-                  <Navbar />
-                  {children}
-                  <Footer />
-               </MaterialThemeProvider>
+               <ConfigProvider theme={antdtheme}>
+                  <MaterialThemeProvider>
+                     <FloatingButton />
+                     <Navbar />
+                     {children}
+                     <Footer />
+                  </MaterialThemeProvider>
+               </ConfigProvider>
             </AntdRegistry>
          </body>
       </html>
