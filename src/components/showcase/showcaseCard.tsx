@@ -8,7 +8,7 @@ type Props = { content: any; index: number };
 export default function ShowcaseCard({ content, index }: Props) {
    return (
       <Link
-         href={`/showcase/${index}`}
+         href={`/showcase/${index + 1}`}
          className='overflow-hidden h-[540px] mobile:h-[240px] mobile:w-full relative flex items-end hover:cursor-pointer group'
       >
          <picture>

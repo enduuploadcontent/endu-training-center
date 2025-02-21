@@ -2,6 +2,7 @@
 
 import ShowcaseCard from '@/components/showcase/showcaseCard';
 import CustomTypography from '@/components/ui/typography';
+import { nonCaseSensitiveSearch, scrollToTop } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
 import { showcaseList } from '@/variables/showcase/showcase-list';
 import { MagnifyingGlass } from '@phosphor-icons/react';
@@ -15,15 +16,33 @@ export default function ShowcasePage() {
       setSkip((page - 1) * pageSize);
    };
 
-   useEffect(() => {
-      console.log(skip);
-   }, [skip]);
+   const master = showcaseList.sort((a, b) => {
+      return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
+   });
 
-   const contentList = showcaseList
-      .sort((a, b) => {
-         return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
-      })
-      .slice(skip, skip + 8);
+   const [filteredList, setFilteredList] = useState(master);
+   const [contentList, setContentList] = useState(
+      filteredList.slice(skip, skip + 8),
+   );
+   const [searchInput, setSearchInput] = useState<string>('');
+
+   const search = () => {
+      const filteredList = master.filter((d) =>
+         nonCaseSensitiveSearch(d.title, searchInput),
+      );
+      setFilteredList(filteredList);
+      onPaginationChange(1, 10);
+   };
+
+   const clear = () => {
+      setFilteredList(master);
+      onPaginationChange(1, 10);
+   };
+
+   useEffect(() => {
+      setContentList(filteredList.slice(skip, skip + 8));
+      scrollToTop()
+   }, [skip, filteredList]);
 
    return (
       <div className='flex w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
@@ -33,7 +52,7 @@ export default function ShowcasePage() {
                <CustomTypography
                   variant='body1'
                   className='text-foreground-secondary'
-               >{`ทั้งหมด ${showcaseList.length} รายการ`}</CustomTypography>
+               >{`ทั้งหมด ${filteredList.length} รายการ`}</CustomTypography>
             </div>
             <div className='hidden mobile:flex items-center justify-between'>
                <CustomTypography variant='subtitle2'>
@@ -42,13 +61,18 @@ export default function ShowcasePage() {
                <CustomTypography
                   variant='caption1'
                   className='text-foreground-secondary'
-               >{`ทั้งหมด ${showcaseList.length} รายการ`}</CustomTypography>
+               >{`ทั้งหมด ${filteredList.length} รายการ`}</CustomTypography>
             </div>
             <Input
                size='large'
                placeholder='ค้นหา'
                className='!w-[360px]'
                suffix={<MagnifyingGlass color='#7B89A1' />}
+               value={searchInput}
+               onChange={(e) => setSearchInput(e.target.value)}
+               onPressEnter={search}
+               allowClear
+               onClear={clear}
             />
             <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
                {contentList.map((content, index) => (
@@ -57,7 +81,7 @@ export default function ShowcasePage() {
             </div>
             <Pagination
                align='end'
-               total={showcaseList.length}
+               total={filteredList.length}
                current={skip / 8 + 1}
                pageSize={8}
                onChange={onPaginationChange}
@@ -65,7 +89,7 @@ export default function ShowcasePage() {
             />
             <Pagination
                align='end'
-               total={showcaseList.length}
+               total={filteredList.length}
                current={skip / 8 + 1}
                pageSize={8}
                onChange={onPaginationChange}

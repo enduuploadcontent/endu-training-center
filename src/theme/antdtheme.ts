@@ -10,4 +10,9 @@ export const antdtheme = {
       colorTextPlaceholder: '#D1D5DB',
       colorBgContainerDisabled: '#FFFFFF',
    },
+   components: {
+      Pagination: {
+         itemSize: 40,
+      },
+   },
 };
