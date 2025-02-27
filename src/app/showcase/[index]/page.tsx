@@ -45,7 +45,7 @@ export default function OurStudentDetailPage({
 
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
-         <div className='flex flex-col gap-4 w-full h-full max-w-7xl'>
+         <div className='flex flex-col gap-4 w-full h-full max-w-4xl'>
             <div className='flex mobile:hidden flex-col gap-2'>
                <CustomTypography variant='subtitle1'>
                   {content?.title}
@@ -104,7 +104,7 @@ export default function OurStudentDetailPage({
                {content.detail}
             </CustomTypography>
          </div>
-         <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-7xl'>
+         <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-4xl'>
             <Link
                href={'/showcase'}
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'

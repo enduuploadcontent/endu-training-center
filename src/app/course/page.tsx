@@ -20,7 +20,7 @@ export default function CoursePage() {
 
    const [filteredList, setFilteredList] = useState(master);
    const [contentList, setContentList] = useState(
-      filteredList.slice(skip, skip + 8),
+      filteredList.slice(skip, skip + 6),
    );
    const [searchInput, setSearchInput] = useState<string>('');
 
@@ -38,7 +38,7 @@ export default function CoursePage() {
    };
 
    useEffect(() => {
-      setContentList(filteredList.slice(skip, skip + 8));
+      setContentList(filteredList.slice(skip, skip + 6));
       scrollToTop();
    }, [skip, filteredList]);
 
@@ -70,7 +70,7 @@ export default function CoursePage() {
 
    return (
       <div className='flex w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
-         <div className='flex flex-col gap-4 w-full max-w-7xl'>
+         <div className='flex flex-col gap-4 w-full max-w-6xl'>
             <div className='flex mobile:hidden items-center justify-between'>
                <CustomTypography variant='h5'>หลักสูตร</CustomTypography>
                <CustomTypography
@@ -86,14 +86,14 @@ export default function CoursePage() {
                >{`ทั้งหมด ${filteredList.length} รายการ`}</CustomTypography>
             </div>
             <div className='flex mobile:hidden items-center justify-between'>
-               <Input
+               <Input.Search
                   size='large'
                   placeholder='ค้นหา'
                   className='!w-[360px]'
-                  suffix={<MagnifyingGlass color='#7B89A1' />}
                   value={searchInput}
                   onChange={(e) => setSearchInput(e.target.value)}
                   onPressEnter={search}
+                  onSearch={search}
                   allowClear
                   onClear={clear}
                />
@@ -124,7 +124,7 @@ export default function CoursePage() {
                            <div className='flex flex-col gap-2'>
                               <div className='flex justify-between items-center'>
                                  <LevelTag level={content.level} />
-                                 <Info size={24} color='#7B89A1' />
+                                 <Info size={24} color='#7B89A1' className='hover:cursor-pointer'/>
                               </div>
                               <div className='flex flex-col gap-1'>
                                  <CustomTypography variant='subtitle2'>
@@ -161,16 +161,16 @@ export default function CoursePage() {
             <Pagination
                align='end'
                total={filteredList.length}
-               current={skip / 8 + 1}
-               pageSize={8}
+               current={skip / 6 + 1}
+               pageSize={6}
                onChange={onPaginationChange}
                className='!flex mobile:!hidden'
             />
             <Pagination
                align='end'
                total={filteredList.length}
-               current={skip / 8 + 1}
-               pageSize={8}
+               current={skip / 6 + 1}
+               pageSize={6}
                onChange={onPaginationChange}
                simple
                className='mobile:!flex !hidden'

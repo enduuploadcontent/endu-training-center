@@ -77,7 +77,7 @@ function WhyLearningComponent() {
    };
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex flex-col gap-4 mobile:items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-4 mobile:items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -243,7 +243,7 @@ function ShowcaseComponent() {
 
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 relative corner-bg-top-right overflow-hidden'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -336,7 +336,7 @@ function ShowcaseComponent() {
 function ResponseComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)] bg-contain'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -471,7 +471,7 @@ function PathToSuccessComponent() {
 
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -564,7 +564,7 @@ function PathToSuccessComponent() {
 function MapComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex mobile:flex-col gap-6 mobile:gap-4 justify-between items-start'>
+         <div className='max-w-6xl w-full flex mobile:flex-col gap-6 mobile:gap-4 justify-between items-start'>
             <picture className='w-full'>
                <img alt='map' src='/images/home/map.png' />
             </picture>

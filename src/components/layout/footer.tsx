@@ -20,7 +20,7 @@ export default function Footer() {
 
    return (
       <footer className={`w-full flex items-center justify-center px-8 h-[190px] mobile:px-5 mobile:h-[250px] border-t-border border`}>
-         <div className='flex mobile:flex-col mobile:gap-10 w-full max-w-7xl items-center justify-between'>
+         <div className='flex mobile:flex-col mobile:gap-10 w-full max-w-6xl items-center justify-between'>
             <div className='flex flex-col gap-4'>
                <Logo />
                <CustomTypography

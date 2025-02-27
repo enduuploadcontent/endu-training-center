@@ -86,7 +86,7 @@ function NavbarComponent({
                : 'bg-opacity-0 shadow-none'
          }`}
       >
-         <div className='flex w-full max-w-7xl items-center justify-between'>
+         <div className='flex w-full max-w-6xl items-center justify-between'>
             <Logo
                className={`transition-all duration-500 ${
                   (scrolled && pathname === '/') || pathname !== '/' || open

@@ -46,7 +46,7 @@ export default function ShowcasePage() {
 
    return (
       <div className='flex w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
-         <div className='flex flex-col gap-4 w-full max-w-7xl'>
+         <div className='flex flex-col gap-4 w-full max-w-6xl'>
             <div className='flex mobile:hidden items-center justify-between'>
                <CustomTypography variant='h5'>ผลงานการซ่อม</CustomTypography>
                <CustomTypography
