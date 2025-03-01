@@ -10,9 +10,10 @@ import { useEffect, useState } from 'react';
 import { nonCaseSensitiveSearch, scrollToTop } from '@/utils/misc';
 
 export default function ShowcasePage() {
+   const pageSize = 8;
    const [skip, setSkip] = useState<number>(0);
 
-   const onPaginationChange = (page: number, pageSize: number) => {
+   const onPaginationChange = (page: number) => {
       setSkip((page - 1) * pageSize);
    };
 
@@ -22,7 +23,7 @@ export default function ShowcasePage() {
 
    const [filteredList, setFilteredList] = useState(master);
    const [contentList, setContentList] = useState(
-      filteredList.slice(skip, skip + 8),
+      filteredList.slice(skip, skip + pageSize),
    );
    const [searchInput, setSearchInput] = useState<string>('');
 
@@ -31,16 +32,16 @@ export default function ShowcasePage() {
          nonCaseSensitiveSearch(d.title, searchInput),
       );
       setFilteredList(filteredList);
-      onPaginationChange(1, 10);
+      onPaginationChange(1);
    };
 
    const clear = () => {
       setFilteredList(master);
-      onPaginationChange(1, 10);
+      onPaginationChange(1);
    };
 
    useEffect(() => {
-      setContentList(filteredList.slice(skip, skip + 8));
+      setContentList(filteredList.slice(skip, skip + pageSize));
       scrollToTop();
    }, [skip, filteredList]);
 
@@ -63,16 +64,14 @@ export default function ShowcasePage() {
                   className='text-foreground-secondary'
                >{`ทั้งหมด ${filteredList.length} รายการ`}</CustomTypography>
             </div>
-            <Input
+            <Input.Search
                size='large'
                placeholder='ค้นหา'
                className='!w-[360px]'
-               suffix={<MagnifyingGlass color='#7B89A1' />}
                value={searchInput}
                onChange={(e) => setSearchInput(e.target.value)}
                onPressEnter={search}
-               allowClear
-               onClear={clear}
+               onSearch={search}
             />
             <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
                {contentList.map((content, index) => (
@@ -88,15 +87,15 @@ export default function ShowcasePage() {
             <Pagination
                align='end'
                total={filteredList.length}
-               current={skip / 8 + 1}
-               pageSize={8}
+               current={skip / pageSize + 1}
+               pageSize={pageSize}
                onChange={onPaginationChange}
                className='!flex mobile:!hidden'
             />
             <Pagination
                total={filteredList.length}
-               current={skip / 8 + 1}
-               pageSize={8}
+               current={skip / pageSize + 1}
+               pageSize={pageSize}
                onChange={onPaginationChange}
                simple
                className='mobile:!flex !hidden !items-center'
