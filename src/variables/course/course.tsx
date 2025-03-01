@@ -1,4 +1,36 @@
-export const courseList = [
+type LecturerType = {
+   img: string;
+   name: string;
+};
+
+export type CoursrContentType = {
+   imgSrc: string;
+   level: string;
+   title: string;
+   detail: string;
+   skill: string[];
+   suitableFor: string[];
+   learningDay: number;
+   cost: number;
+   lecturer: LecturerType[];
+};
+
+const lecturer1 = {
+   img: '/images/lecturer/L1.png',
+   name: 'ทิเบต สายเสมา',
+};
+
+const lecturer2 = {
+   img: '/images/lecturer/L2.png',
+   name: 'ทิเบต สายเสมา',
+};
+
+const lecturer3 = {
+   img: '/images/lecturer/L3.png',
+   name: 'ทิเบต สายเสมา',
+};
+
+export const courseList: CoursrContentType[] = [
    {
       imgSrc: '/images/showcase/1/2.png',
       level: 'basic',
@@ -6,14 +38,14 @@ export const courseList = [
       detail:
          'Lorem ipsum dolor sit amet consectetur. Pellentes que sit id aliquam urna ornare ut.',
       skill: ['เปลี่ยนจอ', 'เปลี่ยนพอร์ทชาร์จ'],
+      suitableFor: [
+         'ผู้ไม่มีพื้นฐานด้านการซ่อม',
+         'ผู้ที่สนใจหารายได้เสริมจากการซ่อมมือถือ',
+         'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือ',
+      ],
       learningDay: 1,
       cost: 3900,
-      lecturer: [
-         {
-            img: '',
-            name: 'ทิเบต สายเสมา',
-         },
-      ],
+      lecturer: [lecturer1],
    },
    {
       imgSrc: '/images/showcase/1/1.png',
@@ -22,14 +54,13 @@ export const courseList = [
       detail:
          'Lorem ipsum dolor sit amet consectetur. Pellentes que sit id aliquam urna ornare ut.',
       skill: ['เปลี่ยนแบต', 'เปลี่ยนจอ', 'เปลี่ยนพอร์ทชาร์จ'],
+      suitableFor: [
+         'ผู้ไม่มีพื้นฐานด้านการซ่อม',
+         'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือ',
+      ],
       learningDay: 1,
       cost: 3900,
-      lecturer: [
-         {
-            img: '',
-            name: 'ทิเบต สายเสมา',
-         },
-      ],
+      lecturer: [lecturer2, lecturer3],
    },
    {
       imgSrc: '/images/showcase/1/3.png',
@@ -38,13 +69,9 @@ export const courseList = [
       detail:
          'Lorem ipsum dolor sit amet consectetur. Pellentes que sit id aliquam urna ornare ut.',
       skill: ['แกะเครื่อง', 'เปลี่ยนแบต', 'เปลี่ยนจอ', 'เปลี่ยนพอร์ทชาร์จ'],
+      suitableFor: ['ผู้ที่สนใจหารายได้เสริมจากการซ่อมมือถือ'],
       learningDay: 1,
       cost: 3900,
-      lecturer: [
-         {
-            img: '',
-            name: 'ทิเบต สายเสมา',
-         },
-      ],
+      lecturer: [lecturer1, lecturer2, lecturer3],
    },
 ];

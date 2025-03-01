@@ -1,11 +1,9 @@
 'use client';
 
-import ShowcaseCard from '@/components/showcase/showcaseCard';
+import CourseCard from '@/components/course/courseCard';
 import CustomTypography from '@/components/ui/typography';
 import { nonCaseSensitiveSearch, scrollToTop } from '@/utils/misc';
 import { courseList } from '@/variables/course/course';
-import buddhistDayjs from '@/variables/day';
-import { CheckFat, Info, MagnifyingGlass } from '@phosphor-icons/react';
 import { Checkbox, GetProp, Input, Pagination } from 'antd';
 import { useEffect, useState } from 'react';
 
@@ -47,26 +45,6 @@ export default function CoursePage() {
    ) => {
       console.log('checked = ', checkedValues);
    };
-
-   function LevelTag({ level }: { level: string }) {
-      function label() {
-         switch (level) {
-            case 'basic':
-               return 'พื้นฐาน';
-            case 'medium':
-               return 'ปานกลาง';
-            case 'hard':
-               return 'ยาก';
-            default:
-               break;
-         }
-      }
-      return (
-         <div className='px-1.5 py-1 bg-background-blue text-brand-primary rounded-sm'>
-            <CustomTypography variant='caption2'>{label()}</CustomTypography>
-         </div>
-      );
-   }
 
    return (
       <div className='flex w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
@@ -111,51 +89,7 @@ export default function CoursePage() {
             </div>
             <div className='grid grid-cols-3 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
                {contentList.map((content, index) => (
-                  <div
-                     key={index}
-                     className='content-shadow rounded-lg flex flex-col'
-                  >
-                     <img
-                        src={content.imgSrc}
-                        className='max-h-[170px] rounded-t-lg object-cover'
-                     />
-                     <div className='p-4 flex flex-col gap-4 justify-between h-full'>
-                        <div className='flex flex-col gap-4'>
-                           <div className='flex flex-col gap-2'>
-                              <div className='flex justify-between items-center'>
-                                 <LevelTag level={content.level} />
-                                 <Info size={24} color='#7B89A1' className='hover:cursor-pointer'/>
-                              </div>
-                              <div className='flex flex-col gap-1'>
-                                 <CustomTypography variant='subtitle2'>
-                                    {content.title}
-                                 </CustomTypography>
-                                 <CustomTypography variant='caption1'>
-                                    {content.detail}
-                                 </CustomTypography>
-                              </div>
-                           </div>
-                           <div className='flex flex-col gap-2'>
-                              {content.skill.map((skill, skillIndex) => (
-                                 <div
-                                    key={skillIndex}
-                                    className='flex gap-2 items-center'
-                                 >
-                                    <CheckFat
-                                       size={16}
-                                       color='#05C65B'
-                                       weight='fill'
-                                    />
-                                    <CustomTypography variant='body1'>
-                                       {skill}
-                                    </CustomTypography>
-                                 </div>
-                              ))}
-                           </div>
-                        </div>
-                        <div className='bg-black p-1'></div>
-                     </div>
-                  </div>
+                  <CourseCard key={index} content={content} />
                ))}
             </div>
             <Pagination
