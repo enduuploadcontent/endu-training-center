@@ -5,6 +5,12 @@ export const nonCaseSensitiveSearch = (text: string, search: string) => {
    return text.toLowerCase().includes(search.toLowerCase().trim());
 };
 
+export function numberFormatter(value: number | string | undefined) {
+   const number = Number(value);
+   if (!number) return '';
+   return new Intl.NumberFormat('en-US').format(number);
+}
+
 export const cn = (...inputs: ClassValue[]) => {
    return twMerge(clsx(inputs));
 };

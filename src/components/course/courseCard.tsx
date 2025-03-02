@@ -3,7 +3,7 @@ import CustomTypography from '../ui/typography';
 import { Info, CheckFat, X, CalendarBlank } from '@phosphor-icons/react';
 import { Modal } from 'antd';
 import { CoursrContentType } from '@/variables/course/course';
-import { cn } from '@/utils/misc';
+import { cn, numberFormatter } from '@/utils/misc';
 
 type Props = {
    content: CoursrContentType;
@@ -39,7 +39,7 @@ export default function CourseCard({ content }: Props) {
       <div className='content-shadow rounded-lg flex flex-col'>
          <img
             src={content.imgSrc}
-            className='max-h-[170px] rounded-t-lg object-cover'
+            className='w-full aspect-[4/3] rounded-t-lg object-cover'
          />
          <div className='p-4 flex flex-col gap-4 justify-between h-full'>
             <div className='flex flex-col gap-4'>
@@ -154,7 +154,7 @@ export default function CourseCard({ content }: Props) {
                variant='subtitle2'
                className='text-brand-primary'
             >
-               {`${content.cost} บาท`}
+               {`${numberFormatter(content.cost)} บาท`}
             </CustomTypography>
          </div>
       </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import ShowcaseCard from '@/components/showcase/showcaseCard';
+import Notfound from '@/components/ui/notfound';
 import CustomTypography from '@/components/ui/typography';
 import { nonCaseSensitiveSearch, scrollToTop } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
@@ -47,8 +48,8 @@ export default function ShowcasePage() {
    }, [skip, filteredList]);
 
    return (
-      <div className='flex flex-col gap-4 w-full items-center justify-center mt-20 mobile:mt-14 py-8 mobile:p-6'>
-         <div className='flex flex-col gap-4 w-full max-w-6xl'>
+      <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
+         <div className='flex flex-col gap-4 w-full max-w-6xl flex-grow'>
             <div className='flex mobile:hidden items-center justify-between'>
                <CustomTypography variant='h5'>ผลงานการซ่อม</CustomTypography>
                <CustomTypography
@@ -74,30 +75,42 @@ export default function ShowcasePage() {
                onPressEnter={search}
                onSearch={search}
             />
-            <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
-               {contentList.map((content, index) => (
-                  <ShowcaseCard key={index} index={index} content={content} />
-               ))}
+            {contentList.length === 0 ? (
+               <div className='h-full w-full flex-grow flex items-center justify-center'>
+                  <Notfound />
+               </div>
+            ) : (
+               <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
+                  {contentList.map((content, index) => (
+                     <ShowcaseCard
+                        key={index}
+                        index={index}
+                        content={content}
+                     />
+                  ))}
+               </div>
+            )}
+         </div>
+         {contentList.length > 0 && (
+            <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-6xl'>
+               <Pagination
+                  align='end'
+                  total={filteredList.length}
+                  current={skip / pageSize + 1}
+                  pageSize={pageSize}
+                  onChange={onPaginationChange}
+                  className='!flex mobile:!hidden'
+               />
+               <Pagination
+                  total={filteredList.length}
+                  current={skip / pageSize + 1}
+                  pageSize={pageSize}
+                  onChange={onPaginationChange}
+                  simple
+                  className='mobile:!flex !hidden !items-center'
+               />
             </div>
-         </div>
-         <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-6xl'>
-            <Pagination
-               align='end'
-               total={filteredList.length}
-               current={skip / pageSize + 1}
-               pageSize={pageSize}
-               onChange={onPaginationChange}
-               className='!flex mobile:!hidden'
-            />
-            <Pagination
-               total={filteredList.length}
-               current={skip / pageSize + 1}
-               pageSize={pageSize}
-               onChange={onPaginationChange}
-               simple
-               className='mobile:!flex !hidden !items-center'
-            />
-         </div>
+         )}
       </div>
    );
 }
