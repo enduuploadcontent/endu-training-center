@@ -3,7 +3,7 @@ type LecturerType = {
    name: string;
 };
 
-export type CoursrContentType = {
+export type CourseContentType = {
    imgSrc: string;
    level: string;
    title: string;
@@ -30,7 +30,7 @@ const lecturer3 = {
    name: 'ทิเบต สายเสมา',
 };
 
-export const courseList: CoursrContentType[] = [
+export const courseList: CourseContentType[] = [
    {
       imgSrc: '/images/showcase/1/2.png',
       level: 'basic',

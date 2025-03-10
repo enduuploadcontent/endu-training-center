@@ -1,17 +1,19 @@
 'use client';
 
-import OurStudentCard from '@/components/ourStudent/ourStudentCard';
+import PostCard from '@/components/post/postCard';
+import ShowcaseCard from '@/components/showcase/showcaseCard';
+import Notfound from '@/components/ui/notfound';
 import CustomTypography from '@/components/ui/typography';
 import buddhistDayjs from '@/variables/day';
-import { showcaseList } from '@/variables/showcase/showcase-list';
-import Notfound from '@/components/ui/notfound';
+import { postList } from '@/variables/post/post-list';
 
 export default function ShowcasePage() {
-   const master = showcaseList.sort((a, b) => {
+   const master = postList.sort((a, b) => {
       return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
    });
 
    // const pageSize = 8;
+
    // const [skip, setSkip] = useState<number>(0);
 
    // const onPaginationChange = (page: number) => {
@@ -44,18 +46,16 @@ export default function ShowcasePage() {
 
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
-         <div className='flex flex-col gap-4 w-full max-w-6xl h-full flex-grow'>
+         <div className='flex flex-col gap-4 w-full max-w-6xl flex-grow'>
             <div className='flex mobile:hidden items-center justify-between'>
-               <CustomTypography variant='h5'>นักเรียนของเรา</CustomTypography>
+               <CustomTypography variant='h5'>บทความ</CustomTypography>
                <CustomTypography
                   variant='body1'
                   className='text-foreground-secondary'
                >{`ทั้งหมด ${master.length} รายการ`}</CustomTypography>
             </div>
             <div className='hidden mobile:flex items-center justify-between'>
-               <CustomTypography variant='subtitle2'>
-                  นักเรียนของเรา
-               </CustomTypography>
+               <CustomTypography variant='subtitle2'>บทความ</CustomTypography>
                <CustomTypography
                   variant='caption1'
                   className='text-foreground-secondary'
@@ -75,11 +75,11 @@ export default function ShowcasePage() {
                   <Notfound />
                </div>
             ) : (
-               <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
+               <div className='grid grid-cols-3 gap-3 w-full mobile:grid-cols-1 mobile:gap-4'>
                   {master.map((content, index) => (
-                     <OurStudentCard
+                     <PostCard
                         key={index}
-                        index={index + 1}
+                        index={index}
                         content={content}
                      />
                   ))}

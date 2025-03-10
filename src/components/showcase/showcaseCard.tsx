@@ -29,7 +29,6 @@ export default function ShowcaseCard({ content, index }: Props) {
                <CustomTypography variant='body1'>
                   {buddhistDayjs(content.date).format('DD MMM BB')}
                </CustomTypography>
-
                <CustomTypography variant='body1' className={`underline`}>
                   อ่านเพิ่มเติม
                </CustomTypography>
