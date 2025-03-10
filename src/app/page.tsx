@@ -5,7 +5,6 @@ import { cn } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
 import { homePageCarousel } from '@/variables/home/image-carousel';
 import { showcaseList } from '@/variables/showcase/showcase-list';
-import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { Carousel, ConfigProvider } from 'antd';
 import { motion } from 'framer-motion';
 
@@ -23,52 +22,6 @@ export default function HomePage() {
       </div>
    );
 }
-
-const LeftArrow = ({
-   className: arrowClassName,
-   currentSlide,
-   slideCount,
-   additionClassName,
-   ...restArrowProps
-}: any) => {
-   return (
-      <CaretLeft
-         // IMPORTANT: do not spread props after className otherwise it will be overwritten by only slick carousel classes
-         {...restArrowProps}
-         className={cn(
-            'left-5 !z-10 !w-14 !h-14',
-            {
-               'color-disabled': Number(currentSlide) === 0,
-            },
-            arrowClassName,
-            additionClassName,
-         )}
-      />
-   );
-};
-
-const RightArrow = ({
-   className: arrowClassName,
-   currentSlide,
-   slideCount,
-   additionClassName,
-   ...restArrowProps
-}: any) => {
-   return (
-      <CaretRight
-         // IMPORTANT: do not spread props after className otherwise it will be overwritten by only slick carousel classes
-         {...restArrowProps}
-         className={cn(
-            'right-5 !z-10 !w-14 !h-14',
-            {
-               'color-disabled': Number(currentSlide) === 0,
-            },
-            additionClassName,
-            arrowClassName,
-         )}
-      />
-   );
-};
 
 function CarouselComponent() {
    return (
@@ -124,7 +77,7 @@ function WhyLearningComponent() {
    };
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex flex-col gap-4 mobile:items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-4 mobile:items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -290,7 +243,7 @@ function ShowcaseComponent() {
 
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 relative corner-bg-top-right overflow-hidden'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -341,8 +294,8 @@ function ShowcaseComponent() {
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
                            {/* <Link
-                              href={`/showcase/${index}`}
-                           > */}
+                           href={`/showcase/${index}`}
+                        > */}
                            <CustomTypography
                               variant='body1'
                               className={`underline`}
@@ -361,8 +314,8 @@ function ShowcaseComponent() {
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
                            {/* <Link
-                              href={`/showcase/${index}`}
-                           > */}
+                           href={`/showcase/${index}`}
+                        > */}
                            <CustomTypography
                               variant='caption1'
                               className={`underline`}
@@ -383,7 +336,7 @@ function ShowcaseComponent() {
 function ResponseComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 text-white bg-[url(/images/home/respone-bg.png)] bg-contain'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -518,7 +471,7 @@ function PathToSuccessComponent() {
 
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
+         <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
             <motion.div
                initial={{ scale: 0 }}
                whileInView={{ scale: 1 }}
@@ -611,7 +564,7 @@ function PathToSuccessComponent() {
 function MapComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
-         <div className='max-w-7xl w-full flex mobile:flex-col gap-6 mobile:gap-4 justify-between items-start'>
+         <div className='max-w-6xl w-full flex mobile:flex-col gap-6 mobile:gap-4 justify-between items-start'>
             <picture className='w-full'>
                <img alt='map' src='/images/home/map.png' />
             </picture>

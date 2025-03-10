@@ -149,3 +149,13 @@ body {
    transform: scale(1.1);
    transition: transform 0.3s ease-in-out;
 }
+
+.ant-pagination-item-link {
+   display: flex !important;
+   justify-content: center !important;
+   align-items: center !important;
+}
+
+.ant-pagination-simple-pager {
+   height: 40px !important;
+}
