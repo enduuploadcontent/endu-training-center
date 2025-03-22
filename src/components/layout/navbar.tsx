@@ -39,11 +39,11 @@ const menuPath = [
    },
    {
       title: 'บทความ',
-      href: '',
+      href: '/post',
    },
    {
       title: 'เกี่ยวกับเรา',
-      href: '',
+      href: '/about-us',
    },
 ];
 

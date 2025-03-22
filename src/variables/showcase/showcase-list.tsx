@@ -2,6 +2,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -41,6 +42,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นสองฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -67,6 +69,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นสี่ฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -93,6 +96,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -106,6 +110,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -119,6 +124,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -132,6 +138,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -145,6 +152,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -158,6 +166,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [
@@ -171,6 +180,7 @@ export const showcaseList = [
    {
       title: 'นักเรียนรุ่นแรกฝึกลอกจอ',
       date: '2024-12-01',
+      minuteRead: 3,
       thumbnailSrc: '/images/showcase/1/2.png',
       videoSrc: '/video/showcase/1/mock.mp4',
       imgSrc: [

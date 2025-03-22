@@ -1,20 +1,14 @@
 'use client';
 
-import OurStudentCard from '@/components/ourStudent/ourStudentCard';
-import DownloadableImage from '@/components/ui/downloadableImage';
 import CustomTypography from '@/components/ui/typography';
-import { cn } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
-import { showcaseList } from '@/variables/showcase/showcase-list';
+import { postList } from '@/variables/post/post-list';
 import {
    ArrowLeft,
-   CaretLeft,
-   CaretRight,
-   MagnifyingGlass,
 } from '@phosphor-icons/react';
-import { Carousel, ConfigProvider, Image, Input, Pagination } from 'antd';
+import { Carousel, ConfigProvider } from 'antd';
 import Link from 'next/link';
-import { use, useEffect, useState } from 'react';
+import { use } from 'react';
 
 export default function OurStudentDetailPage({
    params,
@@ -22,26 +16,7 @@ export default function OurStudentDetailPage({
    params: Promise<{ index: string }>;
 }) {
    const { index } = use(params);
-   const content = showcaseList[Number(index) - 1];
-   const [skip, setSkip] = useState<number>(0);
-
-   const [imgList, setImgList] = useState<string[]>(
-      content.imgSrc.slice(skip, skip + 5),
-   );
-
-   const [currentImg, setCurrentImg] = useState<string>(content.imgSrc[0]);
-
-   useEffect(() => {
-      setImgList(content.imgSrc.slice(skip, skip + 5));
-   }, [skip]);
-
-   const prevImg = () => {
-      setSkip((prev) => Math.max(prev - 1, 0));
-   };
-
-   const nextImage = () => {
-      setSkip((prev) => Math.min(prev + 1, content.imgSrc.length - 5));
-   };
+   const content = postList[Number(index) - 1];
 
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
@@ -84,7 +59,7 @@ export default function OurStudentDetailPage({
                }}
             >
                <Carousel autoplay autoplaySpeed={5000} draggable>
-                  {imgList.map((img, index) => (
+                  {content.imgSrc.map((img, index) => (
                      <img
                         key={index}
                         src={img}
@@ -100,7 +75,7 @@ export default function OurStudentDetailPage({
          </div>
          <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-4xl'>
             <Link
-               href={'/showcase'}
+               href={'/post'}
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'
             >
                <ArrowLeft size={16} />

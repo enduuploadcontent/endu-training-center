@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import CustomTypography from '../ui/typography';
 import { Info, CheckFat, X, CalendarBlank } from '@phosphor-icons/react';
 import { Modal } from 'antd';
-import { CoursrContentType } from '@/variables/course/course';
+import { CourseContentType } from '@/variables/course/course';
 import { cn, numberFormatter } from '@/utils/misc';
 
 type Props = {
-   content: CoursrContentType;
+   content: CourseContentType;
 };
 
 export default function CourseCard({ content }: Props) {
