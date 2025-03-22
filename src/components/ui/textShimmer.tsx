@@ -13,7 +13,7 @@ export type TextShimmerProps = {
 
 export function TextShimmer({
    children,
-   as: Component = 'p',
+   as: Component = 'span',
    className,
    duration = 2,
    spread = 2,
@@ -30,9 +30,9 @@ export function TextShimmer({
       <MotionComponent
          className={cn(
             'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
-            'text-transparent [--base-color:#155EEF] [--base-gradient-color:#ffffff]',
+            'text-transparent [--base-color:#155EEF] [--base-gradient-color:#A1BEF8]',
             '[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))] [background-repeat:no-repeat,padding-box]',
-            'dark:[--base-color:#155EEF] dark:[--base-gradient-color:#ffffff] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
+            'dark:[--base-color:#155EEF] dark:[--base-gradient-color:#A1BEF8] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
             className,
          )}
          initial={{ backgroundPosition: '100% center' }}
