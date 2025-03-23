@@ -20,7 +20,8 @@ export default withMT({
          colors: {
             brand: {
                primary: '#155EEF',
-               logo: '#114BBF'
+               logo: '#114BBF',
+               dark: '#0C3689'
             },
             foreground: {
                primary: '#0A0A0A',
