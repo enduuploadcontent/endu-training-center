@@ -82,6 +82,7 @@ export default function AboutUsPage() {
                   url='https://www.youtube.com/watch?v=EEWf08XQYcA'
                   height={'100%'}
                   width='100%'
+                  playing
                />
             </div>
          </div>
