@@ -19,7 +19,9 @@ export default function Footer() {
    ];
 
    return (
-      <footer className={`w-full flex items-center justify-center px-8 h-[190px] mobile:px-5 mobile:h-[250px] border-t-border border`}>
+      <footer
+         className={`w-full flex items-center justify-center px-8 h-[190px] mobile:px-5 mobile:h-[250px] border-t-border border`}
+      >
          <div className='flex mobile:flex-col mobile:gap-10 w-full max-w-6xl items-center justify-between'>
             <div className='flex flex-col gap-4'>
                <Logo />
@@ -29,7 +31,6 @@ export default function Footer() {
                >
                   Copyright © 2024 ENDU MOBILE REPAIR SCHOOL
                </CustomTypography>
-               
             </div>
             <div className='flex gap-2 mobile:gap-3'>
                {socialUrls.map((item, index) => (
@@ -51,11 +52,11 @@ export default function Footer() {
                ))}
             </div>
             <CustomTypography
-                  variant='caption1'
-                  className='hidden mobile:flex drop-shadow-lg'
-               >
-                  Copyright © 2024 ENDU MOBILE REPAIR SCHOOL
-               </CustomTypography>
+               variant='caption1'
+               className='hidden mobile:flex drop-shadow-lg'
+            >
+               Copyright © 2024 ENDU MOBILE REPAIR SCHOOL
+            </CustomTypography>
          </div>
       </footer>
    );

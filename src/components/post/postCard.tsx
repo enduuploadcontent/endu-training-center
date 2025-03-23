@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CustomTypography from '../ui/typography';
-import { Info, CheckFat, X, CalendarBlank } from '@phosphor-icons/react';
-import { Modal } from 'antd';
-import { CourseContentType } from '@/variables/course/course';
-import { cn, numberFormatter } from '@/utils/misc';
 import { PostContentType } from '@/variables/post/post-list';
 import buddhistDayjs from '@/variables/day';
 import Link from 'next/link';
@@ -26,6 +22,7 @@ export default function PostCard({ content, index }: Props) {
          >
             <img
                src={content.thumbnailSrc}
+               alt='thumbnail'
                className='w-full aspect-[4/3] rounded-t-lg object-cover'
             />
             <div className='p-4 flex flex-col gap-4 justify-between h-full'>
@@ -42,7 +39,11 @@ export default function PostCard({ content, index }: Props) {
                      </CustomTypography>
                   </div>
                   <div className='flex gap-2.5 items-center'>
-                     <img src='/images/circle-logo.png' className='w-8 h-8' />
+                     <img
+                        src='/images/circle-logo.png'
+                        alt='logo'
+                        className='w-8 h-8'
+                     />
                      <div className='flex flex-col text-foreground-secondary'>
                         <CustomTypography variant='overline1'>
                            ENDU Team

@@ -2,7 +2,7 @@
 
 import { TextShimmer } from '@/components/ui/textShimmer';
 import CustomTypography from '@/components/ui/typography';
-import { animate, useMotionValue, motion, useInView } from 'framer-motion';
+import { animate, useMotionValue, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
@@ -98,18 +98,22 @@ export default function AboutUsPage() {
                <div className='flex justify-between mobile:grid grid-cols-2 mobile:gap-3'>
                   <img
                      src='/images/about-us/factory-1.png'
+                     alt='factory-1'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-2.png'
+                     alt='factory-2'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-3.png'
+                     alt='factory-3'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-4.png'
+                     alt='factory-4'
                      className='h-[70px]'
                   />
                </div>
@@ -164,6 +168,7 @@ export default function AboutUsPage() {
                         <img
                            key={index}
                            src={entry}
+                           alt={`img-${index}`}
                            className='h-[360px] mobile:h-[160px] aspect-square object-cover'
                         />
                      ),
@@ -187,6 +192,7 @@ export default function AboutUsPage() {
                </CustomTypography>
                <img
                   src='/images/about-us/pointer.png'
+                  alt='pointer'
                   className='w-7 h-7 mobile:w-5 mobile:h-5 absolute -bottom-1 -right-1'
                />
                <span className='shape'>

@@ -1,30 +1,46 @@
-import { Image } from 'antd'
+import { Image } from 'antd';
 import {
    ArrowClockwise,
    ArrowCounterClockwise,
    DownloadSimple,
    MagnifyingGlassMinus,
    MagnifyingGlassPlus,
-} from '@phosphor-icons/react'
-import { downloadFile } from '@/utils/misc'
+} from '@phosphor-icons/react';
+import { useState } from 'react';
 
 type Props = {
-   src: string
-   className: string
-}
+   src: string[];
+   className: string;
+};
 
-export default function DownloadableImage({ src, className }: Props) {
-   const name = src.split('/').pop() ?? ''
+export default function DownloadableImageList({ src, className }: Props) {
+   const [current, setCurrent] = useState(0);
+   const onDownload = () => {
+      const url = src[current];
+      const filename = url.split('/').pop() ?? '';
+
+      fetch(url)
+         .then((response) => response.blob())
+         .then((blob) => {
+            const blobUrl = URL.createObjectURL(new Blob([blob]));
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            URL.revokeObjectURL(blobUrl);
+            link.remove();
+         });
+   };
 
    return (
-      <Image
-         src={src}
-         alt={src}
-         className={className}
+      <Image.PreviewGroup
          preview={{
             toolbarRender: (
                _,
-               { actions: { onZoomOut, onZoomIn, onRotateLeft, onRotateRight } }
+               {
+                  actions: { onZoomOut, onZoomIn, onRotateLeft, onRotateRight },
+               },
             ) => (
                <div className='flex flex-col gap-2 justify-center '>
                   <div className='flex  px-6 py-2 gap-6 rounded-full  bg-[#00000040]'>
@@ -32,11 +48,18 @@ export default function DownloadableImage({ src, className }: Props) {
                      <MagnifyingGlassPlus size={24} onClick={onZoomIn} />
                      <ArrowCounterClockwise size={24} onClick={onRotateLeft} />
                      <ArrowClockwise size={24} onClick={onRotateRight} />
-                     <DownloadSimple size={24} onClick={() => downloadFile(name, src)} />
+                     <DownloadSimple size={24} onClick={onDownload} />
                   </div>
                </div>
             ),
+            onChange: (index) => {
+               setCurrent(index);
+            },
          }}
-      />
-   )
+      >
+         {src.map((src, index) => (
+            <Image src={src} key={index} alt={src} className={className} />
+         ))}
+      </Image.PreviewGroup>
+   );
 }

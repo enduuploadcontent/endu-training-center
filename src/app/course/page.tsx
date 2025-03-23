@@ -6,65 +6,6 @@ import CustomTypography from '@/components/ui/typography';
 import { courseList } from '@/variables/course/course';
 
 export default function CoursePage() {
-   const master = courseList;
-
-   // const pageSize = 6;
-
-   // const [skip, setSkip] = useState<number>(0);
-
-   // const onPaginationChange = (page: number) => {
-   //    setSkip((page - 1) * pageSize);
-   // };
-
-   // const [filteredList, setFilteredList] = useState(master);
-   // const [contentList, setContentList] = useState(
-   //    filteredList.slice(skip, skip + pageSize),
-   // );
-   // const [searchInput, setSearchInput] = useState<string>('');
-   // const [levelFilter, setLevelFilter] = useState<string[]>([]);
-
-   // const search = () => {
-   //    const filteredList = master.filter(
-   //       (d) =>
-   //          levelFilter.includes(d.level) &&
-   //          nonCaseSensitiveSearch(d.title, searchInput),
-   //    );
-   //    setFilteredList(filteredList);
-   //    onPaginationChange(1);
-   // };
-
-   // const clear = () => {
-   //    setFilteredList(master);
-   //    onPaginationChange(1);
-   // };
-
-   // useEffect(() => {
-   //    setContentList(filteredList.slice(skip, skip + pageSize));
-   //    scrollToTop();
-   // }, [skip, filteredList]);
-
-   // const onLevelFilterChange = () => {
-   //    if (levelFilter.length > 0) {
-   //       const filteredList = master.filter(
-   //          (d) =>
-   //             levelFilter.includes(d.level) &&
-   //             nonCaseSensitiveSearch(d.title, searchInput),
-   //       );
-   //       setFilteredList(filteredList);
-   //    } else {
-   //       const filteredList = master.filter((d) =>
-   //          nonCaseSensitiveSearch(d.title, searchInput),
-   //       );
-   //       setFilteredList(filteredList);
-   //    }
-   //    onPaginationChange(1);
-   // };
-
-   // useEffect(() => {
-   //    onLevelFilterChange();
-   //    scrollToTop();
-   // }, [levelFilter]);
-
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full max-w-6xl flex-grow'>
@@ -76,63 +17,20 @@ export default function CoursePage() {
                   variant='body1'
                   mobileVariant='caption1'
                   className='text-foreground-secondary'
-               >{`ทั้งหมด ${master.length} รายการ`}</CustomTypography>
+               >{`ทั้งหมด ${courseList.length} รายการ`}</CustomTypography>
             </div>
-            {/* <div className='flex mobile:flex-col mobile:gap-4 items-center mobile:items-start justify-between'>
-               <Input.Search
-                  size='large'
-                  placeholder='ค้นหา'
-                  className='!w-[360px]'
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  onPressEnter={search}
-                  onSearch={search}
-               />
-               <div className='flex gap-4 items-center'>
-                  <CustomTypography variant='body1'>ระดับ:</CustomTypography>
-                  <Checkbox.Group
-                     options={[
-                        { label: 'พื้นฐาน', value: 'basic' },
-                        { label: 'ปานกลาง', value: 'medium' },
-                        { label: 'ยาก', value: 'hard' },
-                     ]}
-                     value={levelFilter}
-                     onChange={setLevelFilter}
-                  />
-               </div>
-            </div> */}
-            {master.length === 0 ? (
+            {courseList.length === 0 ? (
                <div className='h-full w-full flex-grow flex items-center justify-center'>
                   <Notfound />
                </div>
             ) : (
                <div className='grid grid-cols-3 w-full mobile:grid-cols-1 gap-4'>
-                  {master.map((content, index) => (
+                  {courseList.map((content, index) => (
                      <CourseCard key={index} content={content} />
                   ))}
                </div>
             )}
          </div>
-         {/* {contentList.length > 0 && (
-            <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-6xl'>
-               <Pagination
-                  align='end'
-                  total={filteredList.length}
-                  current={skip / pageSize + 1}
-                  pageSize={pageSize}
-                  onChange={onPaginationChange}
-                  className='!flex mobile:!hidden'
-               />
-               <Pagination
-                  total={filteredList.length}
-                  current={skip / pageSize + 1}
-                  pageSize={pageSize}
-                  onChange={onPaginationChange}
-                  simple
-                  className='mobile:!flex !hidden !items-center'
-               />
-            </div>
-         )} */}
       </div>
    );
 }

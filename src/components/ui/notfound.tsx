@@ -8,6 +8,7 @@ export default function Notfound({}: Props) {
       <div className='flex flex-col gap-5 items-center text-foreground-secondary'>
          <img
             src='/images/notfound.png'
+            alt='not-found'
             className='w-[120px] h-[120px] object-contain'
          />
          <CustomTypography

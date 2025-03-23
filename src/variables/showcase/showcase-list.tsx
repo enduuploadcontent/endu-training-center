@@ -26,8 +26,8 @@ export const showcaseList = [
             scelerisque aliquet tellus volutpat arcu. Pretium aenean felis felis
             at dolor quis id turpis. Velit in risus id tellus sagittis
             facilisis. Convallis eget sagittis sit senectus eget congue.
-            <br/>
-            <br/>
+            <br />
+            <br />
             Lorem ipsum dolor sit amet consectetur. Auctor lectus imperdiet
             commodo pretium. Mattis in habitant odio malesuada dis tristique.
             Amet amet vel justo viverra sit eu leo ac. Tristique nec velit

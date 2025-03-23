@@ -8,7 +8,7 @@ import { Carousel, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { use } from 'react';
 
-export default function OurStudentDetailPage({
+export default function PostDetailPage({
    params,
 }: {
    params: Promise<{ index: string }>;
@@ -26,6 +26,7 @@ export default function OurStudentDetailPage({
                <div className='flex gap-2.5 items-center'>
                   <img
                      src='/images/circle-logo.png'
+                     alt='logo'
                      className='w-10 h-10 mobile:w-8 mobile:h-8 '
                   />
                   <div className='flex flex-col text-foreground-secondary'>
@@ -65,6 +66,7 @@ export default function OurStudentDetailPage({
                      <img
                         key={index}
                         src={img}
+                        alt={`img-${index}`}
                         className='overflow-hidden aspect-[4/3] w-full object-cover'
                      />
                   ))}

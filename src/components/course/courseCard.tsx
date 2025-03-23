@@ -39,6 +39,7 @@ export default function CourseCard({ content }: Props) {
       <div className='content-shadow rounded-lg flex flex-col'>
          <img
             src={content.imgSrc}
+            alt='content-img'
             className='w-full aspect-[4/3] rounded-t-lg object-cover'
          />
          <div className='p-4 flex flex-col gap-4 justify-between h-full'>
@@ -121,6 +122,7 @@ export default function CourseCard({ content }: Props) {
                <div className='flex gap-2 items-center'>
                   <img
                      src={content.lecturer[0].img}
+                     alt='lecturer'
                      className='h-8 w-8 rounded-full object-contain'
                   />
                   <CustomTypography variant='caption1'>
@@ -134,6 +136,7 @@ export default function CourseCard({ content }: Props) {
                         <img
                            key={lecturerIndex}
                            src={lecturer.img}
+                           alt={`lecturer-${lecturerIndex}`}
                            className={cn(
                               'h-8 w-8 rounded-full object-contain -ml-2 bg-white',
                            )}

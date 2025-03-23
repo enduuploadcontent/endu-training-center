@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 var buddhistEra = require('dayjs/plugin/buddhistEra');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 import 'dayjs/locale/th';

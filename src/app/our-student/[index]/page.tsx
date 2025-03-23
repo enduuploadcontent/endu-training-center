@@ -1,14 +1,11 @@
 'use client';
 
-import OurStudentCard from '@/components/ourStudent/ourStudentCard';
-import DownloadableImage from '@/components/ui/downloadableImage';
+import DownloadableImageList from '@/components/ui/downloadableImage';
 import CustomTypography from '@/components/ui/typography';
-import buddhistDayjs from '@/variables/day';
 import { showcaseList } from '@/variables/showcase/showcase-list';
-import { ArrowLeft, MagnifyingGlass } from '@phosphor-icons/react';
-import { Image, Input, Pagination } from 'antd';
+import { ArrowLeft } from '@phosphor-icons/react';
 import Link from 'next/link';
-import { use, useEffect, useState } from 'react';
+import { use } from 'react';
 
 export default function OurStudentDetailPage({
    params,
@@ -34,13 +31,11 @@ export default function OurStudentDetailPage({
                </CustomTypography>
             </div>
             <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
-               {content?.imgSrc.map((img, index) => (
-                  <DownloadableImage
-                     key={index}
-                     src={img}
-                     className='overflow-hidden aspect-square mobile:h-[150px] mobile:min-h-[150px] w-full object-cover'
-                  />
-               ))}
+               <DownloadableImageList
+                  key={index}
+                  src={content.imgSrc}
+                  className='overflow-hidden aspect-square mobile:h-[150px] mobile:min-h-[150px] w-full object-cover'
+               />
             </div>
          </div>
          <div className='flex w-full py-2 items-center justify-end mobile:justify-center max-w-6xl'>
