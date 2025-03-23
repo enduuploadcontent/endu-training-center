@@ -43,12 +43,32 @@ export default function DownloadableImageList({ src, className }: Props) {
                },
             ) => (
                <div className='flex flex-col gap-2 justify-center '>
-                  <div className='flex  px-6 py-2 gap-6 rounded-full  bg-[#00000040]'>
-                     <MagnifyingGlassMinus size={24} onClick={onZoomOut} />
-                     <MagnifyingGlassPlus size={24} onClick={onZoomIn} />
-                     <ArrowCounterClockwise size={24} onClick={onRotateLeft} />
-                     <ArrowClockwise size={24} onClick={onRotateRight} />
-                     <DownloadSimple size={24} onClick={onDownload} />
+                  <div className='flex px-6 py-2 gap-6 rounded-full  bg-[#00000040]'>
+                     <MagnifyingGlassMinus
+                        size={24}
+                        onClick={onZoomOut}
+                        className='hover:cursor-pointer'
+                     />
+                     <MagnifyingGlassPlus
+                        size={24}
+                        onClick={onZoomIn}
+                        className='hover:cursor-pointer'
+                     />
+                     <ArrowCounterClockwise
+                        size={24}
+                        onClick={onRotateLeft}
+                        className='hover:cursor-pointer'
+                     />
+                     <ArrowClockwise
+                        size={24}
+                        onClick={onRotateRight}
+                        className='hover:cursor-pointer'
+                     />
+                     <DownloadSimple
+                        size={24}
+                        onClick={onDownload}
+                        className='hover:cursor-pointer'
+                     />
                   </div>
                </div>
             ),
