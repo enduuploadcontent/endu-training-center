@@ -15,8 +15,19 @@ interface Props extends Omit<TypographyProps, 'variant'> {
       | 'caption2'
       | 'overline1'
       | 'overline2';
+   mobileVariant?: Props['variant']; // New prop for mobile variant
 }
 
-export default function CustomTypography(props: Props) {
-   return <Typography {...(props as any)} />;
+export default function CustomTypography({
+   variant,
+   mobileVariant,
+   ...rest
+}: Props) {
+   // Use mobileVariant if screen size is small, else use variant
+   const appliedVariant =
+      typeof window !== 'undefined' && window.innerWidth <= 600
+         ? mobileVariant || variant
+         : variant;
+
+   return <Typography variant={appliedVariant} {...(rest as any)} />;
 }
