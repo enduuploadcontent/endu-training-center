@@ -160,6 +160,10 @@ function MobileMenu({
                         <Fragment key={index}>
                            <Link
                               href={path.href}
+                              onClick={() => {
+                                 if (pathname.includes(path.href))
+                                    setOpen(false);
+                              }}
                               className={`px-6 hover:scale-105 transition-all duration-500 min-w-[100px] py-6 text-foreground-primary items-center flex justify-between`}
                            >
                               <CustomTypography

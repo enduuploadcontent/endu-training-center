@@ -88,12 +88,10 @@ function WhyLearningComponent() {
                }}
                className='w-fit mobile:w-full'
             >
-               <CustomTypography variant='h5' className='w-fit mobile:hidden'>
-                  ทำไมต้องเรียนที่ ENDU
-               </CustomTypography>
                <CustomTypography
-                  variant='subtitle2'
-                  className='w-fit hidden mobile:flex'
+                  variant='h5'
+                  mobileVariant='subtitle2'
+                  className='w-fit'
                >
                   ทำไมต้องเรียนที่ ENDU
                </CustomTypography>
@@ -254,12 +252,10 @@ function ShowcaseComponent() {
                }}
                className='w-fit mobile:w-full'
             >
-               <CustomTypography variant='h4' className='w-fit mobile:hidden'>
-                  ENDU Show case
-               </CustomTypography>
                <CustomTypography
-                  variant='subtitle2'
-                  className='w-fit hidden mobile:flex'
+                  variant='h4'
+                  mobileVariant='subtitle2'
+                  className='w-fit'
                >
                   ENDU Show case
                </CustomTypography>
@@ -285,12 +281,18 @@ function ShowcaseComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
-                        <CustomTypography variant='subtitle1'>
+                     <div className='flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+                        <CustomTypography
+                           variant='subtitle1'
+                           mobileVariant='subtitle3'
+                        >
                            {content.title}
                         </CustomTypography>
                         <div className='flex justify-between'>
-                           <CustomTypography variant='body1'>
+                           <CustomTypography
+                              variant='body1'
+                              mobileVariant='caption1'
+                           >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
                            {/* <Link
@@ -298,26 +300,7 @@ function ShowcaseComponent() {
                         > */}
                            <CustomTypography
                               variant='body1'
-                              className={`underline`}
-                           >
-                              อ่านเพิ่มเติม
-                           </CustomTypography>
-                           {/* </Link> */}
-                        </div>
-                     </div>
-                     <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
-                        <CustomTypography variant='subtitle3'>
-                           {content.title}
-                        </CustomTypography>
-                        <div className='flex justify-between'>
-                           <CustomTypography variant='caption1'>
-                              {buddhistDayjs(content.date).format('DD MMM BB')}
-                           </CustomTypography>
-                           {/* <Link
-                           href={`/showcase/${index}`}
-                        > */}
-                           <CustomTypography
-                              variant='caption1'
+                              mobileVariant='caption1'
                               className={`underline`}
                            >
                               อ่านเพิ่มเติม
@@ -349,13 +332,8 @@ function ResponseComponent() {
             >
                <CustomTypography
                   variant='h5'
-                  className='w-fit mobile:hidden drop-shadow-lg'
-               >
-                  เสียงตอบรับจากผู้เรียน ENDU
-               </CustomTypography>
-               <CustomTypography
-                  variant='subtitle2'
-                  className='w-fit hidden mobile:flex drop-shadow-lg'
+                  mobileVariant='subtitle2'
+                  className='w-fit drop-shadow-lg'
                >
                   เสียงตอบรับจากผู้เรียน ENDU
                </CustomTypography>
@@ -389,31 +367,15 @@ function ResponseComponent() {
                                  <div className='flex flex-col gap-2 items-center text-center'>
                                     <CustomTypography
                                        variant='subtitle1'
-                                       className='w-fit mobile:hidden'
-                                    >
-                                       “ ประทับใจมาก! ”
-                                    </CustomTypography>
-                                    <CustomTypography
-                                       variant='subtitle2'
-                                       className='w-fit hidden mobile:flex'
+                                       mobileVariant='subtitle2'
+                                       className='w-fit'
                                     >
                                        “ ประทับใจมาก! ”
                                     </CustomTypography>
                                     <CustomTypography
                                        variant='body1'
-                                       className='w-fit mobile:hidden'
-                                    >
-                                       Lorem ipsum dolor sit amet consectetur.
-                                       Posuere facilisis in rutrum arcu purus
-                                       non. Accumsan sem volutpat auctor ut
-                                       nulla eu. Mus sit quisque vulputate nisl
-                                       interdum maecenas. Donec pellentesque
-                                       consequat aenean quam varius dictum
-                                       iaculis.
-                                    </CustomTypography>
-                                    <CustomTypography
-                                       variant='caption1'
-                                       className='w-fit hidden mobile:flex'
+                                       mobileVariant='caption1'
+                                       className='w-fit'
                                     >
                                        Lorem ipsum dolor sit amet consectetur.
                                        Posuere facilisis in rutrum arcu purus
@@ -427,25 +389,15 @@ function ResponseComponent() {
                                  <div className='flex flex-col gap-2 items-center'>
                                     <CustomTypography
                                        variant='subtitle2'
-                                       className='w-fit mobile:hidden'
-                                    >
-                                       คุณจักรภพ น.
-                                    </CustomTypography>
-                                    <CustomTypography
-                                       variant='subtitle3'
-                                       className='w-fit hidden mobile:flex'
+                                       mobileVariant='subtitle3'
+                                       className='w-fit'
                                     >
                                        คุณจักรภพ น.
                                     </CustomTypography>
                                     <CustomTypography
                                        variant='body1'
-                                       className='w-fit mobile:hidden text-foreground-secondary'
-                                    >
-                                       จากหลักสูตร Pro H1
-                                    </CustomTypography>
-                                    <CustomTypography
-                                       variant='caption1'
-                                       className='w-fit hidden mobile:flex text-foreground-secondary'
+                                       mobileVariant='caption1'
+                                       className='w-fit text-foreground-secondary'
                                     >
                                        จากหลักสูตร Pro H1
                                     </CustomTypography>
@@ -482,12 +434,10 @@ function PathToSuccessComponent() {
                }}
                className='w-fit mobile:w-full'
             >
-               <CustomTypography variant='h4' className='w-fit mobile:hidden'>
-                  ก้าวแรกสู่ความสำเร็จ
-               </CustomTypography>
                <CustomTypography
-                  variant='subtitle2'
-                  className='w-fit hidden mobile:flex'
+                  variant='h4'
+                  mobileVariant='subtitle2'
+                  className='w-fit'
                >
                   ก้าวแรกสู่ความสำเร็จ
                </CustomTypography>
@@ -513,12 +463,18 @@ function PathToSuccessComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
-                        <CustomTypography variant='subtitle3'>
+                     <div className='flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+                        <CustomTypography
+                           variant='subtitle3'
+                           mobileVariant='caption2'
+                        >
                            {content.title}
                         </CustomTypography>
                         <div className='flex justify-between'>
-                           <CustomTypography variant='caption1'>
+                           <CustomTypography
+                              variant='caption1'
+                              mobileVariant='overline1'
+                           >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
                            {/* <Link
@@ -526,26 +482,7 @@ function PathToSuccessComponent() {
                            > */}
                            <CustomTypography
                               variant='caption1'
-                              className={`underline`}
-                           >
-                              อ่านเพิ่มเติม
-                           </CustomTypography>
-                           {/* </Link> */}
-                        </div>
-                     </div>
-                     <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
-                        <CustomTypography variant='caption2'>
-                           {content.title}
-                        </CustomTypography>
-                        <div className='flex justify-between'>
-                           <CustomTypography variant='overline1'>
-                              {buddhistDayjs(content.date).format('DD MMM BB')}
-                           </CustomTypography>
-                           {/* <Link
-                              href={`/showcase/${index}`}
-                           > */}
-                           <CustomTypography
-                              variant='overline1'
+                              mobileVariant='overline1'
                               className={`underline`}
                            >
                               อ่านเพิ่มเติม
@@ -572,26 +509,15 @@ function MapComponent() {
                <div className='w-full flex flex-col gap-4 mobile:gap-2'>
                   <CustomTypography
                      variant='h5'
-                     className='w-fit mobile:hidden'
-                  >
-                     วิธีเดินทางมายังโรงเรียนของเรา
-                  </CustomTypography>
-                  <CustomTypography
-                     variant='subtitle2'
-                     className='w-fit hidden mobile:flex'
+                     mobileVariant='subtitle2'
+                     className='w-fit'
                   >
                      วิธีเดินทางมายังโรงเรียนของเรา
                   </CustomTypography>
                   <CustomTypography
                      variant='body2'
-                     className='w-fit mobile:hidden'
-                  >
-                     Lorem ipsum dolor sit amet consectetur. Magna feugiat
-                     pharetra id urna dictumst amet malesuada amet.
-                  </CustomTypography>
-                  <CustomTypography
-                     variant='caption1'
-                     className='w-fit hidden mobile:flex'
+                     mobileVariant='caption1'
+                     className='w-fit'
                   >
                      Lorem ipsum dolor sit amet consectetur. Magna feugiat
                      pharetra id urna dictumst amet malesuada amet.
@@ -600,13 +526,8 @@ function MapComponent() {
                <div className='w-full flex flex-col gap-4'>
                   <CustomTypography
                      variant='h5'
-                     className='w-fit mobile:hidden'
-                  >
-                     ช่องทางติดต่อเราเพิ่มเติม
-                  </CustomTypography>
-                  <CustomTypography
-                     variant='subtitle2'
-                     className='w-fit hidden mobile:flex'
+                     mobileVariant='subtitle2'
+                     className='w-fit'
                   >
                      ช่องทางติดต่อเราเพิ่มเติม
                   </CustomTypography>
@@ -623,13 +544,8 @@ function MapComponent() {
                         </div>
                         <CustomTypography
                            variant='body2'
-                           className='w-fit mobile:hidden'
-                        >
-                           เปิดทำการ : 09.00 - 18.00
-                        </CustomTypography>
-                        <CustomTypography
-                           variant='caption1'
-                           className='w-fit hidden mobile:flex'
+                           mobileVariant='caption1'
+                           className='w-fit'
                         >
                            เปิดทำการ : 09.00 - 18.00
                         </CustomTypography>
@@ -646,13 +562,8 @@ function MapComponent() {
                         </div>
                         <CustomTypography
                            variant='body2'
-                           className='w-fit mobile:hidden'
-                        >
-                           trainingcenter@endu.co.th
-                        </CustomTypography>
-                        <CustomTypography
-                           variant='caption1'
-                           className='w-fit hidden mobile:flex'
+                           mobileVariant='caption1'
+                           className='w-fit'
                         >
                            trainingcenter@endu.co.th
                         </CustomTypography>
@@ -670,14 +581,8 @@ function MapComponent() {
                         <div className='flex flex-col gap-1'>
                            <CustomTypography
                               variant='body2'
-                              className='w-fit mobile:hidden'
-                           >
-                              10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
-                              กรุงเทพมหานคร 10120
-                           </CustomTypography>
-                           <CustomTypography
-                              variant='caption1'
-                              className='w-fit hidden mobile:flex'
+                              mobileVariant='caption1'
+                              className='w-fit'
                            >
                               10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
                               กรุงเทพมหานคร 10120

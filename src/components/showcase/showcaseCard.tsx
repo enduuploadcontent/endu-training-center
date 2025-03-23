@@ -18,14 +18,15 @@ export default function ShowcaseCard({ content, index }: Props) {
                className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
             />
          </picture>
-         <div className='flex mobile:hidden flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+         <div className='flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
             <CustomTypography
                variant='subtitle1'
+               mobileVariant='caption2'
                className='line-clamp-2 break-words'
             >
                {content.title}
             </CustomTypography>
-            <div className='flex justify-between'>
+            <div className='flex justify-between mobile:hidden'>
                <CustomTypography variant='body1'>
                   {buddhistDayjs(content.date).format('DD MMM BB')}
                </CustomTypography>
@@ -33,14 +34,6 @@ export default function ShowcaseCard({ content, index }: Props) {
                   อ่านเพิ่มเติม
                </CustomTypography>
             </div>
-         </div>
-         <div className='hidden mobile:flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
-            <CustomTypography
-               variant='caption2'
-               className='mobile:line-clamp-2 mobile:break-words'
-            >
-               {content.title}
-            </CustomTypography>
          </div>
       </Link>
    );
