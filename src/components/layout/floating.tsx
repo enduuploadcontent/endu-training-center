@@ -3,14 +3,14 @@ import React from 'react';
 export default function FloatingButton() {
    const socialUrls = [
       {
-         href: 'https://www.messenger.com/',
+         href: 'https://www.facebook.com/messages/t/453806131157051',
          imgSrc: '/images/social/messenger.png',
       },
       {
-         href: 'https://www.line.me/th/',
+         href: 'https://line.me/ti/p/~0965936661',
          imgSrc: '/images/social/line.png',
       },
-      { href: `tel:0999999999`, imgSrc: '/images/social/phone.png' },
+      { href: `tel:0965936661`, imgSrc: '/images/social/phone.png', title: 'คุณแจง' },
    ];
    return (
       <div className='fixed right-4 z-50 top-1/2 -translate-y-1/2 transition-all duration-300'>

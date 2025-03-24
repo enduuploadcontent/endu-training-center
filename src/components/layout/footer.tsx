@@ -7,15 +7,21 @@ import CustomTypography from '../ui/typography';
 export default function Footer() {
    const socialUrls = [
       {
-         href: 'https://www.facebook.com',
+         href: 'https://www.facebook.com/profile.php?id=61568661807183',
          imgSrc: '/images/social/facebook.png',
       },
+      // {
+      //    href: 'https://www.instagram.com',
+      //    imgSrc: '/images/social/instagram.png',
+      // },
       {
-         href: 'https://www.instagram.com',
-         imgSrc: '/images/social/instagram.png',
+         href: 'https://www.youtube.com/@endu_school',
+         imgSrc: '/images/social/youtube.png',
       },
-      { href: 'https://www.youtube.com', imgSrc: '/images/social/youtube.png' },
-      { href: 'https://www.tiktok.com', imgSrc: '/images/social/tiktok.png' },
+      {
+         href: 'https://www.tiktok.com/@willendu6',
+         imgSrc: '/images/social/tiktok.png',
+      },
    ];
 
    return (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CustomTypography from '../ui/typography';
 import { Info, CheckFat, X, CalendarBlank } from '@phosphor-icons/react';
 import { Modal } from 'antd';
-import { CourseContentType } from '@/variables/course/course';
+import { CourseContentType, CourseLevel } from '@/variables/course/course';
 import { cn, numberFormatter } from '@/utils/misc';
 
 type Props = {
@@ -15,26 +15,6 @@ export default function CourseCard({ content }: Props) {
    const showModal = () => setIsModalOpen(true);
    const closeModal = () => setIsModalOpen(false);
 
-   function LevelTag({ level }: { level: string }) {
-      function label() {
-         switch (level) {
-            case 'basic':
-               return 'พื้นฐาน';
-            case 'medium':
-               return 'ปานกลาง';
-            case 'hard':
-               return 'ยาก';
-            default:
-               break;
-         }
-      }
-      return (
-         <div className='px-1.5 py-1 bg-background-blue text-brand-primary rounded-sm'>
-            <CustomTypography variant='caption2'>{label()}</CustomTypography>
-         </div>
-      );
-   }
-
    return (
       <div className='content-shadow rounded-lg flex flex-col'>
          <img
@@ -46,7 +26,11 @@ export default function CourseCard({ content }: Props) {
             <div className='flex flex-col gap-4'>
                <div className='flex flex-col gap-2'>
                   <div className='flex justify-between items-center'>
-                     <LevelTag level={content.level} />
+                     <div className='px-1.5 py-1 bg-background-blue text-brand-primary rounded-sm'>
+                        <CustomTypography variant='caption2'>
+                           {content.level}
+                        </CustomTypography>
+                     </div>
                      <>
                         <Info
                            size={24}
@@ -102,35 +86,31 @@ export default function CourseCard({ content }: Props) {
                      <CustomTypography variant='subtitle2'>
                         {content.title}
                      </CustomTypography>
-                     <CustomTypography variant='caption1'>
-                        {content.detail}
-                     </CustomTypography>
+                     {!!content.detail && (
+                        <CustomTypography variant='caption1'>
+                           {content.detail}
+                        </CustomTypography>
+                     )}
                   </div>
                </div>
-               <div className='flex flex-col gap-2'>
-                  {content.skill.map((skill: string, skillIndex: number) => (
-                     <div key={skillIndex} className='flex gap-2 items-center'>
-                        <CheckFat size={16} color='#05C65B' weight='fill' />
-                        <CustomTypography variant='body1'>
-                           {skill}
-                        </CustomTypography>
-                     </div>
-                  ))}
-               </div>
+               {!!content.skill?.length && (
+                  <div className='flex flex-col gap-2'>
+                     {content.skill.map((skill: string, skillIndex: number) => (
+                        <div
+                           key={skillIndex}
+                           className='flex gap-2 items-center'
+                        >
+                           <CheckFat size={16} color='#05C65B' weight='fill' />
+                           <CustomTypography variant='body1'>
+                              {skill}
+                           </CustomTypography>
+                        </div>
+                     ))}
+                  </div>
+               )}
             </div>
-            {content.lecturer.length === 1 ? (
-               <div className='flex gap-2 items-center'>
-                  <img
-                     src={content.lecturer[0].img}
-                     alt='lecturer'
-                     className='h-8 w-8 rounded-full object-contain'
-                  />
-                  <CustomTypography variant='caption1'>
-                     {content.lecturer[0].name}
-                  </CustomTypography>
-               </div>
-            ) : (
-               <div className='relative h-8 w-full flex'>
+            <div className='flex gap-2 items-center'>
+               <div className='h-8 flex pl-2'>
                   {content.lecturer.map((lecturer, lecturerIndex) => {
                      return (
                         <img
@@ -138,13 +118,16 @@ export default function CourseCard({ content }: Props) {
                            src={lecturer.img}
                            alt={`lecturer-${lecturerIndex}`}
                            className={cn(
-                              'h-8 w-8 rounded-full object-contain -ml-2 bg-white',
+                              'min-h-8 min-w-8 rounded-full object-contain -ml-2 bg-white',
                            )}
                         />
                      );
                   })}
                </div>
-            )}
+               <CustomTypography variant='caption1'>
+                  {content.lecturer.map((l) => l.name).join(' / ')}
+               </CustomTypography>
+            </div>
          </div>
          <div className='p-4 flex items-center justify-between border-t border-border'>
             <div className='flex gap-2 items-center'>

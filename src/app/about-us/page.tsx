@@ -79,7 +79,7 @@ export default function AboutUsPage() {
             </div>
             <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px]'>
                <ReactPlayer
-                  url='https://www.youtube.com/watch?v=EEWf08XQYcA'
+                  url='https://www.youtube.com/watch?v=TbP4wAB_Iwo'
                   height={'100%'}
                   width='100%'
                   playing
