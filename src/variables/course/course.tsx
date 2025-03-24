@@ -31,7 +31,7 @@ const wu = {
    name: 'Mr.Wu',
 };
 
-const not = {
+const knots = {
    img: '/images/lecturer/not.png',
    name: 'อ.น็อต',
 };
@@ -155,7 +155,7 @@ export const courseList: CourseContentType[] = [
       ],
       learningDay: 2,
       cost: 3900,
-      lecturer: [not],
+      lecturer: [knots],
    },
    {
       imgSrc: 'https://i.imgur.com/GGU9edq.jpeg',
@@ -167,6 +167,6 @@ export const courseList: CourseContentType[] = [
       ],
       learningDay: 3,
       cost: 5500,
-      lecturer: [not],
+      lecturer: [knots],
    },
 ];

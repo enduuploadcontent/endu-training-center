@@ -35,9 +35,14 @@ export default function AboutUsPage() {
    }, [carouselWidth, xCarouselTranslation]);
 
    const imgList = [
-      '/images/showcase/1/1.png',
-      '/images/showcase/1/2.png',
-      '/images/showcase/1/3.png',
+      'https://i.imgur.com/faA5Oof.jpeg',
+      'https://i.imgur.com/dVMeLb2.jpeg',
+      'https://i.imgur.com/ftNxesm.jpeg',
+      'https://i.imgur.com/L3nidgr.jpeg',
+      'https://i.imgur.com/BwVmldu.jpeg',
+      'https://i.imgur.com/clDDQ52.jpeg',
+      'https://i.imgur.com/JsakdLy.jpeg',
+      'https://i.imgur.com/VFVn7We.jpeg',
    ];
 
    return (
@@ -164,22 +169,18 @@ export default function AboutUsPage() {
                   style={{ x: xCarouselTranslation }}
                   className='flex absolute left-0 w-max'
                >
-                  {[...imgList, ...imgList, ...imgList, ...imgList].map(
-                     (entry, index) => (
-                        <img
-                           key={index}
-                           src={entry}
-                           alt={`img-${index}`}
-                           className='h-[360px] mobile:h-[160px] aspect-square object-cover'
-                        />
-                     ),
-                  )}
+                  {[...imgList, ...imgList].map((entry, index) => (
+                     <img
+                        key={index}
+                        src={entry}
+                        alt={`img-${index}`}
+                        className='h-[360px] mobile:h-[160px] aspect-square object-cover'
+                     />
+                  ))}
                </motion.div>
             </div>
             <Link
                href='https://www.facebook.com/profile.php?id=61568661807183'
-               // target='_blank'
-               // rel='noopener noreferrer'
                ref={registerButtonRef}
                onClick={handleClick}
                className='register-button w-[250px] h-[60px] mobile:w-[190px] mobile:h-[44px] bg-gradient-to-b from-brand-primary to-brand-dark rounded-full relative flex items-center justify-center'
