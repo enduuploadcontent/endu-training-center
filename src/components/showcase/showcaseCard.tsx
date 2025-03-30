@@ -2,8 +2,9 @@ import React from 'react';
 import CustomTypography from '../ui/typography';
 import buddhistDayjs from '@/variables/day';
 import Link from 'next/link';
+import { ShowcaseContentType } from '@/variables/showcase/showcase-list';
 
-type Props = { content: any; index: number };
+type Props = { content: ShowcaseContentType; index: number };
 
 export default function ShowcaseCard({ content, index }: Props) {
    return (

@@ -3,11 +3,11 @@
 import OurStudentCard from '@/components/ourStudent/ourStudentCard';
 import CustomTypography from '@/components/ui/typography';
 import buddhistDayjs from '@/variables/day';
-import { showcaseList } from '@/variables/showcase/showcase-list';
 import Notfound from '@/components/ui/notfound';
+import { studentList } from '@/variables/student/student-list';
 
 export default function OurStudentPage() {
-   const sortedContents = showcaseList.sort((a, b) => {
+   const sortedContents = studentList.sort((a, b) => {
       return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
    });
 

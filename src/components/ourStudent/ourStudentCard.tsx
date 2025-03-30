@@ -2,8 +2,9 @@ import React from 'react';
 import CustomTypography from '../ui/typography';
 import buddhistDayjs from '@/variables/day';
 import Link from 'next/link';
+import { StudentContentType } from '@/variables/student/student-list';
 
-type Props = { content: any; index: number };
+type Props = { content: StudentContentType; index: number };
 
 export default function OurStudentCard({ content, index }: Props) {
    return (

@@ -2,7 +2,8 @@
 
 import DownloadableImageList from '@/components/ui/downloadableImage';
 import CustomTypography from '@/components/ui/typography';
-import { showcaseList } from '@/variables/showcase/showcase-list';
+import buddhistDayjs from '@/variables/day';
+import { studentList } from '@/variables/student/student-list';
 import { ArrowLeft } from '@phosphor-icons/react';
 import Link from 'next/link';
 import { use } from 'react';
@@ -13,15 +14,26 @@ export default function OurStudentDetailPage({
    params: Promise<{ index: string }>;
 }) {
    const { index } = use(params);
-   const content = showcaseList[Number(index) - 1];
+   const content = studentList[Number(index) - 1];
 
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full h-full max-w-6xl'>
             <div className='flex items-center justify-between'>
-               <CustomTypography variant='subtitle1' mobileVariant='subtitle2'>
-                  {content?.title}
-               </CustomTypography>
+               <div className='flex flex-col gap-2'>
+                  <CustomTypography
+                     variant='subtitle1'
+                     mobileVariant='subtitle2'
+                  >
+                     {content?.title}
+                  </CustomTypography>
+                  <CustomTypography
+                     variant='caption1'
+                     mobileVariant='overline1'
+                  >
+                     {buddhistDayjs(content.date).format('DD MMM BBBB')}
+                  </CustomTypography>
+               </div>
                <CustomTypography
                   variant='body1'
                   mobileVariant='caption1'

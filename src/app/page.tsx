@@ -13,10 +13,10 @@ export default function HomePage() {
       <div className='flex flex-col'>
          <CarouselComponent />
          <WhyLearningComponent />
-         <ShowcaseComponent />
-         <ResponseComponent />
+         {/* <ShowcaseComponent />
+         <ResponseComponent /> */}
          <div className='flex flex-col relative corner-bg-top-left overflow-hidden'>
-            <PathToSuccessComponent />
+            {/* <PathToSuccessComponent /> */}
             <MapComponent />
          </div>
       </div>
@@ -514,14 +514,14 @@ function MapComponent() {
                   >
                      วิธีเดินทางมายังโรงเรียนของเรา
                   </CustomTypography>
-                  <CustomTypography
+                  {/* <CustomTypography
                      variant='body2'
                      mobileVariant='caption1'
                      className='w-fit'
                   >
                      Lorem ipsum dolor sit amet consectetur. Magna feugiat
                      pharetra id urna dictumst amet malesuada amet.
-                  </CustomTypography>
+                  </CustomTypography> */}
                </div>
                <div className='w-full flex flex-col gap-4'>
                   <CustomTypography
