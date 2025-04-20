@@ -254,13 +254,14 @@ function ShowcaseComponent() {
                      เรียนจบพร้อมทำงานได้ทันที
                   </CustomTypography>
                </div>
-               <a 
-               href='/showcase'
-               className='px-8 py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 mobile:hidden'>
+               <Link
+                  href='/showcase'
+                  className='px-8 py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 mobile:hidden'
+               >
                   <CustomTypography variant='button'>
-                  ดูผลงานทั้งหมด
+                     ดูผลงานทั้งหมด
                   </CustomTypography>
-               </a>
+               </Link>
             </div>
             <div className='grid grid-cols-3 gap-3 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'>
                {contentList.map((content, index) => (
@@ -303,13 +304,14 @@ function ShowcaseComponent() {
                   </a>
                ))}
             </div>
-            <a 
+            <a
                href='/showcase'
-               className='w-full justify-center py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 hidden mobile:flex'>
-                  <CustomTypography variant='button'>
+               className='w-full justify-center py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 hidden mobile:flex'
+            >
+               <CustomTypography variant='button'>
                   ดูผลงานทั้งหมด
-                  </CustomTypography>
-               </a>
+               </CustomTypography>
+            </a>
          </div>
       </div>
    );
