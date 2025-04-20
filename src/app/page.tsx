@@ -79,13 +79,13 @@ function WhyLearningComponent() {
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
          <div className='max-w-6xl w-full flex flex-col gap-4 mobile:items-center'>
             <motion.div
-               initial={{ scale: 0 }}
-               whileInView={{ scale: 1 }}
-               viewport={{ once: true }}
-               transition={{
-                  duration: 1,
-                  ease: 'easeOut',
-               }}
+               //    initial={{ scale: 0 }}
+               //    whileInView={{ scale: 1 }}
+               //    viewport={{ once: true }}
+               //    transition={{
+               //       duration: 1,
+               //       ease: 'easeOut',
+               //    }}
                className='w-fit mobile:w-full'
             >
                <CustomTypography
@@ -98,13 +98,13 @@ function WhyLearningComponent() {
             </motion.div>
             <div className='flex mobile:flex-col justify-between w-full gap-4'>
                <motion.img
-                  initial={{ opacity: 0, scale: 1, x: -200 }}
-                  whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                     duration: 1,
-                     ease: 'easeOut',
-                  }}
+                  //   initial={{ opacity: 0, scale: 1, x: -200 }}
+                  //   whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                  //   viewport={{ once: true }}
+                  //   transition={{
+                  //      duration: 1,
+                  //      ease: 'easeOut',
+                  //   }}
                   className='max-h-[480px] object-contain w-fit'
                   src='/images/home/why-learning.png'
                />
@@ -514,16 +514,37 @@ function MapComponent() {
                   >
                      วิธีเดินทางมายังโรงเรียนของเรา
                   </CustomTypography>
-                  {/* <CustomTypography
+                  <CustomTypography
                      variant='body2'
                      mobileVariant='caption1'
                      className='w-fit'
                   >
-                     Lorem ipsum dolor sit amet consectetur. Magna feugiat
-                     pharetra id urna dictumst amet malesuada amet.
-                  </CustomTypography> */}
+                     📍 ที่ตั้ง:
+                     <br />
+                     ตึกเอเรียเพลส ชั้น 7 ถนนนนทรี 5 เขตยานนาวา กรุงเทพมหานคร
+                     10120
+                     <br />
+                     <br />
+                     🚗 โดยรถยนต์ส่วนตัว:
+                     <br />
+                     จากถนนสาธุประดิษฐ์ ให้เลี้ยวเข้าซอยนนทรี 5
+                     อาคารเอเรียเพลสอยู่ด้าน ในใกล้กับร้าน 7-Eleven
+                     มีที่จอดรถรองรับหน้าตึก
+                     <br />
+                     <br />
+                     🚆 โดยรถไฟฟ้า BTS/MRT:
+                     <br />
+                     ลง BTS ช่องนนทรี หรือ MRT คลองเตย
+                     แล้วต่อแท็กซี่หรือวินมอเตอร์ไซค์ (ใช้เวลาประมาณ 10–15 นาที)
+                     <br />
+                     <br />
+                     🚌 โดยรถโดยสารประจำทาง:
+                     <br />
+                     รถเมล์ที่ผ่านถนนสาธุประดิษฐ์ ได้แก่ สาย 62, 67
+                     ลงป้ายใกล้โลตัส พระราม 3 แล้วเดินหรือต่อวินเข้าซอยนนทรี 5
+                  </CustomTypography>
                </div>
-               <div className='w-full flex flex-col gap-4'>
+               {/* <div className='w-full flex flex-col gap-4'>
                   <CustomTypography
                      variant='h5'
                      mobileVariant='subtitle2'
@@ -598,7 +619,7 @@ function MapComponent() {
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> */}
             </div>
          </div>
       </div>

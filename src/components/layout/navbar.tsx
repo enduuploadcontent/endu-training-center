@@ -19,6 +19,7 @@ import { RemoveScroll } from 'react-remove-scroll';
 import { usePathname } from 'next/navigation';
 import Logo from './logo';
 import CustomTypography from '../ui/typography';
+import { cn } from '@/utils/misc';
 
 const menuPath = [
    {
@@ -75,37 +76,39 @@ function NavbarComponent({
    const { scrollY } = useScroll();
 
    useMotionValueEvent(scrollY, 'change', (latest) => {
-      setScrolled(latest > 250 ? true : false);
+      setScrolled(latest > 100 ? true : false);
    });
 
    return (
       <nav
-         className={`fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white  ${
-            (scrolled && pathname === '/') || pathname !== '/' || open
-               ? 'bg-opacity-100 shadow-xl'
-               : 'bg-opacity-0 shadow-none'
-         }`}
+         className={cn(
+            `fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white bg-opacity-100`,
+            scrolled || open ? 'shadow-xl' : 'shadow-none',
+            pathname === '/' && !scrolled ? 'bg-opacity-0 ' : 'bg-opacity-100',
+         )}
       >
          <div className='flex w-full max-w-6xl items-center justify-between'>
             <Logo
-               className={`transition-all duration-500 ${
+               className={cn(
+                  `transition-all duration-500`,
                   (scrolled && pathname === '/') || pathname !== '/' || open
                      ? 'fill-brand-logo'
-                     : 'fill-white'
-               }`}
+                     : 'fill-white',
+               )}
             />
             <div className='hidden gap-4 lg:flex'>
                {menuPath.map((path, index) => (
                   <Link
                      key={index}
                      href={path.href}
-                     className={`hover:scale-105 transition-all duration-500 min-w-[100px] px-4 ${
+                     className={cn(
+                        `hover:scale-105 transition-all duration-500 min-w-[100px] px-4`,
                         (scrolled && pathname === '/') ||
-                        pathname !== '/' ||
-                        open
+                           pathname !== '/' ||
+                           open
                            ? 'text-foreground-primary'
-                           : 'text-white'
-                     }`}
+                           : 'text-white',
+                     )}
                   >
                      {path.title}
                   </Link>
@@ -137,11 +140,12 @@ function MobileMenu({
       <div className='block lg:hidden'>
          <button
             onClick={() => setOpen((prev) => !prev)}
-            className={`block p-2 ${
+            className={cn(
+               `block p-2`,
                (scrolled && pathname === '/') || pathname !== '/' || open
                   ? 'text-foreground-primary'
-                  : 'text-white'
-            }`}
+                  : 'text-white',
+            )}
          >
             {open ? <X size={24} /> : <List size={24} />}
          </button>

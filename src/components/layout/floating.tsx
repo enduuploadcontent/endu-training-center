@@ -10,11 +10,11 @@ export default function FloatingButton() {
          href: 'https://line.me/ti/p/~0965936661',
          imgSrc: '/images/social/line.png',
       },
-      { href: `tel:0965936661`, imgSrc: '/images/social/phone.png', title: 'คุณแจง' },
+      { href: `mailto:trainingcenter@endu.co.th`, imgSrc: '/images/social/gmail.png' },
+      { href: `tel:0965936661`, imgSrc: '/images/social/phone.png' },
    ];
    return (
-      <div className='fixed right-4 z-50 top-1/2 -translate-y-1/2 transition-all duration-300'>
-         <div className='flex flex-col gap-3'>
+      <div className='fixed right-4 z-50 top-1/2 -translate-y-1/2 mobile:!bottom-8 mobile:!translate-y-0 mobile:top-auto transition-all duration-300 flex flex-col gap-3 h-fit'>
             {socialUrls.map((item, index) => (
                <a
                   key={index}
@@ -32,7 +32,6 @@ export default function FloatingButton() {
                   </picture>
                </a>
             ))}
-         </div>
       </div>
    );
 }
