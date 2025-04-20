@@ -49,8 +49,7 @@ export default function PostCard({ content, index }: Props) {
                            ENDU Team
                         </CustomTypography>
                         <CustomTypography variant='overline2'>
-                           {buddhistDayjs(content.date).format('DD MMM BBBB') +
-                              ` - อ่าน ${content.minuteRead} นาที`}
+                           {buddhistDayjs(content.date).format('DD MMM BBBB')}
                         </CustomTypography>
                      </div>
                   </div>

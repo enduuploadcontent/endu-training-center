@@ -7,6 +7,7 @@ import { ArrowLeft } from '@phosphor-icons/react';
 import { Carousel, ConfigProvider } from 'antd';
 import Link from 'next/link';
 import { use } from 'react';
+import ReactPlayer from 'react-player';
 
 export default function ShowcaseDetailPage({
    params,
@@ -40,8 +41,7 @@ export default function ShowcaseDetailPage({
                         variant='caption1'
                         mobileVariant='overline1'
                      >
-                        {buddhistDayjs(content.date).format('DD MMM BBBB') +
-                           ` - อ่าน ${content.minuteRead} นาที`}
+                        {buddhistDayjs(content.date).format('DD MMM BBBB')}
                      </CustomTypography>
                   </div>
                </div>
@@ -61,13 +61,22 @@ export default function ShowcaseDetailPage({
                   },
                }}
             >
-               <Carousel autoplay autoplaySpeed={5000} draggable>
+               <Carousel draggable>
+                  <div className='overflow-hidden aspect-[4/3] w-full object-cover'>
+                     <iframe
+                        src='https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18'
+                        width='100%'
+                        height='100%'
+                        allowFullScreen
+                        title='video'
+                     />
+                  </div>
                   {content.imgSrc.map((img, index) => (
                      <img
                         key={index}
                         src={img}
                         alt={`img-${index}`}
-                        className='overflow-hidden aspect-[4/3] w-full object-cover'
+                        className='overflow-hidden aspect-[920/690] w-full object-cover'
                      />
                   ))}
                </Carousel>

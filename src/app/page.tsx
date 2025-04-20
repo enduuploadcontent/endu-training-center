@@ -7,14 +7,15 @@ import { homePageCarousel } from '@/variables/home/image-carousel';
 import { showcaseList } from '@/variables/showcase/showcase-list';
 import { Carousel, ConfigProvider } from 'antd';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function HomePage() {
    return (
       <div className='flex flex-col'>
          <CarouselComponent />
          <WhyLearningComponent />
-         {/* <ShowcaseComponent />
-         <ResponseComponent /> */}
+         <ShowcaseComponent />
+         {/* <ResponseComponent /> */}
          <div className='flex flex-col relative corner-bg-top-left overflow-hidden'>
             {/* <PathToSuccessComponent /> */}
             <MapComponent />
@@ -242,33 +243,26 @@ function ShowcaseComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6 relative corner-bg-top-right overflow-hidden'>
          <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
-            <motion.div
-               initial={{ scale: 0 }}
-               whileInView={{ scale: 1 }}
-               viewport={{ once: true }}
-               transition={{
-                  duration: 1,
-                  ease: 'easeOut',
-               }}
-               className='w-fit mobile:w-full'
-            >
-               <CustomTypography
-                  variant='h4'
-                  mobileVariant='subtitle2'
-                  className='w-fit'
-               >
-                  ENDU Show case
-               </CustomTypography>
-            </motion.div>
-            <motion.div
-               initial={{ y: 100 }}
-               whileInView={{ y: 0 }}
-               viewport={{ once: true }}
-               transition={{
-                  duration: 1,
-               }}
-               className='grid grid-cols-3 gap-3 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'
-            >
+            <div className='w-full flex justify-between'>
+               <div className='flex flex-col'>
+                  <CustomTypography variant='h4' mobileVariant='subtitle1'>
+                     ผลงานการซ่อม
+                  </CustomTypography>
+                  <CustomTypography variant='body2' mobileVariant='caption1'>
+                     ผลงานซ่อมจริงจากฝีมืออาจารย์และนักเรียน
+                     ที่นี่นักเรียนได้ฝึกปฏิบัติจริงทุกขั้นตอน
+                     เรียนจบพร้อมทำงานได้ทันที
+                  </CustomTypography>
+               </div>
+               <a 
+               href='/showcase'
+               className='px-8 py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 mobile:hidden'>
+                  <CustomTypography variant='button'>
+                  ดูผลงานทั้งหมด
+                  </CustomTypography>
+               </a>
+            </div>
+            <div className='grid grid-cols-3 gap-3 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'>
                {contentList.map((content, index) => (
                   <a
                      key={index}
@@ -295,22 +289,27 @@ function ShowcaseComponent() {
                            >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
-                           {/* <Link
-                           href={`/showcase/${index}`}
-                        > */}
-                           <CustomTypography
-                              variant='body1'
-                              mobileVariant='caption1'
-                              className={`underline`}
-                           >
-                              อ่านเพิ่มเติม
-                           </CustomTypography>
-                           {/* </Link> */}
+                           <Link href={`/showcase/${index + 1}`}>
+                              <CustomTypography
+                                 variant='body1'
+                                 mobileVariant='caption1'
+                                 className={`underline`}
+                              >
+                                 อ่านเพิ่มเติม
+                              </CustomTypography>
+                           </Link>
                         </div>
                      </div>
                   </a>
                ))}
-            </motion.div>
+            </div>
+            <a 
+               href='/showcase'
+               className='w-full justify-center py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 hidden mobile:flex'>
+                  <CustomTypography variant='button'>
+                  ดูผลงานทั้งหมด
+                  </CustomTypography>
+               </a>
          </div>
       </div>
    );

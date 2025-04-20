@@ -29,7 +29,7 @@ export default function ShowcasePage() {
                   <Notfound />
                </div>
             ) : (
-               <div className='grid grid-cols-4 gap-3 w-full mobile:grid-cols-2 mobile:gap-2'>
+               <div className='grid grid-cols-4 gap-4 w-full mobile:grid-cols-2 mobile:gap-2'>
                   {sortedContents.map((content, index) => (
                      <ShowcaseCard
                         key={index}

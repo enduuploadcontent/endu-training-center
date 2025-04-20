@@ -83,7 +83,7 @@ function NavbarComponent({
       <nav
          className={cn(
             `fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white bg-opacity-100`,
-            scrolled || open ? 'shadow-xl' : 'shadow-none',
+            scrolled || open ? 'navbar-shadow' : 'shadow-none',
             pathname === '/' && !scrolled ? 'bg-opacity-0 ' : 'bg-opacity-100',
          )}
       >
