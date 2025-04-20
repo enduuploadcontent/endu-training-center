@@ -23,13 +23,13 @@ export default function OurStudentDetailPage({
                <div className='flex flex-col gap-2'>
                   <CustomTypography
                      variant='subtitle1'
-                     mobileVariant='subtitle2'
                   >
                      {content?.title}
                   </CustomTypography>
                   <CustomTypography
                      variant='caption1'
                      mobileVariant='overline1'
+                     className='mobile:hidden'
                   >
                      {buddhistDayjs(content.date).format('DD MMM BBBB')}
                   </CustomTypography>
@@ -37,7 +37,7 @@ export default function OurStudentDetailPage({
                <CustomTypography
                   variant='body1'
                   mobileVariant='caption1'
-                  className='text-foreground-secondary'
+                  className='text-foreground-secondary mobile:hidden'
                >
                   {`ทั้งหมด ${content?.imgSrc.length} รายการ`}
                </CustomTypography>
@@ -56,7 +56,7 @@ export default function OurStudentDetailPage({
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'
             >
                <ArrowLeft size={16} />
-               <CustomTypography variant='button'>กลับหน้าแรก</CustomTypography>
+               <CustomTypography variant='button'>ย้อนกลับ</CustomTypography>
             </Link>
          </div>
       </div>

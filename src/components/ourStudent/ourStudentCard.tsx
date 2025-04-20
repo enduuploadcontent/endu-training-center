@@ -15,6 +15,7 @@ export default function OurStudentCard({ content, index }: Props) {
          <picture>
             <img
                src={content.thumbnailSrc}
+               referrerPolicy="no-referrer"
                alt='thumbnail'
                className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
             />

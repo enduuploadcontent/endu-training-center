@@ -78,7 +78,13 @@ export default function DownloadableImageList({ src, className }: Props) {
          }}
       >
          {src.map((src, index) => (
-            <Image src={src} key={index} alt={src} className={className} />
+            <Image
+               src={src}
+               referrerPolicy='no-referrer'
+               key={index}
+               alt={src}
+               className={className}
+            />
          ))}
       </Image.PreviewGroup>
    );

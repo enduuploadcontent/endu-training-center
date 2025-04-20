@@ -395,3 +395,7 @@ body {
       opacity: 0;
    }
 }
+
+.slick-arrow {
+    z-index: 9999 !important;
+}

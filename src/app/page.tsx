@@ -5,6 +5,7 @@ import { cn } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
 import { homePageCarousel } from '@/variables/home/image-carousel';
 import { showcaseList } from '@/variables/showcase/showcase-list';
+import { studentList } from '@/variables/student/student-list';
 import { Carousel, ConfigProvider } from 'antd';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -17,7 +18,7 @@ export default function HomePage() {
          <ShowcaseComponent />
          {/* <ResponseComponent /> */}
          <div className='flex flex-col relative corner-bg-top-left overflow-hidden'>
-            {/* <PathToSuccessComponent /> */}
+            <PathToSuccessComponent />
             <MapComponent />
          </div>
       </div>
@@ -251,7 +252,7 @@ function ShowcaseComponent() {
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden h-[540px] mobile:h-[400px] mobile:w-[270px] mobile:min-w-[270px] relative flex items-end hover:cursor-pointer group'
+                     className='overflow-hidden h-[540px] mobile:h-[350px] mobile:w-[260px] mobile:min-w-[260px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
                         <img
@@ -260,10 +261,11 @@ function ShowcaseComponent() {
                            className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+                     <div className='flex flex-col gap-1 justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
                         <CustomTypography
                            variant='subtitle1'
                            mobileVariant='subtitle3'
+                           className='line-clamp-1'
                         >
                            {content.title}
                         </CustomTypography>
@@ -400,7 +402,7 @@ function ResponseComponent() {
 }
 
 function PathToSuccessComponent() {
-   const contentList = showcaseList
+   const contentList = studentList
       .sort((a, b) => {
          return buddhistDayjs(a.date).isBefore(buddhistDayjs(b.date)) ? 1 : -1;
       })
@@ -409,49 +411,43 @@ function PathToSuccessComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
          <div className='max-w-6xl w-full flex flex-col gap-6 mobile:gap-4 items-center'>
-            <motion.div
-               initial={{ scale: 0 }}
-               whileInView={{ scale: 1 }}
-               viewport={{ once: true }}
-               transition={{
-                  duration: 1,
-                  ease: 'easeOut',
-               }}
-               className='w-fit mobile:w-full'
-            >
-               <CustomTypography
-                  variant='h4'
-                  mobileVariant='subtitle2'
-                  className='w-fit'
+            <div className='w-full flex justify-between'>
+               <div className='flex flex-col'>
+                  <CustomTypography variant='h4' mobileVariant='subtitle1'>
+                     ก้าวแรกสู่ความสำเร็จ
+                  </CustomTypography>
+                  <CustomTypography variant='body2' mobileVariant='caption1'>
+                     บรรยากาศวันจบหลักสูตรซ่อมมือถือของนักเรียนโรงเรียนสอนซ่อมมือถือเอ็นดู
+                  </CustomTypography>
+               </div>
+               <Link
+                  href='/our-student'
+                  className='px-8 py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 mobile:hidden'
                >
-                  ก้าวแรกสู่ความสำเร็จ
-               </CustomTypography>
-            </motion.div>
-            <motion.div
-               initial={{ y: 100 }}
-               whileInView={{ y: 0 }}
-               transition={{
-                  duration: 1,
-               }}
-               viewport={{ once: true }}
-               className='grid grid-cols-4 gap-x-2 gap-y-6 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'
-            >
+                  <CustomTypography variant='button'>
+                     ดูอัลบั้มทั้งหมด
+                  </CustomTypography>
+               </Link>
+            </div>
+            <div className='grid grid-cols-4 gap-x-2 gap-y-6 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'>
                {contentList.map((content, index) => (
                   <a
                      key={index}
-                     className='overflow-hidden aspect-square mobile:h-[200px] mobile:min-h-[200px] mobile:w-[200px] mobile:min-w-[200px] relative flex items-end hover:cursor-pointer group'
+                     className='overflow-hidden aspect-square mobile:h-[260px] mobile:min-h-[260px] mobile:w-[260px] mobile:min-w-[260px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
                         <img
                            src={content.thumbnailSrc}
+                           referrerPolicy='no-referrer'
                            alt='thumbnail'
                            className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
                         />
                      </picture>
-                     <div className='flex flex-col justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
+                     <div className='flex flex-col gap-1 justify-end text-white z-10 w-full h-1/2 p-4 bg-gradient-to-b from-black/0 to-black'>
                         <CustomTypography
                            variant='subtitle3'
                            mobileVariant='caption2'
+                           className='line-clamp-1'
                         >
                            {content.title}
                         </CustomTypography>
@@ -462,22 +458,28 @@ function PathToSuccessComponent() {
                            >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
-                           {/* <Link
-                              href={`/showcase/${index}`}
-                           > */}
-                           <CustomTypography
-                              variant='caption1'
-                              mobileVariant='overline1'
-                              className={`underline`}
-                           >
-                              อ่านเพิ่มเติม
-                           </CustomTypography>
-                           {/* </Link> */}
+                           <Link href={`/our-student/${index + 1}`}>
+                              <CustomTypography
+                                 variant='caption1'
+                                 mobileVariant='overline1'
+                                 className={`underline`}
+                              >
+                                 อ่านเพิ่มเติม
+                              </CustomTypography>
+                           </Link>
                         </div>
                      </div>
                   </a>
                ))}
-            </motion.div>
+            </div>
+            <Link
+               href='/our-student'
+               className='w-full justify-center py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 hidden mobile:flex'
+            >
+               <CustomTypography variant='button'>
+                  ดูอัลบั้มทั้งหมด
+               </CustomTypography>
+            </Link>
          </div>
       </div>
    );

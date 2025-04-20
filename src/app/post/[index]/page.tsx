@@ -20,7 +20,7 @@ export default function PostDetailPage({
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full h-full max-w-4xl'>
             <div className='flex flex-col gap-2'>
-               <CustomTypography variant='subtitle1' mobileVariant='subtitle2'>
+               <CustomTypography variant='subtitle1'>
                   {content?.title}
                </CustomTypography>
                <div className='flex gap-2.5 items-center'>
@@ -82,7 +82,7 @@ export default function PostDetailPage({
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'
             >
                <ArrowLeft size={16} />
-               <CustomTypography variant='button'>กลับหน้าแรก</CustomTypography>
+               <CustomTypography variant='button'>ย้อนกลับ</CustomTypography>
             </Link>
          </div>
       </div>

@@ -57,11 +57,13 @@ export default function ShowcaseDetailPage({
                         dotWidth: 12,
                         dotActiveWidth: 12,
                         dotOffset: 16,
+                        arrowSize: 24,
+                        arrowOffset: 16
                      },
                   },
                }}
             >
-               <Carousel draggable>
+               <Carousel arrows>
                   <div className='overflow-hidden aspect-[4/3] w-full object-cover'>
                      <iframe
                         src='https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18'
@@ -92,7 +94,7 @@ export default function ShowcaseDetailPage({
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'
             >
                <ArrowLeft size={16} />
-               <CustomTypography variant='button'>กลับหน้าแรก</CustomTypography>
+               <CustomTypography variant='button'>ย้อนกลับ</CustomTypography>
             </Link>
          </div>
       </div>

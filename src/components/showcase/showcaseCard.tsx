@@ -23,7 +23,7 @@ export default function ShowcaseCard({ content, index }: Props) {
             <CustomTypography
                variant='subtitle3'
                mobileVariant='caption2'
-               className='line-clamp-1'
+               className='line-clamp-1 mobile:line-clamp-2'
             >
                {content.title}
             </CustomTypography>
