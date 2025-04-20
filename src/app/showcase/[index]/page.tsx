@@ -64,9 +64,9 @@ export default function ShowcaseDetailPage({
                }}
             >
                <Carousel arrows>
-                  <div className='overflow-hidden aspect-[4/3] w-full object-cover'>
+                  <div className='overflow-hidden aspect-[4/3] w-full object-cover bg-black/10'>
                      <iframe
-                        src='https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18'
+                        src={content.videoSrc}
                         width='100%'
                         height='100%'
                         allowFullScreen
@@ -78,7 +78,7 @@ export default function ShowcaseDetailPage({
                         key={index}
                         src={img}
                         alt={`img-${index}`}
-                        className='overflow-hidden aspect-[920/690] w-full object-cover'
+                        className='overflow-hidden aspect-[4/3] w-full object-cover'
                      />
                   ))}
                </Carousel>

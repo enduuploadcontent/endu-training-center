@@ -102,7 +102,7 @@ function NavbarComponent({
                      key={index}
                      href={path.href}
                      className={cn(
-                        `hover:scale-105 transition-all duration-500 min-w-[100px] px-4`,
+                        `hover:scale-105 transition-all duration-500 px-4`,
                         (scrolled && pathname === '/') ||
                            pathname !== '/' ||
                            open

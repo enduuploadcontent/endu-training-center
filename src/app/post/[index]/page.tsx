@@ -56,11 +56,13 @@ export default function PostDetailPage({
                         dotWidth: 12,
                         dotActiveWidth: 12,
                         dotOffset: 16,
+                        arrowSize: 24,
+                        arrowOffset: 16
                      },
                   },
                }}
             >
-               <Carousel autoplay autoplaySpeed={5000} draggable>
+               <Carousel arrows autoplay autoplaySpeed={5000} draggable>
                   {content.imgSrc.map((img, index) => (
                      <img
                         key={index}

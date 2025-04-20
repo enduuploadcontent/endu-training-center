@@ -48,7 +48,7 @@ export default function AboutUsPage() {
    return (
       <div className='flex flex-col min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full pt-20 mobile:pt-14'>
          <div className='flex flex-row mobile:flex-col'>
-            <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px] flex flex-col gap-6 mobile:gap-3 px-16 mobile:px-6 items-center justify-center bg-[url(/images/about-us/bg-1.png)] bg-contain'>
+            <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px] flex flex-col gap-6 mobile:gap-3 px-16 mobile:px-6 items-center justify-center bg-[url(/images/about-us/bg-1.png)] bg-fill-y'>
                <CustomTypography
                   variant='h4'
                   mobileVariant='h5'
@@ -143,16 +143,10 @@ export default function AboutUsPage() {
                <CustomTypography
                   variant='h4'
                   mobileVariant='subtitle2'
-                  className='text-center'
+                  className='text-center break-words'
                >
-                  ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ
-                  <br className='desktop:hidden' />
-                  ประกอบธุรกิจการซ่อม
-                  <br className='mobile:hidden' />
-                  ได้อย่างมีประสิทธิภาพ
-                  <br className='desktop:hidden' />
-                  และสร้างรายได้อย่างยั่งยืน
-               </CustomTypography>
+                  {'ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ ประกอบธุรกิจการซ่อมได้อย่างมีประสิทธิภาพ และสร้างรายได้อย่างยั่งยืน'}
+                  </CustomTypography>
             </div>
          </div>
          <div className='flex flex-col gap-8 items-center justify-center bg-[url(/images/about-us/bg-2.png)] bg-contain pt-16 pb-12 mobile:py-12'>

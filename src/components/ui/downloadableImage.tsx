@@ -3,6 +3,7 @@ import {
    ArrowClockwise,
    ArrowCounterClockwise,
    DownloadSimple,
+   Eye,
    MagnifyingGlassMinus,
    MagnifyingGlassPlus,
 } from '@phosphor-icons/react';
@@ -36,42 +37,7 @@ export default function DownloadableImageList({ src, className }: Props) {
    return (
       <Image.PreviewGroup
          preview={{
-            toolbarRender: (
-               _,
-               {
-                  actions: { onZoomOut, onZoomIn, onRotateLeft, onRotateRight },
-               },
-            ) => (
-               <div className='flex flex-col gap-2 justify-center '>
-                  <div className='flex px-6 py-2 gap-6 rounded-full  bg-[#00000040]'>
-                     <MagnifyingGlassMinus
-                        size={24}
-                        onClick={onZoomOut}
-                        className='hover:cursor-pointer'
-                     />
-                     <MagnifyingGlassPlus
-                        size={24}
-                        onClick={onZoomIn}
-                        className='hover:cursor-pointer'
-                     />
-                     <ArrowCounterClockwise
-                        size={24}
-                        onClick={onRotateLeft}
-                        className='hover:cursor-pointer'
-                     />
-                     <ArrowClockwise
-                        size={24}
-                        onClick={onRotateRight}
-                        className='hover:cursor-pointer'
-                     />
-                     <DownloadSimple
-                        size={24}
-                        onClick={onDownload}
-                        className='hover:cursor-pointer'
-                     />
-                  </div>
-               </div>
-            ),
+            toolbarRender: () => <></>,
             onChange: (index) => {
                setCurrent(index);
             },
@@ -84,6 +50,7 @@ export default function DownloadableImageList({ src, className }: Props) {
                key={index}
                alt={src}
                className={className}
+               preview={{mask: <div className='flex items-center gap-2'><Eye size={24}/></div>}}
             />
          ))}
       </Image.PreviewGroup>

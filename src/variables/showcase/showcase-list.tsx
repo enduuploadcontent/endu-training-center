@@ -14,11 +14,10 @@ export const showcaseList: ShowcaseContentType[] = [
       title: '📌 V1SE WIFI เครื่องเขียนค่าแบต-ค่าจอที่ช่างซ่อมมือถือห้ามพลาด!',
       date: '2025-03-18',
       thumbnailSrc:
-         'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
+         'https://1drv.ms/i/c/799d5915db97c270/IQR3mtul5PMRRr4u3bn2UAOlAXpXj7aHPpmrods28nzyptk?width=1024',
       videoSrc:
-         'https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18',
+         'https://1drv.ms/v/c/799d5915db97c270/IQRBZw23D0ZZQoeYlUtGbFdZAUuWA2cpYPY6zj0DXdMl3Ws',
       imgSrc: [
-         'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
       ],
       detail: (
          <>
@@ -60,12 +59,10 @@ export const showcaseList: ShowcaseContentType[] = [
       title: '🔥 พัดลมระบายความร้อนเมนบอร์ด พร้อมไฟ UV 🔥',
       date: '2025-03-18',
       thumbnailSrc:
-         'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
+         'https://1drv.ms/i/c/799d5915db97c270/IQSY9lLsh_0sSr5SeKi90YCoAYK_NifwNBSv4yujNoHeqEM?width=1024',
       videoSrc:
-         'https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18',
-      imgSrc: [
-         'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
-      ],
+         'https://1drv.ms/v/c/799d5915db97c270/IQS_BzQYWYcDQJdxH0uLr1mPAZUuQWKipk9Rgdub2ShXt-Y',
+      imgSrc: [],
       detail: (
          <>
             🔥 พัดลมระบายความร้อนเมนบอร์ด พร้อมไฟ UV 🔥
@@ -105,11 +102,10 @@ export const showcaseList: ShowcaseContentType[] = [
     title: '🔧 เจาะลึก! การเขียนค่าแบตเตอรี่ให้ไม่แจ้งเตือน 🔋✨',
     date: '2025-03-18',
     thumbnailSrc:
-       'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
+       'https://1drv.ms/i/c/799d5915db97c270/IQT0KUEoYaESQaMpIeWJaxycAbfH7Fd1H7t1ym-r2wvXs68?width=1024',
     videoSrc:
-       'https://1drv.ms/v/c/8afd9950d008f054/IQTKdCU1aB9CTZ7Kn8RDS3IiAWr1f4MvFvwsr4zQnb-fH18',
+       'https://1drv.ms/v/c/799d5915db97c270/IQRWM4l9uUBMRK_P1_L9DeIZAdzfuAwNghYxQpsOreW5NpI',
     imgSrc: [
-       'https://1drv.ms/i/c/8afd9950d008f054/IQSfyS5eJzqPSo4kaDGbKQCRARz1juj2RxzcAnEa6CpcAAc?width=1024',
     ],
     detail: (
        <>
