@@ -79,16 +79,7 @@ function WhyLearningComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
          <div className='max-w-6xl w-full flex flex-col gap-4 mobile:items-center'>
-            <motion.div
-               //    initial={{ scale: 0 }}
-               //    whileInView={{ scale: 1 }}
-               //    viewport={{ once: true }}
-               //    transition={{
-               //       duration: 1,
-               //       ease: 'easeOut',
-               //    }}
-               className='w-fit mobile:w-full'
-            >
+            <div className='w-fit mobile:w-full'>
                <CustomTypography
                   variant='h5'
                   mobileVariant='subtitle2'
@@ -96,16 +87,9 @@ function WhyLearningComponent() {
                >
                   ทำไมต้องเรียนที่ ENDU
                </CustomTypography>
-            </motion.div>
+            </div>
             <div className='flex mobile:flex-col justify-between w-full gap-4'>
-               <motion.img
-                  //   initial={{ opacity: 0, scale: 1, x: -200 }}
-                  //   whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                  //   viewport={{ once: true }}
-                  //   transition={{
-                  //      duration: 1,
-                  //      ease: 'easeOut',
-                  //   }}
+               <img
                   className='max-h-[480px] object-contain w-fit'
                   src='/images/home/why-learning.png'
                />
@@ -304,14 +288,14 @@ function ShowcaseComponent() {
                   </a>
                ))}
             </div>
-            <a
+            <Link
                href='/showcase'
                className='w-full justify-center py-1.5 h-fit rounded-full border border-brand-primary text-brand-primary bg-white hover:cursor-pointer hover:scale-110 transition-all duration-300 hidden mobile:flex'
             >
                <CustomTypography variant='button'>
                   ดูผลงานทั้งหมด
                </CustomTypography>
-            </a>
+            </Link>
          </div>
       </div>
    );
@@ -545,82 +529,6 @@ function MapComponent() {
                      ลงป้ายใกล้โลตัส พระราม 3 แล้วเดินหรือต่อวินเข้าซอยนนทรี 5
                   </CustomTypography>
                </div>
-               {/* <div className='w-full flex flex-col gap-4'>
-                  <CustomTypography
-                     variant='h5'
-                     mobileVariant='subtitle2'
-                     className='w-fit'
-                  >
-                     ช่องทางติดต่อเราเพิ่มเติม
-                  </CustomTypography>
-                  <div className='w-full flex flex-col gap-4 mobile:gap-3'>
-                     <div className='flex gap-4 items-center'>
-                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                           <picture>
-                              <img
-                                 src={'/images/home/clock.svg'}
-                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
-                                 alt='icon'
-                              />
-                           </picture>
-                        </div>
-                        <CustomTypography
-                           variant='body2'
-                           mobileVariant='caption1'
-                           className='w-fit'
-                        >
-                           เปิดทำการ : 09.00 - 18.00
-                        </CustomTypography>
-                     </div>
-                     <div className='flex gap-4 items-center'>
-                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                           <picture>
-                              <img
-                                 src={'/images/home/envelope.svg'}
-                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
-                                 alt='icon'
-                              />
-                           </picture>
-                        </div>
-                        <CustomTypography
-                           variant='body2'
-                           mobileVariant='caption1'
-                           className='w-fit'
-                        >
-                           trainingcenter@endu.co.th
-                        </CustomTypography>
-                     </div>
-                     <div className='flex gap-4 items-start'>
-                        <div className='p-1.5 rounded-[4px] bg-background-blue flex items-center justify-center'>
-                           <picture>
-                              <img
-                                 src={'/images/home/mapPinLine.svg'}
-                                 className='w-5 h-5 mobile:min-w-4 mobile:min-h-4 mobile:w-4 mobile:h-4'
-                                 alt='icon'
-                              />
-                           </picture>
-                        </div>
-                        <div className='flex flex-col gap-1'>
-                           <CustomTypography
-                              variant='body2'
-                              mobileVariant='caption1'
-                              className='w-fit'
-                           >
-                              10/3 ชั้น 7 ซอยบุปผาบุรี แขวงช่องนนทรี เขตยานนาวา
-                              กรุงเทพมหานคร 10120
-                           </CustomTypography>
-                           <a href=''>
-                              <CustomTypography
-                                 variant='caption2'
-                                 className='text-brand-primary underline'
-                              >
-                                 เปิดในแผนที่
-                              </CustomTypography>
-                           </a>
-                        </div>
-                     </div>
-                  </div>
-               </div> */}
             </div>
          </div>
       </div>
