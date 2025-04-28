@@ -58,19 +58,18 @@ export default function ShowcaseDetailPage({
                         dotActiveWidth: 12,
                         dotOffset: 16,
                         arrowSize: 24,
-                        arrowOffset: 16
+                        arrowOffset: 16,
                      },
                   },
                }}
             >
                <Carousel arrows>
                   <div className='overflow-hidden aspect-[4/3] w-full object-cover bg-black/10'>
-                     <iframe
-                        src={content.videoSrc}
-                        width='100%'
+                     <ReactPlayer
+                        url={content.videoSrc}
                         height='100%'
-                        allowFullScreen
-                        title='video'
+                        width='100%'
+                        playing
                      />
                   </div>
                   {content.imgSrc.map((img, index) => (

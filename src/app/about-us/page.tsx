@@ -35,14 +35,14 @@ export default function AboutUsPage() {
    }, [carouselWidth, xCarouselTranslation]);
 
    const imgList = [
-      'https://i.imgur.com/faA5Oof.jpeg',
-      'https://i.imgur.com/dVMeLb2.jpeg',
-      'https://i.imgur.com/ftNxesm.jpeg',
-      'https://i.imgur.com/L3nidgr.jpeg',
-      'https://i.imgur.com/BwVmldu.jpeg',
-      'https://i.imgur.com/clDDQ52.jpeg',
-      'https://i.imgur.com/JsakdLy.jpeg',
-      'https://i.imgur.com/VFVn7We.jpeg',
+      'https://i.imgur.com/K0oEoU8.jpeg',
+      'https://i.imgur.com/39DCuJo.jpeg',
+      'https://i.imgur.com/VBwIWsn.jpeg',
+      'https://i.imgur.com/LB45WiA.jpeg',
+      'https://i.imgur.com/mc94JwX.jpeg',
+      'https://i.imgur.com/EWDyD4m.jpeg',
+      'https://i.imgur.com/Ma2UY6o.jpeg',
+      'https://i.imgur.com/3yjOYr6.jpeg',
    ];
 
    return (
@@ -62,7 +62,8 @@ export default function AboutUsPage() {
                   variant='body2'
                   className='text-foreground-primary text-center mobile:hidden'
                >
-                  โรงเรียนสอนซ่อมมือถือแห่งแรกในไทยที่ได้รับการรับรองมาตรฐานจาก กสช.
+                  โรงเรียนสอนซ่อมมือถือแห่งแรกในไทยที่ได้รับการรับรองมาตรฐานจาก
+                  กสช.
                   <br />
                   ซึ่งดูแลการศึกษาเอกชนนอกระบบ
                   ครอบคลุมการฝึกอบรมและพัฒนาทักษะวิชาชีพ
@@ -85,7 +86,7 @@ export default function AboutUsPage() {
             <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px]'>
                <ReactPlayer
                   url='https://www.youtube.com/watch?v=TbP4wAB_Iwo'
-                  height={'100%'}
+                  height='100%'
                   width='100%'
                   playing
                />
@@ -145,8 +146,10 @@ export default function AboutUsPage() {
                   mobileVariant='subtitle2'
                   className='text-center break-words'
                >
-                  {'ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ ประกอบธุรกิจการซ่อมได้อย่างมีประสิทธิภาพ และสร้างรายได้อย่างยั่งยืน'}
-                  </CustomTypography>
+                  {
+                     'ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ ประกอบธุรกิจการซ่อมได้อย่างมีประสิทธิภาพ และสร้างรายได้อย่างยั่งยืน'
+                  }
+               </CustomTypography>
             </div>
          </div>
          <div className='flex flex-col gap-8 items-center justify-center bg-[url(/images/about-us/bg-2.png)] bg-contain pt-16 pb-12 mobile:py-12'>

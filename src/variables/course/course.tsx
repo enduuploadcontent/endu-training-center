@@ -16,7 +16,7 @@ export type CourseContentType = {
    detail?: string;
    skill?: string[];
    suitableFor: string[];
-   learningDay: number;
+   learningDay: string;
    cost: number;
    lecturer: LecturerType[];
 };
@@ -38,7 +38,7 @@ const knots = {
 
 export const courseList: CourseContentType[] = [
    {
-      imgSrc: 'https://i.imgur.com/AF4LgdN.jpeg',
+      imgSrc: 'https://i.imgur.com/vPBiVY0.jpeg',
       level: CourseLevel.Basic,
       title: 'Hardware Basic H1',
       detail:
@@ -49,12 +49,12 @@ export const courseList: CourseContentType[] = [
          'ผู้ที่สนใจหารายได้เสริมจากการซ่อมมือถือ',
          'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือ',
       ],
-      learningDay: 2,
+      learningDay: '2 วัน',
       cost: 3900,
       lecturer: [tibet, wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/BFvb46N.jpeg',
+      imgSrc: 'https://i.imgur.com/dpMtAG7.jpeg',
       level: CourseLevel.Basic,
       title: 'Hardware Basic H2',
       detail:
@@ -69,12 +69,12 @@ export const courseList: CourseContentType[] = [
          'ช่างที่ต้องการเพิ่มความชำนาญในการซ่อม',
          'ต้องการพัฒนาทักษะให้พร้อมรับงานจริง',
       ],
-      learningDay: 3,
+      learningDay: '3 วัน',
       cost: 5900,
       lecturer: [tibet, wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/3d5Hwgm.jpeg',
+      imgSrc: 'https://i.imgur.com/TwfC0AH.jpeg',
       level: CourseLevel.Medium,
       title: 'Hardware Advance H1',
       detail:
@@ -89,12 +89,12 @@ export const courseList: CourseContentType[] = [
          'ผู้ที่ต้องการพัฒนาทักษะให้สูงขึ้น',
          'ผู้ที่สนใจสร้างอาชีพในสายช่างซ่อมมือถือ',
       ],
-      learningDay: 5,
+      learningDay: '5 วัน',
       cost: 14900,
       lecturer: [tibet, wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/06P9DI9.jpeg',
+      imgSrc: 'https://i.imgur.com/l1TXPn9.jpeg',
       level: CourseLevel.Hard,
       title: 'Hardware Pro H1',
       detail:
@@ -105,12 +105,12 @@ export const courseList: CourseContentType[] = [
          'ผู้ที่ต้องการเปิดร้านซ่อมมือถือมืออาชีพ',
          'ผู้ที่ต้องการแก้ไขปัญหางานซ่อมที่ซับซ้อนอย่างมีประสิทธิภาพ',
       ],
-      learningDay: 3,
+      learningDay: '3 วัน',
       cost: 24900,
       lecturer: [tibet, wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/XUWVDUl.jpeg',
+      imgSrc: 'https://i.imgur.com/MTZhhNH.jpeg',
       level: CourseLevel.Hard,
       title: 'Hardware Pro H2',
       detail:
@@ -127,12 +127,12 @@ export const courseList: CourseContentType[] = [
          'ผู้ที่ต้องการเปิดร้านซ่อมมือถือมืออาชีพ',
          'ผู้ที่ต้องการแก้ไขปัญหางานซ่อมที่ซับซ้อนอย่างมีประสิทธิภาพ',
       ],
-      learningDay: 3,
+      learningDay: '3 วัน',
       cost: 28900,
       lecturer: [tibet, wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/Co5sOGa.jpeg',
+      imgSrc: 'https://i.imgur.com/cCHMQ2H.jpeg',
       level: CourseLevel.Basic,
       title: 'Hardware OCA H1',
       detail: 'ลอกกระจกหน้าจอแบบเรียบและแบบโค้ง',
@@ -141,32 +141,86 @@ export const courseList: CourseContentType[] = [
          'ผู้ที่มีพื้นฐานการแกะเครื่องเบื้องต้น',
          'ผู้ที่ต้องการเพิ่มรายได้',
       ],
-      learningDay: 3,
+      learningDay: '3 วัน',
       cost: 8900,
       lecturer: [wu],
    },
    {
-      imgSrc: 'https://i.imgur.com/H3N8kbd.jpeg',
+      imgSrc: 'https://i.imgur.com/F5mhMIw.jpeg',
       level: CourseLevel.Basic,
       title: 'Software Basic S1',
       suitableFor: [
          'ผู้ที่ไม่มีพื้นฐานด้านการซ่อม',
          'ต้องการเพิ่มความรู้ความเข้าใจในการซ่อม',
       ],
-      learningDay: 2,
+      learningDay: '2 วัน',
       cost: 3900,
       lecturer: [knots],
    },
    {
-      imgSrc: 'https://i.imgur.com/GGU9edq.jpeg',
+      imgSrc: 'https://i.imgur.com/Ng25mHM.jpeg',
       level: CourseLevel.Hard,
       title: 'Software Pro S1',
       suitableFor: [
          'ช่างระดับเชี่ยวชาญ',
          'ผู้ที่ต้องการแก้ไขและจัดการด้วยตัวเอง',
       ],
-      learningDay: 3,
+      learningDay: '3 วัน',
       cost: 5500,
       lecturer: [knots],
+   },
+   {
+      imgSrc: 'https://i.imgur.com/k4ljmpH.jpeg',
+      level: CourseLevel.Hard,
+      title: 'Masterclass',
+      skill: [
+         'ฝึกยก-วาง CPU ย้ายบ้าน กู้คืนข้อมูล',
+         'วิเคราะห์อาการเสียเชิงลึก',
+         'ซ่อมภาคสัญญาณ',
+         'พื้นฐานการอ่านวงจร',
+      ],
+      suitableFor: [
+         'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือไม่จำเป็นต้องมีพื้นฐาน',
+         'ช่างซ่อมที่ต้องการต่อยอดสู่การซ่อมระดับสูง',
+      ],
+      learningDay: '1 เดือน',
+      cost: 69000,
+      lecturer: [tibet, wu],
+   },
+   {
+      imgSrc: 'https://i.imgur.com/2iPBgCK.jpeg',
+      level: CourseLevel.Hard,
+      title: 'Masterclass',
+      skill: [
+         'ฝึกยก-วาง CPU ย้ายบ้าน กู้คืนข้อมูล',
+         'วิเคราะห์อาการเสียเชิงลึก',
+         'ซ่อมภาคสัญญาณ',
+         'พื้นฐานการอ่านวงจร',
+      ],
+      suitableFor: [
+         'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือไม่จำเป็นต้องมีพื้นฐาน',
+         'ช่างซ่อมที่ต้องการต่อยอดสู่การซ่อมระดับสูง',
+      ],
+      learningDay: '2 เดือน',
+      cost: 119000,
+      lecturer: [tibet, wu],
+   },
+   {
+      imgSrc: 'https://i.imgur.com/EgAsXQ1.jpeg',
+      level: CourseLevel.Hard,
+      title: 'Masterclass',
+      skill: [
+         'ฝึกยก-วาง CPU ย้ายบ้าน กู้คืนข้อมูล',
+         'วิเคราะห์อาการเสียเชิงลึก',
+         'ซ่อมภาคสัญญาณ',
+         'พื้นฐานการอ่านวงจร',
+      ],
+      suitableFor: [
+         'ผู้ที่ต้องการเริ่มต้นอาชีพช่างซ่อมมือถือไม่จำเป็นต้องมีพื้นฐาน',
+         'ช่างซ่อมที่ต้องการต่อยอดสู่การซ่อมระดับสูง',
+      ],
+      learningDay: '3 เดือน',
+      cost: 159000,
+      lecturer: [tibet, wu],
    },
 ];

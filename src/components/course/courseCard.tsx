@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CustomTypography from '../ui/typography';
 import { Info, CheckFat, X, CalendarBlank } from '@phosphor-icons/react';
 import { Modal } from 'antd';
-import { CourseContentType, CourseLevel } from '@/variables/course/course';
+import { CourseContentType } from '@/variables/course/course';
 import { cn, numberFormatter } from '@/utils/misc';
 
 type Props = {
@@ -133,7 +133,7 @@ export default function CourseCard({ content }: Props) {
             <div className='flex gap-2 items-center'>
                <CalendarBlank size={20} color='#7B89A1' />
                <CustomTypography variant='body1'>
-                  {`เรียน ${content.learningDay} วัน`}
+                  {`เรียน ${content.learningDay}`}
                </CustomTypography>
             </div>
             <CustomTypography

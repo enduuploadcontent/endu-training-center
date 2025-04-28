@@ -12,13 +12,12 @@ export const postList: PostContentType[] = [
    {
       title: 'พิธีเปิดโรงเรียนสอนซ่อมมือถือเอ็นดู',
       date: '2024-11-25',
-      thumbnailSrc:
-         'https://1drv.ms/i/c/799d5915db97c270/IQQOF1G43WriQrketKnxctgAAVGy03f9p60VxPXWgzBTdpI?width=660',
+      thumbnailSrc: 'https://i.imgur.com/oLIt3aK.jpeg',
       imgSrc: [
-         'https://1drv.ms/i/c/799d5915db97c270/IQQ5Jw_08mhNR69KVKEdHdEfAaYZWEjPARbgSrNaVSMbWqY',
-         'https://1drv.ms/i/c/799d5915db97c270/IQQOF1G43WriQrketKnxctgAAVGy03f9p60VxPXWgzBTdpI',
-         'https://1drv.ms/i/c/799d5915db97c270/IQQZddd-ikVSSI1LeHolp6SQAVnBoVnDRd02YtUOUNOro4I',
-         'https://1drv.ms/i/c/799d5915db97c270/IQRk_WorHCf0QrY2nE0tqgiQAb39AVgH6Sm3pv5OJEB4pSM',
+         'https://i.imgur.com/xbgL3Kf.jpeg',
+         'https://i.imgur.com/U1ouYby.jpeg',
+         'https://i.imgur.com/tsALuns.jpeg',
+         'https://i.imgur.com/KSC3AIk.jpeg',
       ],
       detail: (
          <>
