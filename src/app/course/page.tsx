@@ -36,7 +36,7 @@ export default function CoursePage() {
             <Input.Search
                size='large'
                placeholder='ค้นหา'
-               className='!w-[360px]'
+               className='!w-[360px] mobile:!w-full'
                value={searchInput}
                onChange={(e) => setSearchInput(e.target.value)}
                onPressEnter={search}
