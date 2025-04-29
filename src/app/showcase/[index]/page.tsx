@@ -1,72 +1,50 @@
 'use client';
 
-import OurStudentCard from '@/components/ourStudent/ourStudentCard';
-import DownloadableImage from '@/components/ui/downloadableImage';
 import CustomTypography from '@/components/ui/typography';
-import { cn } from '@/utils/misc';
 import buddhistDayjs from '@/variables/day';
 import { showcaseList } from '@/variables/showcase/showcase-list';
-import {
-   ArrowLeft,
-   CaretLeft,
-   CaretRight,
-   MagnifyingGlass,
-} from '@phosphor-icons/react';
-import { Carousel, ConfigProvider, Image, Input, Pagination } from 'antd';
+import { ArrowLeft } from '@phosphor-icons/react';
+import { Carousel, ConfigProvider } from 'antd';
 import Link from 'next/link';
-import { use, useEffect, useState } from 'react';
+import { use } from 'react';
+import ReactPlayer from 'react-player';
 
-export default function OurStudentDetailPage({
+export default function ShowcaseDetailPage({
    params,
 }: {
    params: Promise<{ index: string }>;
 }) {
    const { index } = use(params);
    const content = showcaseList[Number(index) - 1];
-   const [skip, setSkip] = useState<number>(0);
-
-   const [imgList, setImgList] = useState<string[]>(
-      content.imgSrc.slice(skip, skip + 5),
-   );
-
-   const [currentImg, setCurrentImg] = useState<string>(content.imgSrc[0]);
-
-   useEffect(() => {
-      setImgList(content.imgSrc.slice(skip, skip + 5));
-   }, [skip]);
-
-   const prevImg = () => {
-      setSkip((prev) => Math.max(prev - 1, 0));
-   };
-
-   const nextImage = () => {
-      setSkip((prev) => Math.min(prev + 1, content.imgSrc.length - 5));
-   };
 
    return (
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full h-full max-w-4xl'>
-            <div className='flex mobile:hidden flex-col gap-2'>
-               <CustomTypography variant='subtitle1'>
+            <div className='flex flex-col gap-2'>
+               <CustomTypography variant='subtitle1' mobileVariant='subtitle2'>
                   {content?.title}
                </CustomTypography>
                <div className='flex gap-2.5 items-center'>
-                  <img src='/images/circle-logo.png' className='w-10 h-10' />
+                  <img
+                     src='/images/circle-logo.png'
+                     alt='logo'
+                     className='w-10 h-10 mobile:w-8 mobile:h-8 '
+                  />
                   <div className='flex flex-col text-foreground-secondary'>
-                     <CustomTypography variant='subtitle3'>
+                     <CustomTypography
+                        variant='subtitle3'
+                        mobileVariant='overline2'
+                     >
                         ENDU Team
                      </CustomTypography>
-                     <CustomTypography variant='caption1'>
-                        {buddhistDayjs(content.date).format('DD MMM BBBB') +
-                           ` - อ่าน ${content.minuteRead} นาที`}
+                     <CustomTypography
+                        variant='caption1'
+                        mobileVariant='overline1'
+                     >
+                        {buddhistDayjs(content.date).format('DD MMM BBBB')}
                      </CustomTypography>
                   </div>
                </div>
-            </div>
-            <div className='hidden mobile:flex'>
-               <CustomTypography variant='subtitle2'>
-                  {content?.title}
-               </CustomTypography>
             </div>
             <ConfigProvider
                theme={{
@@ -79,15 +57,26 @@ export default function OurStudentDetailPage({
                         dotWidth: 12,
                         dotActiveWidth: 12,
                         dotOffset: 16,
+                        arrowSize: 24,
+                        arrowOffset: 16,
                      },
                   },
                }}
             >
-               <Carousel autoplay autoplaySpeed={5000} draggable>
-                  {imgList.map((img, index) => (
+               <Carousel arrows>
+                  <div className='overflow-hidden aspect-[4/3] w-full object-cover bg-black/10'>
+                     <ReactPlayer
+                        url={content.videoSrc}
+                        height='100%'
+                        width='100%'
+                        playing
+                     />
+                  </div>
+                  {content.imgSrc.map((img, index) => (
                      <img
                         key={index}
                         src={img}
+                        alt={`img-${index}`}
                         className='overflow-hidden aspect-[4/3] w-full object-cover'
                      />
                   ))}
@@ -104,7 +93,7 @@ export default function OurStudentDetailPage({
                className='hover:scale-105 transition-all duration-300 flex gap-2 items-center text-foreground-secondary'
             >
                <ArrowLeft size={16} />
-               <CustomTypography variant='button'>กลับหน้าแรก</CustomTypography>
+               <CustomTypography variant='button'>ย้อนกลับ</CustomTypography>
             </Link>
          </div>
       </div>

@@ -21,7 +21,7 @@ export default withMT({
             brand: {
                primary: '#155EEF',
                logo: '#114BBF',
-               dark: '#0C3689'
+               dark: '#0C3689',
             },
             foreground: {
                primary: '#0A0A0A',

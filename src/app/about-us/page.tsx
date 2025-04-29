@@ -2,7 +2,7 @@
 
 import { TextShimmer } from '@/components/ui/textShimmer';
 import CustomTypography from '@/components/ui/typography';
-import { animate, useMotionValue, motion, useInView } from 'framer-motion';
+import { animate, useMotionValue, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
@@ -35,15 +35,20 @@ export default function AboutUsPage() {
    }, [carouselWidth, xCarouselTranslation]);
 
    const imgList = [
-      '/images/showcase/1/1.png',
-      '/images/showcase/1/2.png',
-      '/images/showcase/1/3.png',
+      'https://i.imgur.com/K0oEoU8.jpeg',
+      'https://i.imgur.com/39DCuJo.jpeg',
+      'https://i.imgur.com/VBwIWsn.jpeg',
+      'https://i.imgur.com/LB45WiA.jpeg',
+      'https://i.imgur.com/mc94JwX.jpeg',
+      'https://i.imgur.com/EWDyD4m.jpeg',
+      'https://i.imgur.com/Ma2UY6o.jpeg',
+      'https://i.imgur.com/3yjOYr6.jpeg',
    ];
 
    return (
       <div className='flex flex-col min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full pt-20 mobile:pt-14'>
          <div className='flex flex-row mobile:flex-col'>
-            <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px] flex flex-col gap-6 mobile:gap-3 px-16 mobile:px-6 items-center justify-center bg-[url(/images/about-us/bg-1.png)] bg-contain'>
+            <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px] flex flex-col gap-6 mobile:gap-3 px-16 mobile:px-6 items-center justify-center bg-[url(/images/about-us/bg-1.png)] bg-fill-y'>
                <CustomTypography
                   variant='h4'
                   mobileVariant='h5'
@@ -57,7 +62,8 @@ export default function AboutUsPage() {
                   variant='body2'
                   className='text-foreground-primary text-center mobile:hidden'
                >
-                  โรงเรียนสอนซ่อมมือถือแห่งแรกในไทยที่ได้รับการรับรองมาตรฐานจากสช.
+                  โรงเรียนสอนซ่อมมือถือแห่งแรกในไทยที่ได้รับการรับรองมาตรฐานจาก
+                  กสช.
                   <br />
                   ซึ่งดูแลการศึกษาเอกชนนอกระบบ
                   ครอบคลุมการฝึกอบรมและพัฒนาทักษะวิชาชีพ
@@ -70,7 +76,7 @@ export default function AboutUsPage() {
                >
                   โรงเรียนสอนซ่อมมือถือแห่งแรกในไทยที่ได้รับการรับรองมาตรฐาน
                   <br />
-                  จากสช. ซึ่งดูแลการศึกษาเอกชนนอกระบบ
+                  จาก กสช. ซึ่งดูแลการศึกษาเอกชนนอกระบบ
                   <br />
                   ครอบคลุมการฝึกอบรมและพัฒนาทักษะวิชาชีพ
                   <br />
@@ -79,9 +85,10 @@ export default function AboutUsPage() {
             </div>
             <div className='w-1/2 h-[660px] mobile:w-full mobile:h-[365px]'>
                <ReactPlayer
-                  url='https://www.youtube.com/watch?v=EEWf08XQYcA'
-                  height={'100%'}
+                  url='https://www.youtube.com/watch?v=TbP4wAB_Iwo'
+                  height='100%'
                   width='100%'
+                  playing
                />
             </div>
          </div>
@@ -98,18 +105,22 @@ export default function AboutUsPage() {
                <div className='flex justify-between mobile:grid grid-cols-2 mobile:gap-3'>
                   <img
                      src='/images/about-us/factory-1.png'
+                     alt='factory-1'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-2.png'
+                     alt='factory-2'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-3.png'
+                     alt='factory-3'
                      className='h-[70px]'
                   />
                   <img
                      src='/images/about-us/factory-4.png'
+                     alt='factory-4'
                      className='h-[70px]'
                   />
                </div>
@@ -133,15 +144,11 @@ export default function AboutUsPage() {
                <CustomTypography
                   variant='h4'
                   mobileVariant='subtitle2'
-                  className='text-center'
+                  className='text-center break-words'
                >
-                  ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ
-                  <br className='desktop:hidden' />
-                  ประกอบธุรกิจการซ่อม
-                  <br className='mobile:hidden' />
-                  ได้อย่างมีประสิทธิภาพ
-                  <br className='desktop:hidden' />
-                  และสร้างรายได้อย่างยั่งยืน
+                  {
+                     'ENDU เรามุ่งเน้นที่จะเพิ่มศักยภาพให้ร้านซ่อมมือถือ ประกอบธุรกิจการซ่อมได้อย่างมีประสิทธิภาพ และสร้างรายได้อย่างยั่งยืน'
+                  }
                </CustomTypography>
             </div>
          </div>
@@ -159,21 +166,18 @@ export default function AboutUsPage() {
                   style={{ x: xCarouselTranslation }}
                   className='flex absolute left-0 w-max'
                >
-                  {[...imgList, ...imgList, ...imgList, ...imgList].map(
-                     (entry, index) => (
-                        <img
-                           key={index}
-                           src={entry}
-                           className='h-[360px] mobile:h-[160px] aspect-square object-cover'
-                        />
-                     ),
-                  )}
+                  {[...imgList, ...imgList].map((entry, index) => (
+                     <img
+                        key={index}
+                        src={entry}
+                        alt={`img-${index}`}
+                        className='h-[360px] mobile:h-[160px] aspect-square object-cover'
+                     />
+                  ))}
                </motion.div>
             </div>
             <Link
                href='https://www.facebook.com/profile.php?id=61568661807183'
-               // target='_blank'
-               // rel='noopener noreferrer'
                ref={registerButtonRef}
                onClick={handleClick}
                className='register-button w-[250px] h-[60px] mobile:w-[190px] mobile:h-[44px] bg-gradient-to-b from-brand-primary to-brand-dark rounded-full relative flex items-center justify-center'
@@ -187,6 +191,7 @@ export default function AboutUsPage() {
                </CustomTypography>
                <img
                   src='/images/about-us/pointer.png'
+                  alt='pointer'
                   className='w-7 h-7 mobile:w-5 mobile:h-5 absolute -bottom-1 -right-1'
                />
                <span className='shape'>

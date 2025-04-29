@@ -68,6 +68,11 @@ body {
    box-shadow: 0px 0px 15px 0px rgba(217, 217, 217, 0.25);
 }
 
+.navbar-shadow {
+   box-shadow: 0px 0px 2px 0px rgba(10, 10, 10, 0.12);
+   box-shadow: 0px 4px 8px 0px rgba(10, 10, 10, 0.1);
+}
+
 .corner-bg-small {
    background-image: url('/images/corner-bg-small.png'); /* Top-right PNG */
    background-repeat: no-repeat;
@@ -389,4 +394,12 @@ body {
       transform: rotate(-30deg) translateY(16px) scaleY(0.5);
       opacity: 0;
    }
+}
+
+.slick-arrow {
+    z-index: 9999 !important;
+}
+
+.bg-fill-y { 
+    background-size: auto 100%;
 }
