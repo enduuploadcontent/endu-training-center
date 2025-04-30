@@ -250,8 +250,9 @@ function ShowcaseComponent() {
             </div>
             <div className='grid grid-cols-3 gap-3 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'>
                {contentList.map((content, index) => (
-                  <a
+                  <Link
                      key={index}
+                     href={`/showcase/${index + 1}`}
                      className='overflow-hidden h-[540px] mobile:h-[350px] mobile:w-[260px] mobile:min-w-[260px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
@@ -276,18 +277,16 @@ function ShowcaseComponent() {
                            >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
-                           <Link href={`/showcase/${index + 1}`}>
-                              <CustomTypography
-                                 variant='body1'
-                                 mobileVariant='caption1'
-                                 className={`underline`}
-                              >
-                                 อ่านเพิ่มเติม
-                              </CustomTypography>
-                           </Link>
+                           <CustomTypography
+                              variant='body1'
+                              mobileVariant='caption1'
+                              className={`underline`}
+                           >
+                              อ่านเพิ่มเติม
+                           </CustomTypography>
                         </div>
                      </div>
-                  </a>
+                  </Link>
                ))}
             </div>
             <Link
@@ -431,8 +430,9 @@ function PathToSuccessComponent() {
             </div>
             <div className='grid grid-cols-4 gap-x-2 gap-y-6 w-full mobile:overflow-y-auto mobile:flex mobile:gap-2'>
                {contentList.map((content, index) => (
-                  <a
+                  <Link
                      key={index}
+                     href={`/our-student/${index + 1}`}
                      className='overflow-hidden aspect-square mobile:h-[260px] mobile:min-h-[260px] mobile:w-[260px] mobile:min-w-[260px] relative flex items-end hover:cursor-pointer group'
                   >
                      <picture>
@@ -458,18 +458,16 @@ function PathToSuccessComponent() {
                            >
                               {buddhistDayjs(content.date).format('DD MMM BB')}
                            </CustomTypography>
-                           <Link href={`/our-student/${index + 1}`}>
-                              <CustomTypography
-                                 variant='caption1'
-                                 mobileVariant='overline1'
-                                 className={`underline`}
-                              >
-                                 อ่านเพิ่มเติม
-                              </CustomTypography>
-                           </Link>
+                           <CustomTypography
+                              variant='caption1'
+                              mobileVariant='overline1'
+                              className={`underline`}
+                           >
+                              อ่านเพิ่มเติม
+                           </CustomTypography>
                         </div>
                      </div>
-                  </a>
+                  </Link>
                ))}
             </div>
             <Link
@@ -489,19 +487,17 @@ function MapComponent() {
    return (
       <div className='px-8 py-16 flex items-center justify-center mobile:p-6'>
          <div className='max-w-6xl w-full flex mobile:flex-col gap-8 mobile:gap-6 justify-between items-start'>
-         <CustomTypography
-                  variant='subtitle1'
-                  className='w-fit mobile:flex hidden'
-               >
-                  วิธีเดินทางมายังโรงเรียนของเรา
-               </CustomTypography><picture className='w-full'>
+            <CustomTypography
+               variant='subtitle1'
+               className='w-fit mobile:flex hidden'
+            >
+               วิธีเดินทางมายังโรงเรียนของเรา
+            </CustomTypography>
+            <picture className='w-full'>
                <img alt='map' src='/images/home/map.png' />
             </picture>
             <div className='w-full flex flex-col gap-4 mobile:gap-2'>
-               <CustomTypography
-                  variant='h5'
-                  className='w-fit mobile:hidden'
-               >
+               <CustomTypography variant='h5' className='w-fit mobile:hidden'>
                   วิธีเดินทางมายังโรงเรียนของเรา
                </CustomTypography>
                <CustomTypography
