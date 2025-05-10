@@ -43,6 +43,18 @@ export default function CoursePage() {
                onPressEnter={search}
                onSearch={search}
             />
+
+            {filteredList.length === 0 ? (
+               <div className='h-full w-full flex-grow flex items-center justify-center'>
+                  <Notfound />
+               </div>
+            ) : (
+               <div className='grid grid-cols-3 w-full mobile:grid-cols-1 gap-4'>
+                  {filteredList.map((content, index) => (
+                     <CourseCard key={index} content={content} />
+                  ))}
+               </div>
+            )}
             <Collapse
                bordered={false}
                defaultActiveKey={['1']}
@@ -77,17 +89,6 @@ export default function CoursePage() {
                   },
                ]}
             />
-            {filteredList.length === 0 ? (
-               <div className='h-full w-full flex-grow flex items-center justify-center'>
-                  <Notfound />
-               </div>
-            ) : (
-               <div className='grid grid-cols-3 w-full mobile:grid-cols-1 gap-4'>
-                  {filteredList.map((content, index) => (
-                     <CourseCard key={index} content={content} />
-                  ))}
-               </div>
-            )}
          </div>
       </div>
    );
