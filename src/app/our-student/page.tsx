@@ -44,7 +44,7 @@ export default function OurStudentPage() {
       <div className='flex flex-col gap-4 min-h-[calc(100vh-190px)] mobile:min-h-[calc(100vh-250px)] w-full items-center justify-between pt-28 mobile:pt-20 pb-8 mobile:p-6'>
          <div className='flex flex-col gap-4 w-full max-w-6xl h-full flex-grow'>
             <div className='flex items-center justify-between'>
-               <CustomTypography variant='h5'>นักเรียนของเรา</CustomTypography>
+               <CustomTypography variant='h5' mobileVariant='subtitle1'>นักเรียนของเรา</CustomTypography>
                <CustomTypography
                   variant='body1'
                   mobileVariant='caption1'
