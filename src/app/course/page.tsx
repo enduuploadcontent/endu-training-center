@@ -32,7 +32,9 @@ export default function CoursePage() {
                   variant='body1'
                   mobileVariant='caption1'
                   className='text-foreground-secondary'
-               >{`ทั้งหมด ${courseList.length} รายการ`}</CustomTypography>
+               >
+                  {`ทั้งหมด ${courseList.length} รายการ`}
+               </CustomTypography>
             </div>
             <Input.Search
                size='large'
@@ -55,40 +57,19 @@ export default function CoursePage() {
                   ))}
                </div>
             )}
-            <Collapse
-               bordered={false}
-               defaultActiveKey={['1']}
-               expandIcon={({ isActive }) => (
-                  <CaretDown
-                     size={16}
-                     weight='fill'
-                     className={cn(
-                        'transition-all duration-300',
-                        isActive ? 'rotate-180' : 'rotate-[360deg]',
-                     )}
-                  />
-               )}
-               items={[
-                  {
-                     key: '1',
-                     label: (
-                        <CustomTypography variant='subtitle2'>
-                           เงื่อนไขและข้อตกลง
-                        </CustomTypography>
-                     ),
-                     children: (
-                        <ul className='list-disc ml-6 text-[15px]'>
-                           <li>ผู้สมัครสามารถเปลี่ยนคอร์สเรียนได้</li>
-                           <li>สามารถเปลี่ยนวันเรียนได้ หากแจ้งล่วงหน้า</li>
-                           <li>
-                              หลังชำระเงินจอง สามารถยกเลิกได้ภายใน 7 วัน
-                              (โรงเรียนยินดีคืนเงินเต็มจํานวน)
-                           </li>
-                        </ul>
-                     ),
-                  },
-               ]}
-            />
+            <div className='bg-[#F9FAFD] flex flex-col gap-2 p-4 rounded-lg'>
+               <CustomTypography variant='subtitle2'>
+                  เงื่อนไขและข้อตกลง
+               </CustomTypography>
+               <ul className='list-disc ml-6 text-[15px]'>
+                  <li>ผู้สมัครสามารถเปลี่ยนคอร์สเรียนได้</li>
+                  <li>สามารถเปลี่ยนวันเรียนได้ หากแจ้งล่วงหน้า</li>
+                  <li>
+                     หลังชำระเงินจอง สามารถยกเลิกได้ภายใน 7 วัน
+                     (โรงเรียนยินดีคืนเงินเต็มจํานวน)
+                  </li>
+               </ul>
+            </div>
          </div>
       </div>
    );
