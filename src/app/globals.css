@@ -397,9 +397,13 @@ body {
 }
 
 .slick-arrow {
-    z-index: 9999 !important;
+   z-index: 9999 !important;
 }
 
-.bg-fill-y { 
-    background-size: auto 100%;
+.bg-fill-y {
+   background-size: auto 100%;
+}
+
+.ant-collapse-header {
+   align-items: center !important;
 }

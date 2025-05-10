@@ -3,9 +3,10 @@
 import CourseCard from '@/components/course/courseCard';
 import Notfound from '@/components/ui/notfound';
 import CustomTypography from '@/components/ui/typography';
-import { nonCaseSensitiveSearch } from '@/utils/misc';
+import { cn, nonCaseSensitiveSearch } from '@/utils/misc';
 import { courseList } from '@/variables/course/course';
-import { Input } from 'antd';
+import { CaretDown } from '@phosphor-icons/react';
+import { Collapse, Input } from 'antd';
 import { useState } from 'react';
 
 export default function CoursePage() {
@@ -41,6 +42,40 @@ export default function CoursePage() {
                onChange={(e) => setSearchInput(e.target.value)}
                onPressEnter={search}
                onSearch={search}
+            />
+            <Collapse
+               bordered={false}
+               defaultActiveKey={['1']}
+               expandIcon={({ isActive }) => (
+                  <CaretDown
+                     size={16}
+                     weight='fill'
+                     className={cn(
+                        'transition-all duration-300',
+                        isActive ? 'rotate-180' : 'rotate-[360deg]',
+                     )}
+                  />
+               )}
+               items={[
+                  {
+                     key: '1',
+                     label: (
+                        <CustomTypography variant='subtitle2'>
+                           เงื่อนไขและข้อตกลง
+                        </CustomTypography>
+                     ),
+                     children: (
+                        <ul className='list-disc ml-6 text-[15px]'>
+                           <li>ผู้สมัครสามารถเปลี่ยนคอร์สเรียนได้</li>
+                           <li>สามารถเปลี่ยนวันเรียนได้ หากแจ้งล่วงหน้า</li>
+                           <li>
+                              หลังชำระเงินจอง สามารถยกเลิกได้ภายใน 7 วัน
+                              (โรงเรียนยินดีคืนเงินเต็มจํานวน)
+                           </li>
+                        </ul>
+                     ),
+                  },
+               ]}
             />
             {filteredList.length === 0 ? (
                <div className='h-full w-full flex-grow flex items-center justify-center'>
