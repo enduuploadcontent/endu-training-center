@@ -84,7 +84,9 @@ function NavbarComponent({
          className={cn(
             `fixed top-0 z-50 w-full flex items-center justify-center px-8 mobile:px-6 transition-all duration-500 ease-out h-20 mobile:h-14 bg-white bg-opacity-100`,
             scrolled || open ? 'navbar-shadow' : 'shadow-none',
-            pathname === '/' && !scrolled ? 'bg-opacity-0 ' : 'bg-opacity-100',
+            pathname === '/' && !scrolled && !open
+               ? 'bg-opacity-0'
+               : 'bg-opacity-100',
          )}
       >
          <div className='flex w-full max-w-6xl items-center justify-between'>
