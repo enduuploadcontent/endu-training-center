@@ -9,13 +9,13 @@ type Props = { content: StudentContentType; index: number };
 export default function OurStudentCard({ content, index }: Props) {
    return (
       <Link
-         href={`/our-student/${index}`}
+         href={`/our-student/${index + 1}`}
          className='overflow-hidden aspect-square mobile:h-[150px] mobile:min-h-[150px] w-full relative flex items-end hover:cursor-pointer group'
       >
          <picture>
             <img
                src={content.thumbnailSrc}
-               referrerPolicy="no-referrer"
+               referrerPolicy='no-referrer'
                alt='thumbnail'
                className='absolute top-0 left-0 h-full w-full object-cover group-hover:scale-110 transition-all duration-500 z-0'
             />

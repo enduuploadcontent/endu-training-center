@@ -12,7 +12,7 @@ export type ShowcaseContentType = {
 export const showcaseList: ShowcaseContentType[] = [
    {
       title: '📌 V1SE WIFI เครื่องเขียนค่าแบต-ค่าจอที่ช่างซ่อมมือถือห้ามพลาด!',
-      date: '2025-03-18',
+      date: '2025-03-25T09:12:19.000Z',
       thumbnailSrc: 'https://i.imgur.com/5Fi7TxR.png',
       videoSrc: 'https://youtube.com/shorts/ydirHeT296E?feature=share',
       imgSrc: [],
@@ -54,7 +54,7 @@ export const showcaseList: ShowcaseContentType[] = [
    },
    {
       title: '🔥 พัดลมระบายความร้อนเมนบอร์ด พร้อมไฟ UV 🔥',
-      date: '2025-03-18',
+      date: '2025-03-25T09:12:18.000Z',
       thumbnailSrc: 'https://i.imgur.com/KHAUq1l.png',
       videoSrc: 'https://youtube.com/shorts/fI3mVFwJqC8?feature=share',
       imgSrc: [],
@@ -95,7 +95,7 @@ export const showcaseList: ShowcaseContentType[] = [
    },
    {
       title: '🔧 เจาะลึก! การเขียนค่าแบตเตอรี่ให้ไม่แจ้งเตือน 🔋✨',
-      date: '2025-03-18',
+      date: '2025-03-25T09:12:17.000Z',
       thumbnailSrc: 'https://i.imgur.com/pAG3i7W.png',
       videoSrc: 'https://youtu.be/ImG6a1Mp11g',
       imgSrc: [],
