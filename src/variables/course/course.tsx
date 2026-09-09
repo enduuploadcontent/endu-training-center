@@ -136,10 +136,7 @@ export const courseList: CourseContentType[] = [
       level: CourseLevel.Basic,
       title: 'Hardware OCA H1',
       detail: 'ลอกกระจกหน้าจอแบบเรียบและแบบโค้ง',
-      skill: [
-         'ลอกกระจก OCA',
-         'เมื่อซื้อเครื่องมือช่างครบ 50,000 บาท รับสิทธิ์พิเศษ เรียนลอกกระจกฟรี!',
-      ],
+      skill: ['ลอกกระจก OCA'],
       suitableFor: [
          'ผู้ที่มีพื้นฐานการแกะเครื่องเบื้องต้น',
          'ผู้ที่ต้องการเพิ่มรายได้',
